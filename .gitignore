@@ -216,3 +216,6 @@ TSWLatexianTemp*
 
 # auto folder when using emacs and auctex
 #/auto/*
+
+# Include examples
+!Pflichtenheft BSP/**

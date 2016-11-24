@@ -1,39 +1,45 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[german]{babel}
+\begin{document}
 \section{Zielbestimmung}
-Durch diese App soll es Nutzern erleichtert werden sich in Gruppen zu organisieren und Treffpunkte wahrzunehmen.\\
-	
-//aufteilen in Serverseitig und Nutzerseitige Muss- und Wunschkriterien?????
-\subsection{Musskriterien} 
-- 	Registrierung von Benutzern durch einmalige Namensfestlegung\\
--	Löschen des eigenen Nutzeraccounts\\
--	Erstellung von Gruppen mit eindeutigem Namen (Benutzer der die Gruppe erstellt wird zum Gruppenadministrator)\\
--	Löschen von Gruppen (nur durch Gruppenadministrator)\\
-- 	Erstellen von Gruppenlinks und Versenden an zukünftige Mitglieder über externe Messenger (nur durch Gruppenadministrator)\\
-- 	Beitreten zu Gruppen nur über Gruppenlink (muss schon einen Benutzeraccount haben)\\
--	Verlassen von Gruppen
--	Löschen von Gruppenmitgliedern (nur durch Gruppenadministrator)\\
-- 	Verwalten von Treffpunkten (Festlegen, Ändern und Löschen von Uhrzeiten und Orten von Treffpunkten durch Gruppenadministrator)\\
-- 	Verwalten des Go-Buttons (Aktivieren und Deaktivieren des eigenen Buttons in der Gruppe)\\
--	Anzeigen der gemittelten GPS-Daten der Gruppe auf der Karte \\
-	
+Die App soll es Nutzern erleichtern sich in Gruppen zu organisieren \\
+und Treffpunkte in Form von Zeit und Ort festzulegen.
+\subsection{Musskriterien}
+\begin{description}
+\item[$\bullet$] Registrierung von Benutzern durch einmalige Namensfestlegung
+\item[$\bullet$] Löschen des eigenen Nutzeraccounts
+\item[$\bullet$] Erstellen von Gruppen mit eindeutigem Namen. Benutzer der die Gruppe erstellt wird zum Gruppenadministrator
+\item[$\bullet$] Löschen von Gruppen (nur der Gruppenadministrator)
+\item[$\bullet$] Erstellen von Gruppenlinks als Einladung und versenden an zukünftige Mitglieder über externe Messenger (nur Admin)
+\item[$\bullet$] Beitreten einer Gruppe nur über Einladungslink (Voraussetzung registriert)
+\item[$\bullet$] Verlassen einer Gruppe als Gruppenmitglied
+\item[$\bullet$] Entfernen von Gruppenmitgliedern (nur Gruppenadministrator)
+\item[$\bullet$] Festlegen von Treffpunkten: einstellen von Zielort und Uhrzeit\\(nur Gruppenadministrator)
+\item[$\bullet$] Go-Button: durch drücken des Go-Buttons signalisieren, dass man unterwegs ist und eigene Position an die Gruppe übermitteln
+\item[$\bullet$] Anzeigen der gemittelten GPS-Daten der Gruppe auf der Karte [?]
+\end{description}
 \subsection{Wunschkriterien}
--	Aktivieren und Deaktivieren des GPS-Tracking getrennt vom GO-Button\\
--	Namensänderung der Benutzer nach erstmaliger Registrierung\\
-- 	Weitere Gruppenmitglieder zu Administratoren machen\\
--	Namensänderung der Gruppe nach Erstellung\\
--	Gruppen und Benutzer nach langer Inaktivität löschen\\
-- 	Anzeigen von Gruppenmitgliedern die den GO-Button schon gedrückt haben\\
-- 	Benachrichtigung über das Aufbrechen der Gruppe und neue vereinbarte Treffpunkte für den aktuellen Tag\\
--	Treffpunkte lassen sich auch für zukünftige Tage vereinbaren und sind nicht auf den aktuellen beschränkt\\
-	
+\begin{description}
+\item[$\bullet$] Aktivieren und Deaktivieren des GPS-Tracking unabhängig vom Go-Button
+\item[$\bullet$] Änderung des Benutzernamens nach erstmaliger Registrierung
+\item[$\bullet$] Gruppenmitglieder zu Administratoren machen
+\item[$\bullet$] Änderung des Gruppennamens nach erstellen der Gruppe
+\item[$\bullet$] Gruppen/Benutzer nach langer Inaktivität löschen
+\item[$\bullet$] Anzeigen von Gruppenmitgliedern, die den Go-Button schon gedrückt haben
+\item[$\bullet$] Benachrichtigung über das 'Aufbrechen' anderer Gruppenmitglieder
+\item[$\bullet$] Benachrichtigung bei ändern des Treffpunktes (Ort/Uhrzeit)
+\item[$\bullet$] Treffpunkte für ein spezielles Datum festlegen
+\end{description}
 \subsection{Abgrenzungskriterien}
-- 	Zuordnung der GPS-Daten zu einem Namen\\
-- 	Suchen von Gruppen oder Benutzern über die App\\
--	Beitreten zu Gruppen ohne den dazugehörigen Gruppenlink\\
--	Abstimmung über Ort und Uhrzeit eines Treffpunktes bzw. gemeinsames Vereinbaren\\
--	Angaben über Verspätungen zu einem vereinbarten Treffpunkt machen\\
-- 	Nachrichten, Fotos und andere Dateien über die App versenden \\
--	Es werden nicht mehr als 32 Gruppen pro Benutzer unterstützt
--
+\begin{description}
+\item[$\bullet$] Zuordnung der GPS-Daten zu einem Namen
+\item[$\bullet$] Suchen von Gruppen oder Benutzern über die App
+\item[$\bullet$] Beitreten der Gruppe ohne Einladungslink
+\item[$\bullet$] Abstimmung über Ort und Uhrzeit eines Treffpunktes\\bzw. gemeinsames vereinbaren
+\item[$\bullet$] Angaben über Verspätungen zu einem vereinbarten Treffpunkt machen
+\item[$\bullet$] Nachrichten, Fotos und anderer Dateien über die App versenden
+\item[$\bullet$] Es werden nicht mehr als 32 Gruppen pro Benutzer unterstützt
+\end{description}
 
-
-
+\end{document}

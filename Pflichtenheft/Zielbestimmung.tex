@@ -1,13 +1,13 @@
-\documentclass{article}
+\documentclass{scrartcl}
 \usepackage[utf8]{inputenc}
 \usepackage[german]{babel}
 \begin{document}
 \section{Zielbestimmung}
-Die App soll es Nutzern erleichtern sich in Gruppen zu organisieren \\
+Die App soll es Nutzern erleichtern sich in Gruppen zu organisieren
 und Treffpunkte in Form von Zeit und Ort festzulegen.
 \begin{description}
-\item[$\bullet$]: Client (=Benutzer) seitige Aktionen
-\item[$\hookrightarrow$]: Server seitige Aktionen
+\item[$\bullet$]: Clientseitige Aktionen
+\item[$\hookrightarrow$]: Serverseitige Aktionen
 \end{description}
 \subsection{Musskriterien}
 \begin{description}
@@ -16,10 +16,10 @@ und Treffpunkte in Form von Zeit und Ort festzulegen.
 \item[$\bullet$] Löschen des eigenen Nutzeraccounts
 \item[$\hookrightarrow$] App auf anfangszustand zurücksetzen, Nutzer aus allen Gruppen entfernen und das Tupel (Name, ID) vom Server löschen
 \item[$\bullet$] Erstellen von Gruppen mit eindeutigem Namen. Benutzer der die Gruppe erstellt wird zum Gruppenadministrator
-\item[$\hookrightarrow$] Auf dem Server how to connect phone to serverwird eine neue Gruppe angelegt mit Gruppenadministrator als einzigem Mitglied
+\item[$\hookrightarrow$] Auf dem Server wird eine neue Gruppe angelegt mit Gruppenadministrator als einzigem Mitglied
 \item[$\bullet$] Löschen von Gruppen (nur der Gruppenadministrator)
 \item[$\hookrightarrow$] Entferne alle Mitglieder aus der Gruppe und Lösche Gruppe vom Server
-\item[$\bullet$] Erstellen von Gruppenlinks, die als Einladung an zukünftige Mitglieder über externe Messenger versendet werden (nur Admin)
+\item[$\bullet$] Erstellen von Gruppenlinks. Diese werden als Einladung an zukünftige Mitglieder über externe Messenger versendet (nur Admin)
 \item[$\hookrightarrow$] Gruppenlink wird zum Server gesendet und in Gruppe gespeichert. Nach der Nutzung wird er gelöscht
 \item[$\bullet$] Beitreten einer Gruppe nur über Einladungslink (Voraussetzung registriert)
      Der Link wird über die App geöffnet (Falls installiert)
@@ -31,8 +31,9 @@ und Treffpunkte in Form von Zeit und Ort festzulegen.
 \item[$\hookrightarrow$] Parameter (Uhrzeit/Zielort) wird an Server gesendet und in der Gruppe gespeichert. Dann wird der Parameter mit den Mitgliedern synchronisiert
 \item[$\bullet$] Go-Button: durch drücken des Go-Buttons eigene Position an die Gruppe übermitteln
 \item[$\hookrightarrow$] Position als GPS Koordinaten an Server senden, der sie dann an die Mitglieder verteilt
-\item[$\bullet$] Anzeigen der gemittelten GPS-Daten der Gruppe auf der Karte [?]
-\item[$\hookrightarrow$] Vom Server erhaltene Daten der anderen Mitglieder auf der Karte einzeichnen
+\item[$\bullet$] Anzeigen der gemittelten GPS-Daten der Gruppe auf der Karte; sind mehrere Mitglieder innerhalbt eines bestimmten Radius,
+     werden sie als Gruppe angezeigt
+\item[$\hookrightarrow$] Daten der einzelnen Mitglieder werden über den Server an die Gruppe verteilt
 \end{description}
 \subsection{Wunschkriterien}
 \begin{description}
@@ -45,7 +46,7 @@ und Treffpunkte in Form von Zeit und Ort festzulegen.
 \item[$\hookrightarrow$] Neuer Name muss erst mit dem Server, dann mit allen Mitgliedern synchronisiert werden
 \item[$\bullet$] Gruppen/Benutzer nach langer Inaktivität löschen
 \item[$\hookrightarrow$] Der Server speichert den Zeitpunkt der letzten Aktivität von jedem Benutzer
-\item[$\bullet$] Anzeigen von Gruppenmitgliedern, die den Go-Button schon gedrückt haben [?]
+\item[$\bullet$] Anzeigen von Gruppenmitgliedern, die den Go-Button schon gedrückt haben
 \item[$\bullet$] Benachrichtigung über das 'Aufbrechen' anderer Gruppenmitglieder
 \item[$\hookrightarrow$] Durch Drücken des Go-Buttons wird eine Benachrichtigung an den Server gesendet, der diese an die Mitglieder weiterleitet
 \item[$\bullet$] Benachrichtigung bei ändern des Treffpunktes (Ort/Uhrzeit)

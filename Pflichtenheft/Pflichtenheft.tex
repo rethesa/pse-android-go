@@ -1,21 +1,21 @@
 \documentclass[parskip=full]{scrartcl}
 \usepackage{graphicx}
 \usepackage[utf8]{inputenc}
+\usepackage{graphicx}
 \usepackage[T1]{fontenc}
 \usepackage[german]{babel}
 \usepackage{hyperref}
-\hypersetup{ 
+\usepackage{pdfpages}
+\hypersetup{
 pdftitle={
-PSE: Pflichtenheft},
-bookmarks=true,
+	PSE: Pflichtenheft},
+bookmarks=true
 }
-\usepackage{csquotes}
-
-
+%\usepackage{csquotes}
 
 \begin{document}
 \title{Android Go-App}
-\author{Tarek, \\Dennis, \\Matthias Dressel, \\Victoria Karl, \\Theresa Heine\\
+\author{Tarek Wilkening, \\Dennis Bäuml, \\Matthias Dressel, \\Victoria Karl, \\Theresa Heine\\
 	\\Betreuer: \\Heiko Klare, \\ Erik Burger\\}
 \date{\today}
 \maketitle
@@ -23,19 +23,30 @@ bookmarks=true,
 \tableofcontents
 \newpage
 
-\input{Einleitung} D
-\input{Zielbestimmung} Ta
-\input{Produkteinsatz} Th
-\input{Produktumgebung} M
-\input{Produktuebersicht} Ta
-\input{Produktfunktionen} Ta, Th
-\input{Produktdaten} V
-\input{Produktleistungen} D
-\input{Benutzerschnittstelle} V
-\input{Testfaelle} M
-\input{Qualitaetsbestimmung} D
-\input{Entwicklungsumgebung} V
-\input{Glossar} alle
-
+\input{Einleitung}
+\newpage
+\input{Zielbestimmung}
+\newpage
+\input{Produkteinsatz}
+\newpage
+\input{Produktumgebung}
+\newpage
+\input{Produktuebersicht}
+\newpage
+\input{Produktfunktionen}
+\newpage
+\input{Produktdaten}
+\newpage
+\input{Produktleistungen}
+\newpage
+\input{Benutzerschnittstelle}
+\newpage
+\input{Testfaelle}
+\newpage
+\input{Qualitaetsbestimmung}
+\newpage
+\input{Entwicklungsumgebung}
+\newpage
+\input{Glossar}
 
 \end{document}

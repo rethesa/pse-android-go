@@ -1,0 +1,29 @@
+Sortierung wegen Überprüfung
+- Dennis liest Matthias
+- Matthias liest Tarek
+- Tarek liest Theresa
+- Theresa liest Victoria
+- Victoria liest Dennis
+
+Notizen von Tarek, vom Treffen mit Betreuer am 29.11.16
+- Testfälle uer welchen Bedingungen?
+- Go-Button togglen? -> explizit (Admin)
+- App im Hintergrund was passiert? (GPS)
+- Treffen ablaufen, verschwinden(?)
+- Testfall: fkt. referenzieren
+- Benutzer Registrieren <-> erfolg? Benutzer auf server?
+    -> gleicher name
+- UI-Tests getrennt
+- Ab Android 4.0 -> Anpassbar
+- Eigenes gerät?
+- Dientag Präsentation
+    -> warum was?
+Musskriterien -> Fkt. Anforderungen ( mehr Test genauer) => Bei uns Anwendungsfälle
+    => Pflichtenheft Hadny = Schlecht!!
+Tabelle (Gewünschte) -> Bedienbarkeit relativ zur Person (z.b ob Blinder oder wir)            
+- Produktleistung eindeutig (besser Durchschnittswerte)
+    GPS nicht bei uns Genauigkeit
+- Glossar keine Definitionen sondern Begriffserklärung
+    -> Atis Android Studio
+- Musskriterien aus Benutzersicht
+    -> zu fkt. Anforderungen

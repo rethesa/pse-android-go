@@ -1,6 +1,46 @@
 \section{Zielbestimmung}
-Die App soll es Nutzern erleichtern sich in Gruppen zu organisieren
-und Treffpunkte in Form von Zeit und Ort festzulegen.
+Die Go-App soll es Nutzern erleichtern sich in Gruppen zu organisieren
+und Treffpunkte in Form von Ort und Uhrzeit festzulegen. Zu gegebenem Zeitpunkt werden die Standorte der Gruppenmitglieder und des Zielortes angezeigt.
+
+
+Auf einer Karte lässt sich dabei sehen, wo sich der Zielort und die anderen Gruppenmitglieder befinden.
+
 \subsection{Musskriterien}
+\textbf{Clientseitig}
+\begin{itemize}
+	\item Benutzeraccount anlegen/ löschen
+	\item Gruppen erstellen/ löschen
+	\item Benutzer in Gruppen einladen/ aus Gruppen entfernen
+	\item Gruppen beitreten/ verlassen
+	\item Treffpunkte festlegen/ ändern
+	\item Go-Button aktivieren/ deaktivieren
+	\item Standorte von Gruppenmitgliedern anzeigen
+	\item Standort des Zielortes anzeigen
+\end{itemize}
+\textbf{Serverseitig}
+\begin{itemize}
+	\item Verschlüsselung des Datenaustausches zwischen Client/ Server
+	\item Synchronisation zwischen Gruppenmitgliedern
+	\item Gruppen erstellen/ löschen
+\end{itemize}
+
 \subsection{Wunschkriterien}
+\begin{itemize}
+	\item Änderung von Benutzer- und Gruppennamen
+	\item Administratorrechte an Gruppenmitglieder übertragen
+	\item Inaktive Benutzer und Gruppen löschen
+	\item Go-Button und GPS-Tracking getrennt verwalten
+	\item Benachrichtigungen bei Gruppenaktivität
+	\item Erweiterte Verwaltung von Treffpunkten
+\end{itemize}
+
 \subsection{Abgrenzungskriterien}
+\begin{itemize}
+	\item GPS-Daten werden keinen Benutzern zugeordnet
+	\item Es gibt keine Suchfunktion für Benutzer und Gruppen
+	\item Beitreten zu Gruppen ohne den dazugehörigen Link ist nicht möglich
+	\item Gruppenlinks können nicht wiederverwertet werden
+	\item Abstimmungen über Ort und Uhrzeit eines Treffpunktes werden nicht unterstützt
+	\item Angaben über Zu- und Absagen oder Verspätungen zu einem Treffpunkt sind nicht möglich
+	\item Es lassen sich keine Nachrichten, Fotos oder andere Dateien über die App versenden
+\end{itemize}

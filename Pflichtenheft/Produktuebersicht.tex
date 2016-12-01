@@ -8,19 +8,18 @@
 	\centering
 	\includegraphics[scale = 0.8]{res/clientServerArchitektur.png}
 \end{figure}
-Die Client-Server-Architektur wird verwendet, da mehrere Mobiltelefone nebeneinander ohne konkrete Kenntnis voneinander zu haben, Ressourcen des Servers anfragen. Dieser wertet die Anfrage aus und liefert eine Antwort zurück an den Client. \\
-In unserem Fall steht jeder Benutzer über einen zentralen Server in Verbindung mit seinen Gruppen und kann so z.B. die Standorte der anderen Mitglieder anfragen und bekommt diese dann vom Server geliefert.
+Die Client-Server-Architektur wird verwendet, da mehrere Mobiltelefone nebeneinander ohne konkrete Kenntnis voneinander zu haben, Ressourcen des Servers abfragen. Dieser wertet die Anfrage aus und liefert eine Antwort zurück an den Client. \\
+In unserem Fall steht jeder Benutzer über einen zentralen Server in Verbindung mit seinen Gruppen und kann so z.B. die Standorte anderer Gruppenmitglieder vom Server zugesendet zu bekommen.
 
 \subsection{Szenarien}
 \subsubsection{Szenario Kneipentour}
 \input{Szenario_Kneipentour}
 \subsubsection{Szenario Mensa}
 \input{Szenario_mensa}
-\subsection{Anwendungsfälle}
-\subsubsection{Musskriterien}
+\section{Anwendungsfälle}
 \begin{figure} [H]
 	\centering
 	\includegraphics[scale=0.8, trim=2cm 0 0 0cm]{res/anwendungsfall.pdf}
 \end{figure}
+\input{Anwendungsfaelle}
 
-\subsubsection{Wunschkriterien}

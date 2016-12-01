@@ -1,18 +1,31 @@
 \section{Globale Testfälle}
 \subsection{Testfälle für Musskriterien}
-\begin{tabular}{ll}
-/T010/ & Benutzer registrieren \\
-/T020/ & Benutzer löschen \\
-/T030/ & Gruppe erstellen \\
-/T040/ & Gruppe löschen \\
-/T050/ & Einladung erstellen \\
-/T060/ & Gruppe beitreten \\
-/T070/ & Gruppe verlassen \\
-/T080/ & Aus Gruppe entfernen \\
-/T090/ & Treffpunkt festlegen \\
-/T100/ & Losgehen \\ % TODO Formulierung?
-/T110/ & Positionen von Gruppenmitgliedern anzeigen \\
-\end{tabular}
+%\begin{tabular}{ll}
+\textbf{/T010/}\quad Benutzer registrieren \\
+Der Benutzer foot
+
+\textbf{/T020/}\quad Benutzer löschen \\
+
+
+\textbf{/T030/}\quad Gruppe erstellen und Personen hinzufügen \\
+\begin{itemize}
+\setlength{\itemsep}{0pt}
+\item Der Benutzer ist bereits registriert. Dies wird über die auf dem Gerät
+und Server gespeicherten Daten geprüft.
+\item Der Benutzer erstellt eine Gruppe (). Dies wird in der Datenbank des Server geprüft.
+\item Der Benutzer erstellt () und verschickt Einladungen. Dies wird in der Datenbank des Servers gerprüft.
+\item Eingeladene Personen treten der Gruppe bei. () Dies wird in der Datenbank des Servers geprüft.
+\end{itemize}
+
+\textbf{/T040/} Gruppe löschen \\
+%\textbf{/T050/} Einladung erstellen \\
+%\textbf{/T060/} Gruppe beitreten \\
+\textbf{/T070/} Gruppe verlassen \\
+\textbf{/T080/} Aus Gruppe entfernen \\
+\textbf{/T090/} Treffpunkt festlegen \\
+\textbf{/T100/} Losgehen \\ % TODO Formulierung?
+\textbf{/T110/} Positionen von Gruppenmitgliedern anzeigen \\
+%\end{tabular}
 
 \subsection{Testfälle für Wunschkriterien}
 \begin{tabular}{ll}

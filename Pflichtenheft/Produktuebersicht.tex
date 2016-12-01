@@ -8,8 +8,20 @@
 	\centering
 	\includegraphics[scale = 0.8]{res/clientServerArchitektur.png}
 \end{figure}
-Die Client-Server-Architektur wird verwendet, da mehrere Mobiltelefone nebeneinander ohne konkrete Kenntnis voneinander zu haben, Ressourcen des Servers abfragen. Dieser wertet die Anfrage aus und liefert eine Antwort zurück an den Client. \\
-In unserem Fall steht jeder Benutzer über einen zentralen Server in Verbindung mit seinen Gruppen und kann so z.B. die Standorte anderer Gruppenmitglieder vom Server zugesendet zu bekommen.
+
+Mobiltelefone auf denen die Go-App läuft, müssen unter anderem zur Gruppenverwaltung
+und Positionsübermittlung Daten austauschen.
+Im heutigen Internet wird jedoch aufgrund der IPv4-Knappheit vermehrt Network Address Translation (NAT)
+eingesetzt die einen direkten Datenaustausch verhindert. Zudem sind Endgeräte häufig durch Firewalls vor Zugriffen
+von außen geschützt.
+Insbesondere Mobiltelefone sind häufig von diesen Problemen betroffen.
+
+Um dem zu begegnen wird eine Client-Server-Architektur verwendet. \\
+Die Clients kommunizieren über das Internet mit dem zentralen Server. \\
+Der Server antwortet auf Anfragen der Clients.
+
+Der Server koordiniert die Gruppen und sendet den Gruppenmitgliedern z.B.
+die Standorte anderer Mitglieder zu.
 
 \subsection{Szenarien}
 \subsubsection{Szenario Kneipentour}

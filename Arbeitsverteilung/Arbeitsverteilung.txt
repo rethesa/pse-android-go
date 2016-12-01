@@ -1,0 +1,43 @@
+Aufgabenverteilung:
+
+Theresa liest Victoria
+Victoria liest Dennis
+Dennis liest Matthias
+Matthias liest Tarek
+Tarek list Theresa
+
+Gliederung:
+[ ] 1.	Einleitung (muss noch etwas überarbeitet werden)
+[ ] 2.	Zielbestimmung (mit Muss-, Wunsch- und Abgrenzungskriterien, Client- und Serverseitig) THERESA
+	Die vorherigen funktionalen Anforderungen sind dabei die Musskriterien und müssen gegebenfalls ergänzt werden.
+	Also beispielweise sowas wie: Mitglieder hinzufügen/ enfernen (falls nötig noch erklären, sollte aber eigentlich relativ eindeutig sein).
+	Und dann natürlich genauso noch Wunsch- und Abgrenzungskriterien formulieren. Also wirklich nur ganz grob.
+[ ] 3.	Produkteinsatz (bleibt so)
+[X] 4.	Produktumgebung (GPS und Internet)	MATTHIAS
+[ ] 5.	Produktübersicht
+	THERESA Client-Server-Architektur verändern (Internet Wolke o.ä. in pdf)
+	DENNIS Mensaszenario überarbeiten
+	TAREK Anwendungsfalldiagramm hochschieben und neuer Unterpunkt und die flow_grpahs mit Beschreibung unter Anwendungsfälle
+[ ] 6.	Produktfunktionen werden zu funktionalen Anforderungen umbenannt (sind die ehemaligen Muss- und Wunschkriterien)
+[ ] 7.	Produktdaten (werden zu Personendaten umbenannt, falls keine Serverdaten o.ä. noch dazu kommen)VICKY
+[ ] 8.	Produktleistungen werden zu nicht funktionalen Anforderungen umbenannt
+[ ] 9.	Benutzerschnittstelle
+[ ] 10.	Globale Testfälle, wie Benutzer registieren und dann überprüfen, ob Name auch tatsächlich angelegt wurde
+[ ] 11.	Qualitätsbestimmung DENNIS
+[ ] 12.	Entwicklungsumgebung (zwei Leute müssen noch ein paar Hardware Details dazuschreiben)
+[ ] 13.	Glossar :Benutzer oder so kann noch drin sein aber Erklärungen sonst sind nur für Wörter die nicht für jeden Leser sofort klar ist
+	Die bis jetzt im Glossar verwendeteten
+
+
+
+- Tracking wird beendet wenn man nochmal auf den Go-Button gedrückt hat
+- Benutzeraccount löschen
+- Gruppenname bleibt eindeutig
+- Benutzernamen  nicht eindeutig
+- Musskriterien Standard Verschlüsselung aller Personenbezogenen Daten (wie GPS-Daten,...) (Datenschutz)
+- Losgehen = Go-Button drücken (also von jedem einzelnen)
+- Fehlermeldung, wenn GPS nicht aktiviert ist
+-
+
+DONNERSTAG ABEND 20:00 Uhr ist jeder mit dem fertig was hier in dem Dokument besprochen wurde!!!
+FREITAG NACHMITTAG MUSS ALLES FERTIG SEIN (einzige Ausnahme ist Formatierung)!!!

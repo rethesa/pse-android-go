@@ -1,13 +1,14 @@
 \documentclass[parskip=full]{scrartcl}
+
+\usepackage[T1]{fontenc}	% In dieser
+\usepackage[ngerman]{babel}	% Reihenfolge
+\usepackage[utf8]{inputenc}	% laut Worsch.
+
 \usepackage{graphicx}
-\usepackage[utf8]{inputenc}
-\usepackage{graphicx}
-\usepackage[T1]{fontenc}
-\usepackage[german]{babel}
-\usepackage{hyperref}
 \usepackage{pdfpages}
 \usepackage{float}
 \usepackage[nooneline]{caption}
+\usepackage{hyperref}	% Als letztes laden.
 \hypersetup{
 pdftitle={
 	PSE: Pflichtenheft},
@@ -18,7 +19,11 @@ bookmarks=true
 \begin{document}
 \title{Android Go-App}
 \author{Tarek Wilkening, \\Dennis Bäuml, \\Matthias Dressel, \\Victoria Karl, \\Theresa Heine\\
-	\\Betreuer: \\Heiko Klare, \\ Erik Burger\\}
+	\\\textbf{Betreuer:} \\
+		Erik Burger, \\
+		Axel Busch, \\
+		Heiko Klare \\
+				}
 \date{\today}
 \maketitle
 \newpage

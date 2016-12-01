@@ -1,17 +1,27 @@
 \section{Produktleistungen/ Qualitätsziele}
+%kleine einleitung zu kapitel?
+%Die Nichtfunktionale Anforderungen beschreiben neben den Funktionalen Anforderungen, was das System zu leisten hat. Hier liegt der Schwerpunkt auf wie das System die Funktionen erfüllt. Beispielsweise wie groß ein System ist, den Durchsatz der Datenübertragung zum Server sowie die maximale Antwortzeiten.   
 \textbf{Stabilität:}\\
-/LXXX/	Es müssen insgesamt maximal 100.000 User und maximal 50.000 Gruppen verwaltet werden können. \\
-/LXXX/	Es sind maximal 200 User und maximal 100 Gruppen gleichzeitig aktiv. \\
-/LXXX/	Sollte kein Datenabgleich mit dem Server möglich sein, so sind die Daten dennoch  auf den jeweiligen Geräten abgespeichert.	  \\
+/NF010/	Es müssen insgesamt maximal 100.000 Benutzer und maximal 50.000 Gruppen verwaltet werden können. \\
+/NF020/	Zu einem Zeitpunkt können bis zu 200 Benutzer gleichzeitig die App ohne Problem benutzen \\
+/NF030/	Sollte kein Datenabgleich mit dem Server möglich sein, so sind die Daten dennoch auf den jeweiligen Geräten abgespeichert.	  \\
 \textbf{Datensicherheit:}\\
-/LXXX/	Daten werden während der Datenübertragung ausreichend verschlüsselt.\\
-/LXXX/	Verschlüsselungsdaten müssen klein gehalten werden, um System Skalierbarkeit zu ermöglichen.\\
-/LXXX/	Passwörter müssen mindestens 6 stellig sein.\\
+/NF040/	Personenbezogene Daten (Name und Standort) werden während der Datenübertragung ausreichend verschlüsselt.\\
+/NF050/	Verschlüsselungsdaten müssen klein gehalten werden, um System Skalierbarkeit zu ermöglichen.\\
 \textbf{Benutzbarkeit:}\\
-/LXXX/	Server Reaktionszeit bei (Gruppenerstellung) darf nicht länger als 15 Sekunden dauern\\
-/LXXX/	Server Reaktionszeit bei Registrierung darf nicht länger als 15 Sekunden dauern\\
-/LXXX/	Die GPS Standort Übermittlung muss eine Genauigkeit von maximal 15 Metern haben\\
-/LXXX/	Die GPS Standort Übermittlung darf nicht länger als 5 Sekunden dauern  \\
-/LXXX/	Datenübertragung zum Server dauern im Schnitt nicht länger als 10 Sekunden\\
-/LXXX/	Benutzernamen sind nicht eindeutig und änderbar\\
-/LXXX/	Gruppennamen sind eindeutig und nicht änderbar\\
+/NF060/	Die "Go-App" hat eine intuitive Benutzeroberfläche.\\
+/NF070/	Die "Go-App" sollte flüssig laufen.\\
+/NF080/	Die "Go-App" sollte eine Antwortzeit von maximal 2 Sekunden haben.\\
+
+\textbf{Effizienz:}\\
+/NF090/	Bei Eingang der Daten auf dem Server sollte die Gruppenerstellung nicht länger als 5 Sekunden dauern\\
+/NF100/	Bei Eingang der Daten auf dem Server sollte die Registrierung nicht länger als 5 Sekunden dauern.\\
+/NF110/	Die GPS Standort Übermittlung sollte eine Genauigkeit von maximal 15 Metern haben\\
+/NF120/	Die GPS Standort Verwaltung auf dem Server darf nicht länger als 5 Sekunden dauern  \\
+
+%ist gestrichen, da nicht beeinflussbar
+%/NF000/	Datenübertragung zum Server dauern im Schnitt nicht länger als 10 Sekunden\\
+
+%Funktionale Punkte
+%/NF000/	Benutzernamen sind nicht eindeutig und änderbar\\
+%/NF000/	Gruppennamen sind eindeutig und sind nicht änderbar\\

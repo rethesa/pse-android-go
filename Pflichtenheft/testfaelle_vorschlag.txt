@@ -1,0 +1,27 @@
+app installieren: app installieren über package manager
+bei erfolgreicher installation lässt sich die app starten und es öffnet
+sich die registrierung.
+
+der benutzer wählt einen benutzernamen.
+ist der benutzername gültig, wird eine benutzer-ID erstellt und das Tupel
+(Name, ID) ist auch dem Server hinterlegt.
+
+der benutzer wählt einen benutzernamen.
+ist der name ungültig, bekommt der nutzer eine fehlermeldung.
+als folge ist kein name auf dem gerät erstellt und auf dem server
+existiert das tupel (name, id) nicht.
+
+benutzeraccount löschen.
+der benutzer wählt "konto löschen" aus.
+bei erfolgreicher ausführung ist der  name vom gerät gelöscht und bei
+öffnen der app wird der nutzer wieder aufgefordert,  sich zu registrieren.
+auf dem server existiert das Tupel (name, id) nicht mehr.
+
+TODO: negativtest
+
+gruppe erstellen:
+der benutzer erstellt eine gruppe.
+bei erfolgreicher ausführung erhält der nutzer eine neue gruppe in seiner liste in der er administrator sind.
+auf dem server ist eine neue gruppe angelegt, mit administrator als einzigem mitglied.
+
+TODO: negativtest

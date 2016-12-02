@@ -1,23 +1,25 @@
-\section{Produktleistungen/ Qualitätsziele}
+\section{Nicht funktionale Anforderungen}
 %kleine einleitung zu kapitel?
 %Die Nichtfunktionale Anforderungen beschreiben neben den Funktionalen Anforderungen, was das System zu leisten hat. Hier liegt der Schwerpunkt auf wie das System die Funktionen erfüllt. Beispielsweise wie groß ein System ist, den Durchsatz der Datenübertragung zum Server sowie die maximale Antwortzeiten.   
 \textbf{Stabilität:}\\
-/NF010/	Es müssen insgesamt maximal 100.000 Benutzer und maximal 50.000 Gruppen verwaltet werden können. \\
-/NF020/	Zu einem Zeitpunkt können bis zu 200 Benutzer gleichzeitig die App ohne Problem benutzen \\
-/NF030/	Sollte kein Datenabgleich mit dem Server möglich sein, so sind die Daten dennoch auf den jeweiligen Geräten abgespeichert.	  \\
+/NF010/	Es müssen insgesamt maximal 1000 Benutzer und 500 Gruppen verwaltet werden können. \\
+/NF020/	Zu einem Zeitpunkt können bis zu 100 Benutzer gleichzeitig die App ohne Problem benutzen \\
+%/NF030/	Wenn kein Datenabgleich mit dem Server möglich ist, so werden die Daten dennoch auf den jeweiligen Geräten abgespeichert.	  \\
+
 \textbf{Datensicherheit:}\\
-/NF040/	Personenbezogene Daten (Name und Standort) werden während der Datenübertragung ausreichend verschlüsselt.\\
-/NF050/	Verschlüsselungsdaten müssen klein gehalten werden, um System Skalierbarkeit zu ermöglichen.\\
+\textbf{/NF030/}Personenbezogene Daten (Name und Standort) werden während der Datenübertragung verschlüsselt.\\
+/NF040/	Verschlüsselungsdaten müssen klein gehalten werden, um System Skalierbarkeit zu ermöglichen.\\
+
 \textbf{Benutzbarkeit:}\\
-/NF060/	Die "Go-App" hat eine intuitive Benutzeroberfläche.\\
-/NF070/	Die "Go-App" sollte flüssig laufen.\\
-/NF080/	Die "Go-App" sollte eine Antwortzeit von maximal 2 Sekunden haben.\\
+/NF050/	Die "Go-App" hat eine intuitive Benutzeroberfläche.\\
+%/NF0X0/	Die "Go-App" sollte flüssig laufen.\\
+/NF060/	Die Antwortzeit der "Go-App" beträgt im durchschnitt ungefähr 2 Sekunden haben.\\
 
 \textbf{Effizienz:}\\
-/NF090/	Bei Eingang der Daten auf dem Server sollte die Gruppenerstellung nicht länger als 5 Sekunden dauern\\
-/NF100/	Bei Eingang der Daten auf dem Server sollte die Registrierung nicht länger als 5 Sekunden dauern.\\
-/NF110/	Die GPS Standort Übermittlung sollte eine Genauigkeit von maximal 15 Metern haben\\
-/NF120/	Die GPS Standort Verwaltung auf dem Server darf nicht länger als 5 Sekunden dauern  \\
+/NF070/	Bei Eingang der Daten auf dem Server sollte die Gruppenerstellung im durchschnitt nicht länger als 5 Sekunden dauern\\
+/NF080/	Bei Eingang der Daten auf dem Server sollte die Registrierung im durchschnitt nicht länger als 5 Sekunden dauern.\\
+/NF090/	Die GPS Standort Übermittlung hat im schnitt eine Genauigkeit von ungefähr 15 Metern \\
+/NF100/	Die GPS Standort Verwaltung auf dem Server darf im schnitt nicht länger als 5 Sekunden dauern  \\
 
 %ist gestrichen, da nicht beeinflussbar
 %/NF000/	Datenübertragung zum Server dauern im Schnitt nicht länger als 10 Sekunden\\
@@ -25,3 +27,21 @@
 %Funktionale Punkte
 %/NF000/	Benutzernamen sind nicht eindeutig und änderbar\\
 %/NF000/	Gruppennamen sind eindeutig und sind nicht änderbar\\
+
+%Kommentar:
+%- [DONE] NF010: kannst das 2. maximal weg lassen (Stilfrage... wie du willst)
+%- NF020: können wir das wirklich garantieren? Vielleicht kleinerer Wert?
+%    - iwie müssen wir einen wert garantieren, sonst erwarten die betreuer, dass die den server zuspamen könne und alls noch super läuft
+%- NF030: welche Daten - es werden nicht alle Daten auf dem Gerät gespeichert... (vgl. Produktdaten.txt)
+%    - dacht an die daten bezüglich position einer person. Was würde passieren, wenn jemand in einem Funkloch ist?
+%- [DONE] NF040: ohne ausreichend... ist ein kleines sinnloses Füllwort
+%- NF070: definiere flüssig laufen??? 
+%    - in dem Pflichtenheft von Maik haben die das auch so schwammig definiert, dachte hier kann man das noch machen..
+%- NF080: können wir das wirklich garantieren? Vielleicht größerer Wert?
+%    - hier habe ich mich auf die app selber bezogen, dass egal was man drückt, dass dann nach 2 sekunden die app reagiert. Vlt sollten wir den Wert auf 4 ändern..
+%
+%Allgemein:
+%- schreibe nicht "sollten haben" sondern "hat" (wir wollen ja das Ding im Prinzip verkaufen können)
+%- schreiben nicht maximal/ minimal, sondern einen gemittelten Wert.
+%Also z.B. statt "sollte eine Genauigkeit von maximal 15 Metern haben" schreibe "...hat eine Genauigkeit von ungefähr 15 Metern"
+%Über die Werte kann ich nicht so viel sagen, weil ich das nicht einschätzen kann. Ich hoffe, die sind realistisch...

@@ -219,3 +219,6 @@ TSWLatexianTemp*
 
 # Include examples
 !Pflichtenheft BSP/**
+
+# Ignore MacBook temp files
+.DS_Store

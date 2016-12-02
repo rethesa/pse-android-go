@@ -2,13 +2,15 @@
 
 Die Speicherung aller hier genannten Daten erfolgt, soweit nicht anders spezifiziert, auf dem Server des Dienstes.
 
-\subsection{Personendaten}
-Beim Ausfüllen des Benutzernamen wird dieser zusammen mit einer Identifikationsnummer des Gerätes gespeichert.
+\textbf{Über die Benutzer ist zu speichern:}
+/D10/Beim der Registrierung eines neuen Benutzers wird dem Gerät eine Identifikationsnummer zugeordnet und in Verknüpfung mit dem Benutzername gespeichert. Außerdem wird der Benutzername auf dem Gerät gespeichert.
 
-Ab dem Aktivieren des Go-Button, bis zum Deaktiviere von diesem werden alle 10sec der Standort des Gerätes in Verknüpfung zu der Identifikationsnummer gespeichert, bzw. aktiviert.
+/D20/Ab dem Aktivieren des Go-Button, bis zum Deaktiviere von diesem wird in kurzen, regelmäßigen Zeitabständen der Standort des Gerätes in Verknüpfung zu der Identifikationsnummer des Gerätes gespeichert; bzw. wenn bereits ein Standort gespeichert ist, wird dieser aktualisiert.
 
-Beim Erstellen einer Gruppe wird der Gruppennamen als Identifikation gespeichert.
+/D30/Beim Erstellen einer Gruppe wird der Gruppenname gespeichert und zur Identifikation verwendet.
 
-Beim Hinzufügen eines Gruppenmitgliedes wird die Identifikationsnummer des Benutzers mit dem Gruppennamen verknüpft.
+/D40/Ebenso wird beim Erstellen einer Gruppe die Identifikationsnummer des Gruppenadministrators wie in /D50/ mit dem Gruppennamen verknüpft; sowohl auf dem Server als auch auf dem Gerät wird zudem eine besondere Verknüpfung erstellt um dieses Gruppenmitglied als Gruppenadministrator zu kennzeichnen.
 
-Beim Erstellen eines Treffens wird Zielort und Uhrzeit zusammen mit dem Gruppennamen verknüpft. Ist die Uhrzeit vorbei und alle Gruppenmitglieder haben die Applikation geschlossen, so wird die Verknüpfung so wie Zielort und Uhrzeit gelöscht.
+/D50/Beim Hinzufügen eines Gruppenmitgliedes wird die Identifikationsnummer des Benutzers mit dem Gruppennamen verknüpft.
+
+/D60/Beim Erstellen eines Treffpunktes wird Zielort und Uhrzeit zusammen mit dem Gruppennamen verknüpft und gespeichert. Ist die Uhrzeit vorbei und alle Gruppenmitglieder haben die Applikation geschlossen, so wird nach einer festgelegten Zeit die Verknüpfung so wie Zielort und Uhrzeit gelöscht. (Wunschkriterium)

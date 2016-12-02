@@ -1,22 +1,115 @@
-\section{Globale Testfälle}
+\section{Testfälle}
 \subsection{Testfälle für Musskriterien}
-\begin{tabular}{ll}
-/T010/ & Benutzer registrieren \\
-/T020/ & Benutzer löschen \\
-/T030/ & Gruppe erstellen \\
-/T040/ & Gruppe löschen \\
-/T050/ & Einladung erstellen \\
-/T060/ & Gruppe beitreten \\
-/T070/ & Gruppe verlassen \\
-/T080/ & Aus Gruppe entfernen \\
-/T090/ & Treffpunkt festlegen \\
-/T100/ & Losgehen \\ % TODO Formulierung?
-/T110/ & Positionen von Gruppenmitgliedern anzeigen \\
-\end{tabular}
+%\begin{tabular}{ll}
+\textbf{/T010/} Benutzer registrieren \\
+\begin{itemize}
+\setlength{\itemsep}{0pt}
+\item Der Benutzer hat die App installiert. Dies wird über den Android Package Manager geprüft.
+\item Der Benutzer registriert einen Account. Dies wird in der Datenbank des Servers geprüft.
+\item Im Fehlerfall wird dem Benutzer eine Fehlermeldung angezeigt.
+\end{itemize}
+
+
+\textbf{/T020/} Benutzer löschen \\
+\begin{itemize}
+\setlength{\itemsep}{0pt}
+\item Der Benutzer ist registriert. Dies wird über die auf dem Gerät
+und Server gespeicherten Daten geprüft.
+\item Der Benutzer löscht seinen Account. Dies wird in der Datenbank des Servers geprüft.
+\item Im Fehlerfall wird dem Benutzer eine Fehlermeldung angezeigt.
+\end{itemize}
+
+
+\textbf{/T030/} Gruppe erstellen \\
+\begin{itemize}
+\setlength{\itemsep}{0pt}
+\item Der Benutzer ist registriert. Dies wird über die auf dem Gerät
+und Server gespeicherten Daten geprüft.
+\item Der Benutzer erstellt eine Gruppe. () Dies wird in der Datenbank des Server geprüft.
+\item Im Fehlerfall wird dem Benutzer eine Fehlermeldung angezeigt.
+\end{itemize}
+
+\textbf{/T040/} Gruppe löschen \\
+\begin{itemize}
+\setlength{\itemsep}{0pt}
+\item Der Benutzer ist Administrator der Gruppe. Dies wird in der Datenbank des Servers geprüft.
+\item Der Benutzer löscht die Gruppe. () Dies wird in der Datenbank des Servers geprüft.
+\item Im Fehlerfall wird dem Benutzer eine Fehlermeldung angezeigt.
+\end{itemize}
+
+\textbf{/T050/} Einladung erstellen \\
+\begin{itemize}
+\setlength{\itemsep}{0pt}
+\item Der Benutzer ist Administrator der Gruppe. Dies wird in der Datenbank des Servers geprüft.
+\item Der Benutzer erstellt () und verschickt Einladungen. Dies wird in der Datenbank des Servers geprüft.
+\item Im Fehlerfall wird dem Benutzer eine Fehlermeldung angezeigt.
+\end{itemize}
+
+
+\textbf{/T060/} Gruppe beitreten \\
+\begin{itemize}
+\setlength{\itemsep}{0pt}
+\item Der Benutzer wurde von einem Administrator zu einer Gruppe eingeladen. ()
+\item Der Benutzer tritt der Gruppe () bei. Dies wird in der Datenbank des Servers geprüft.
+\item Im Fehlerfall wird dem Benutzer eine Fehlermeldung angezeigt.
+\end{itemize}
+
+
+\textbf{/T070/} Gruppe verlassen \\
+\begin{itemize}
+\setlength{\itemsep}{0pt}
+\item Der Benutzer ist Mitglied der Gruppe. Dies wird in der Datenbank des Servers geprüft.
+\item Der Benutzer verlässt die Gruppe. () Dies wird in der Datenbank des Servers geprüft.
+\item Im Fehlerfall wird dem Benutzer eine Fehlermeldung angezeigt.
+\end{itemize}
+
+
+\textbf{/T080/} Aus Gruppe entfernen \\
+\begin{itemize}
+\setlength{\itemsep}{0pt}
+\item Der Benutzer ist Administrator der Gruppe. Dies wird in der Datenbank des Servers geprüft.
+\item Der Benutzer wählt ein Mitglied zum Entfernen aus. Dies wird in der Datenbank des Servers geprüft.
+\item Im Fehlerfall wird dem Benutzer eine Fehlermeldung angezeigt.
+\end{itemize}
+
+
+\textbf{/T090/} Treffpunkt festlegen \\
+\begin{itemize}
+\setlength{\itemsep}{0pt}
+\item Der Benutzer ist Administrator der Gruppe. Dies wird in der Datenbank des Servers geprüft.
+\item Der Benutzer legt einen Treffpunkt fest. () Dies wird in der Datenbank des Servers geprüft.
+\item Im Fehlerfall wird dem Benutzer eine Fehlermeldung angezeigt.
+\end{itemize}
+
+
+\textbf{/T100/} Go-Button drücken / Aufbrechen \\ % TODO Formulierung?
+\begin{itemize}
+\setlength{\itemsep}{0pt}
+\item Der Benutzer ist Mitglied einer Gruppe. Dies wird in der Datenbank des Servers geprüft.
+\item Ein Administrator hat einen Treffpunkt festgelegt. () Dies wird in der Datenbank des Servers geprüft.
+\item Der Benutzer bricht auf / drückt den Go-Button. ()
+Seine Position wird übermittelt.
+Dies wird beim Server geprüft.
+\item Im Fehlerfall wird dem Benutzer eine Fehlermeldung angezeigt.
+\end{itemize}
+
+
+\textbf{/T110/} Positionen von Gruppenmitgliedern anzeigen \\
+\begin{itemize}
+\setlength{\itemsep}{0pt}
+\item Der Benutzer ist Mitglied einer Gruppe. Dies wird in der Datenbank des Servers geprüft.
+\item Mindestens ein Mitglied ist aufgebrochen. () Dies wird in der Datenbank des Servers geprüft.
+\item Der Benutzer ruft die Karte auf und sieht die Positionen der
+aufgebrochenen Mitglieder. () Dies wird auf dem Gerät überprüft.
+\item Im Fehlerfall wird dem Benutzer eine Fehlermeldung angezeigt.
+\end{itemize}
+
+
+%\end{tabular}
 
 \subsection{Testfälle für Wunschkriterien}
 \begin{tabular}{ll}
-/T200/ & Losgehen mit aktivierten/deaktiviertem GPS-Tracking \\ % TODO Formulierung Losgehen?
+/T200/ & Aufbrechen mit aktivierten/deaktiviertem GPS-Tracking \\ % TODO Formulierung?
 /T210/ & Änderung des Benutzernamens \\
 /T220/ & Gruppenmitglied als zusätzlichen Administrator setzen \\
 /T230/ & Änderung des Gruppennamens \\

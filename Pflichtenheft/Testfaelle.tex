@@ -1,16 +1,78 @@
 \section{Testfälle}
 \subsection{Testfälle für Musskriterien}
 %\begin{tabular}{ll}
-\textbf{/T010/} Benutzer registrieren \\
+\textbf{/T010/} Benutzer registrieren (FC010) \\
 \begin{itemize}
-\setlength{\itemsep}{0pt}
-\item Der Benutzer hat die App installiert. Dies wird über den Android Package Manager geprüft.
-\item Der Benutzer registriert einen Account. Dies wird in der Datenbank des Servers geprüft.
-\item Im Fehlerfall wird dem Benutzer eine Fehlermeldung angezeigt.
+Der Benutzer wählt einen Benutzernamen.
+ist der Benutzername gültig, liegt auf dem Server ein Tupel (Benutzername, ID) vor.
+\end{itemize}
+
+\textbf{/T020/} Benutzeraccount löschen (FC020) \\
+\begin{itemize}
+Der Benutzer wählt aus, seinen Account zu löschen.
+Bei erfolgreicher Ausführung ist das Tupel (Benutzername, ID) vom Server gelöscht.
+\end{itemize}
+
+\textbf{/T030/} Erstellen einer Gruppe (FC030)\\
+\begin{itemize}
+Der Benutzer wählt Gruppe erstellen im Menü aus und gibt einen Namen ein.
+Bei eindeutigem Namen liegt auf dem Server eine Gruppe vor, mit dem Ersteller als einzigem Mitglied.
+\end{itemize}
+
+\textbf{/T040/} Löschen einer Gruppe (FC040)\\
+Der Benutzer wählt aus, eine seiner selbst erstellten Gruppen zu löschen.
+Bei Erfolg ist die Gruppe sowohl vom Server, als auch bei den Mitgliedern gelöscht.
+\begin{itemize}
+
+\textbf{/T050/} Erstellen eines Gruppenlinks (FC050)\\
+Der Benutzer hat eine Gruppe erstellt und will Mitglieder einladen.
+Er wählt im Gruppenmenü der entsprechenden Gruppe "Mitglieder einladen" aus.
+Bei Erfolg erhält der Benutzer einen Gruppenlink, der auch in der Gruppe gespeichert ist.
+\begin{itemize}
+
+\textbf{/T060/} Beitreten einer Gruppe (FC060)\\
+\begin{itemize}
+Voraussetzung: Gruppe besteht, Benutzer ist registriert.
+Der Benutzer bekommt einen Link zugesendet und öffnet ihn mit der App.
+Bei erfolgreichem Beitritt, ist der Benutzer in der Liste der entsprechenden Gruppe.
+Außerdem ist der genutzte Link aus der Gruppe gelöscht.
+\end{itemize}
+
+\textbf{/T070/} Verlassen einer Gruppe (FC070)\\
+\begin{itemize}
+Voraussetzung: Benutzer ist mitglied in der Gruppe.
+Benutzer wählt "Gruppe verlassen" aus.
+Bei Erfolg ist der Benutzer nicht mehr in der Gruppenliste auf dem Server.
+Zudem ist die Gruppe nicht mehr in der Liste des Benutzers.
+\end{itemize}
+
+\textbf{/T080/} Entfernung von Gruppenmitgliedern (FC080)\\
+\begin{itemize}
+Voraussetzung: Benutzer ist Admin in der Gruppe.
+Der Benutzer wählt bei einem Mitglied "Mitglied entfernen" aus.
+Bei erfolgreicher Ausführung ist das Mitglied nicht mehr in seiner Liste.
+Auf dem Server ist das Mitglied aus der Gruppenliste gelöscht.
+\end{itemize}
+
+\textbf{/T090/} Festlegen des Zielorts (FC090)\\
+\begin{itemize}
+Voraussetzung: Benutzer ist Admin in der Gruppe.
+Der Benutzer editiert den Zielort der Gruppe.
+Bei Erfolg ist der neue Zielort in der Gruppe sowohl beim Benutzer,
+als auch auf dem Server gespeichert.
+\end{itemize}
+
+\textbf{/T100/} Festlegen der Uhrzeit (FC100)\\
+\begin{itemize}
+Voraussetzung: Benutzer ist Admin in der Gruppe.
+Der Benutzer editiert die Uhrzeit der Gruppe.
+Bei Erfolg ist die neue Uhrzeit beim Benutzer und auf dem Server gespeichert.
 \end{itemize}
 
 
-\textbf{/T020/} Benutzer löschen \\
+
+
+\textbf{/T040/} Benutzer löschen \\
 \begin{itemize}
 \setlength{\itemsep}{0pt}
 \item Der Benutzer ist registriert. Dies wird über die auf dem Gerät
@@ -18,7 +80,6 @@ und Server gespeicherten Daten geprüft.
 \item Der Benutzer löscht seinen Account. Dies wird in der Datenbank des Servers geprüft.
 \item Im Fehlerfall wird dem Benutzer eine Fehlermeldung angezeigt.
 \end{itemize}
-
 
 \textbf{/T030/} Gruppe erstellen \\
 \begin{itemize}

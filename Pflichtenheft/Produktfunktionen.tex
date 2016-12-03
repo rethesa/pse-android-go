@@ -14,20 +14,12 @@ Die Nummer ist bei zusammenhängenden Aktionen gleich.\\
      Der Link wird über die App geöffnet (Falls installiert) \\
      \textbf{/FC070/} Verlassen einer Gruppe (als Gruppenmitglied)\\
      \textbf{/FC080/} Entfernen von Gruppenmitgliedern (nur Gruppenadministrator): entspricht verlassen einer Gruppe, nur erzwungen durch Gruppenadministrator\\
-<<<<<<< HEAD
-     \textbf{/FC090/} Festlegen von Treffpunkten: einstellen von Zielort und Uhrzeit (nur Gruppenadministrator)\\
-     \textbf{/FC100/} Go-Button: durch drücken des Go-Buttons eigene Position an die Gruppe übermitteln (alle Gruppenmitglieder)\\
-     \textbf{/FC110/} Anzeigen der gemittelten GPS-Daten der Gruppe auf der Karte; sind mehrere Mitglieder innerhalbt eines bestimmten Radius,
-     werden sie als Gruppe angezeigt\\
-     \textbf{/FC120/} Der Datenverkehr von Client zu Server muss verschlüsselt sein\\
-=======
      \textbf{/FC090/} Festlegen von Zielort: einstellen von Zielort für ein Treffen (nur Gruppenadministrator)\\
      \textbf{/FC100/} Festlegen von Uhrzeit: einstellen der Uhrzeit für ein Treffen (nur Gruppenadministrator) \\
      \textbf{/FC110/} Go-Button: durch drücken des Go-Buttons eigene Position an die Gruppe übermitteln (alle Gruppenmitglieder)\\
      \textbf{/FC120/} Anzeigen der gemittelten GPS-Daten der Gruppe auf der Karte; sind mehrere Mitglieder innerhalbt eines bestimmten Radius,
      werden sie als Gruppe angezeigt\\
      \textbf{/FC130/} Der Datenverkehr von Client zu Server muss verschlüsselt sein\\
->>>>>>> feat_produktfkt
 \subsection{Serverseitig}
      \textbf{/FS010/} Name auf eindeutige ID abbilden und (Name,ID) an Server senden\\
      \textbf{/FS020/} App auf anfangszustand zurücksetzen, Nutzer aus allen Gruppen entfernen und das Tupel (Name, ID) vom Server löschen \\
@@ -36,23 +28,6 @@ Die Nummer ist bei zusammenhängenden Aktionen gleich.\\
      \textbf{/FS050/} Gruppenlink wird zum Server gesendet und in Gruppe gespeichert. Nach der Nutzung wird er gelöscht\\
      \textbf{/FS060/} Link wird an Server gesendet und die zugehörige Gruppe identifiziert.\\ Die ID des Benutzers wird dann der Gruppenliste hinzugefügt\\
      \textbf{/FS070/} Die ID des Benutzers wird aus der Gruppenliste auf dem Server gelöscht. Die aktuelle Liste wird mit den verbleibenden Benutzern synchronisiert\\
-<<<<<<< HEAD
-     \textbf{/FS090/} Parameter (Uhrzeit/Zielort) wird an Server gesendet und in der Gruppe gespeichert. Dann wird der Parameter mit den Mitgliedern synchronisiert \\
-     \textbf{/FS100/} Position als GPS Koordinaten an Server senden, der sie dann an die Mitglieder verteilt\\
-     \textbf{/FS110/} Daten der einzelnen Mitglieder werden über den Server an die Gruppe verteilt \\
-     \textbf{/FS120/} Der Datenverkehr von Server zu Client muss verschlüsselt sein\\
-
-\section{Wunschkriterien}
-\subsection{Clientseitig}
-     \textbf{/FC130/} Aktivieren und Deaktivieren des GPS-Tracking unabhängig vom Go-Button\\
-     \textbf{/FC140/} Änderung des Benutzernamens nach erstmaliger Registrierung\\
-     \textbf{/FC150/} Gruppenmitglieder zu Administratoren machen                \\
-     \textbf{/FC160/} Änderung des Gruppennamens nach erstellen der Gruppe        \\
-     \textbf{/FC170/} Benutzer nach langer Inaktivität löschen                     \\
-     \textbf{/FC180/} Anzeigen der Namen von Gruppenmitgliedern, die den Go-Button schon gedrückt haben\\
-     \textbf{/FC190/} Benachrichtigung über das 'Aufbrechen' anderer Gruppenmitglieder\\
-     \textbf{/FC200/} Benachrichtigung bei ändern des Treffpunktes (Ort/Uhrzeit)\\
-=======
      \textbf{/FS090/} Parameter für den Zielort wird an Server gesendet und in der Gruppe gespeichert. Dann wird der Parameter mit den Mitgliedern synchronisiert \\
      \textbf{/FS100/} Für den Parameter 'Uhrzeit' wird genauso verfahren wie in /FS090/ \\
      \textbf{/FS110/} Position als GPS Koordinaten an Server senden, der sie dann an die Mitglieder verteilt\\
@@ -68,7 +43,6 @@ Die Nummer ist bei zusammenhängenden Aktionen gleich.\\
      \textbf{/FC190/} Anzeigen der Namen von Gruppenmitgliedern, die den Go-Button schon gedrückt haben\\
      \textbf{/FC290/} Benachrichtigung über das 'Aufbrechen' anderer Gruppenmitglieder\\
      \textbf{/FC200/} Benachrichtigung bei ändern eines Treffpunkt Parameters (Ort/Uhrzeit)\\
->>>>>>> feat_produktfkt
      \textbf{/FC210/} Treffpunkte für ein spezielles Datum festlegen\\
 \subsection{Serverseitig}
      \textbf{/FS140/} Neuer Name muss mit dem Server synchronisiert werden bzw. mit allen Gruppen in denen der Benutzer ist\\

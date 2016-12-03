@@ -10,7 +10,7 @@ Die Nummer ist bei zusammenhängenden Aktionen gleich.\\
      \textbf{/FC020/} Löschen des eigenen Nutzeraccounts\\
      \textbf{/FC030/} Erstellen von Gruppen mit eindeutigem Namen. Benutzer der die Gruppe erstellt wird zum Gruppenadministrator\\
      \textbf{/FC040/} Löschen von Gruppen (nur der Gruppenadministrator)   \\
-     \textbf{/FC050/} Erstellen von Gruppenlinks. Diese werden als Einladung an zukünftige Mitglieder über externe Messenger versendet (nur Admin)\\
+     \textbf{/FC050/} Erstellen von Gruppenlinks (nur Admin). Diese dienen als Einladung für andere Benutzer \\
      \textbf{/FC060/} Beitreten einer Gruppe nur über Einladungslink (Voraussetzung registriert) \\
      Der Link wird über die App geöffnet (Falls installiert) \\
      \textbf{/FC070/} Verlassen einer Gruppe (als Gruppenmitglied)\\
@@ -21,36 +21,38 @@ Die Nummer ist bei zusammenhängenden Aktionen gleich.\\
      \textbf{/FC120/} Go-Button: durch erneutes Drücken des Go-Buttons Positionsfreigabe deaktivieren\\
      \textbf{/FC130/} Anzeigen der gemittelten GPS-Daten der Gruppe auf der Karte; sind mehrere Mitglieder innerhalb eines bestimmten Radius,
      werden sie als Gruppe angezeigt\\
-     \textbf{/FC140/} Der Datenverkehr von Client zu Server muss verschlüsselt sein\\
-     
-\subsubsection{Serverseitig}
-     \textbf{/FS010/} Name auf eindeutige ID abbilden und (Name,ID) an Server senden\\
-     \textbf{/FS020/} App auf anfangszustand zurücksetzen, Nutzer aus allen Gruppen entfernen und das Tupel (Name, ID) vom Server löschen \\
-     \textbf{/FS030/} Auf dem Server wird eine neue Gruppe angelegt mit Gruppenadministrator als einzigem Mitglied\\
+     \textbf{/FC130/} Der Datenverkehr von Client zu Server wird verschlüsselt\\
+     \textbf{/FC140/} Go-Button: durch erneutes Drücken des Go-Buttons Positionsfreigabe deaktivieren\\
+     \textbf{/FC150/} Abrufen der aktuellen Gruppenparameter vom Server bei geöffneter App\\
+\subsection{Serverseitig}
+     \textbf{/FS010/} Benutzername auf eindeutige ID abbilden und (Name,ID) speichern\\
+     \textbf{/FS020/} Nutzer aus allen Gruppen entfernen und das Tupel (Name, ID) vom Server löschen \\
+     \textbf{/FS030/} Eine neue Gruppe anlegen Gruppenadministrator als einzigem Mitglied\\
      \textbf{/FS040/} Entferne alle Mitglieder aus der Gruppe und Lösche Gruppe vom Server\\
-     \textbf{/FS050/} Gruppenlink wird zum Server gesendet und in Gruppe gespeichert. Nach der Nutzung wird er gelöscht\\
-     \textbf{/FS060/} Link wird an Server gesendet und die zugehörige Gruppe identifiziert.\\ Die ID des Benutzers wird dann der Gruppenliste hinzugefügt\\
-     \textbf{/FS070/} Die ID des Benutzers wird aus der Gruppenliste auf dem Server gelöscht. Die aktuelle Liste wird mit den verbleibenden Benutzern synchronisiert\\
-     \textbf{/FS090/} Parameter für den Zielort wird an Server gesendet und in der Gruppe gespeichert. Dann wird der Parameter mit den Mitgliedern synchronisiert \\
+     \textbf{/FS050/} Erstellten Gruppenlink in Gruppe speichern. Nach der Nutzung wird er gelöscht\\
+     \textbf{/FS060/} Link empfangen und zugehörige Gruppe identifizieren.\\ Die ID des Benutzers wird dann der Gruppenliste hinzugefügt und der Genutzte Link gelöscht\\
+     \textbf{/FS070/} Löschen der ID des Benutzers der die Gruppe verlässt aus der Gruppenliste\\
+     \textbf{/FS090/} Parameter für den Zielort empfangen und in der Gruppe speichern\\
      \textbf{/FS100/} Für den Parameter 'Uhrzeit' wird genauso verfahren wie in /FS090/ \\
-     \textbf{/FS110/} Position als GPS Koordinaten an Server senden, der sie dann an die Mitglieder verteilt\\
-     \textbf{/FS120/} Daten der einzelnen Mitglieder werden über den Server an die Gruppe verteilt \\
-     \textbf{/FS130/} Der Datenverkehr von Server zu Client muss verschlüsselt sein\\
-\subsection{Wunschkriterien}
-\subsubsection{Clientseitig}
-     \textbf{/FC150/} Benutzung des Go-Buttons bei deaktiviertem GPS\\
-     \textbf{/FC160/} Änderung des Benutzernamens nach erstmaliger Registrierung\\
-     \textbf{/FC170/} Gruppenmitglieder zu Administratoren machen                \\
-     \textbf{/FC180/} Änderung des Gruppennamens nach erstellen der Gruppe        \\
-     \textbf{/FC190/} Benutzer/Gruppen nach langer Inaktivität löschen                     \\
-     \textbf{/FC200/} Anzeigen der Namen von Gruppenmitgliedern, die den Go-Button schon gedrückt haben\\
-     \textbf{/FC210/} Benachrichtigung über das 'Aufbrechen' anderer Gruppenmitglieder\\
-     \textbf{/FC220/} Benachrichtigung bei ändern eines Treffpunkt Parameters (Ort/Uhrzeit)\\
-     \textbf{/FC230/} Treffpunkte für ein spezielles Datum festlegen\\
-\subsubsection{Serverseitig}
-     \textbf{/FS140/} Neuer Name muss mit dem Server synchronisiert werden bzw. mit allen Gruppen in denen der Benutzer ist\\
-     \textbf{/FS150/} Dem Server mitteilen, dass bei gewünschtem Mitglied das Admin-Flag gesetzt werden soll.\\
-     \textbf{/FS160/} Neuer Name muss erst mit dem Server, dann mit allen Mitgliedern synchronisiert werden\\
-     \textbf{/FS170/} Der Server speichert den Zeitpunkt der letzten Aktivität von jedem Benutzer\\
-     \textbf{/FS190/} Durch Drücken des Go-Buttons wird eine Benachrichtigung an den Server gesendet, der diese an die Mitglieder weiterleitet\\
-     \textbf{/FS200/} Gleiches Prinzip wie beim vorherigen Punkt\\
+     \textbf{/FS110/} Position als GPS Koordinaten empfangen und zwischenspeichern\\
+     \textbf{/FS120/} Bei Anfrage aktuelle GPS-Daten der Mitglieder an Mitglied senden \\
+     \textbf{/FS130/} Der Datenverkehr von Server zu Client wird verschlüsselt\\
+     \textbf{/FS150/} Bei Anfrage: senden der aktuellen Gruppenparameter inklusive Status der Gruppenmitglieder\\
+\section{Wunschkriterien}
+\subsection{Clientseitig}
+     \textbf{/FC160/} Benutzung des Go-Buttons bei deaktiviertem GPS\\
+     \textbf{/FC170/} Änderung des Benutzernamens nach erstmaliger Registrierung\\
+     \textbf{/FC180/} Gruppenmitglieder zu Administratoren machen                \\
+     \textbf{/FC190/} Änderung des Gruppennamens nach erstellen der Gruppe        \\
+     \textbf{/FC200/} Benutzer nach langer Inaktivität löschen                     \\
+     \textbf{/FC210/} Anzeigen der Namen von Gruppenmitgliedern, die den Go-Button schon gedrückt haben\\
+     \textbf{/FC220/} Benachrichtigung über das 'Aufbrechen' anderer Gruppenmitglieder\\
+     \textbf{/FC230/} Benachrichtigung bei ändern eines Treffpunkt Parameters (Ort/Uhrzeit)\\
+     \textbf{/FC240/} Treffpunkte für ein spezielles Datum festlegen\\
+\subsection{Serverseitig}
+     \textbf{/FS170/} Einer Benutzer-ID einen neuen Namen zuordnen\\
+     \textbf{/FS180/} Bei einem Benutzer in einer Gruppenliste das Admin-Flag setzen\\
+     \textbf{/FS190/} Überprüfen ob Gruppenname vergeben ist und ändern\\
+     \textbf{/FS200/} Regelmäßig überprüfen wann ein Nutzer zuletzt aktiv war\\
+     \textbf{/FS210/} Go-Button Event von Gruppenmitglied empfangen und alle anderen Gruppenmitglieder benachrichtigen\\
+     \textbf{/FS220/} Gleiches Prinzip wie beim vorherigen Punkt bei veränderung der Gruppenparameter\\

@@ -6,7 +6,7 @@ Die Musskriterien sind in Client- und Serverseitige Interaktionen aufgeteilt.\\
 Die Nummer ist bei zusammenhängenden Aktionen gleich.\\
 \subsection{Clientseitig}
      \textbf{/FC010/} Registrierung von Benutzern durch einmalige Namensfestlegung\\
-     \textbf{/FC020/} Löschen des eigenen Nutzeraccounts\\
+     \textbf{/FC020/} Löschen des eigenen Nutzeraccounts. Ist er Admin einer Gruppe oder wird eine Gruppe dadurch leer, die entsprechende Gruppe löschen\\
      \textbf{/FC030/} Erstellen von Gruppen mit eindeutigem Namen. Benutzer der die Gruppe erstellt wird zum Gruppenadministrator\\
      \textbf{/FC040/} Löschen von Gruppen (nur der Gruppenadministrator)   \\
      \textbf{/FC050/} Erstellen von Gruppenlinks (nur Admin). Diese dienen als Einladung für andere Benutzer \\
@@ -42,7 +42,7 @@ Die Nummer ist bei zusammenhängenden Aktionen gleich.\\
      \textbf{/FC170/} Änderung des Benutzernamens nach erstmaliger Registrierung\\
      \textbf{/FC180/} Gruppenmitglieder zu Administratoren machen                \\
      \textbf{/FC190/} Änderung des Gruppennamens nach erstellen der Gruppe        \\
-     \textbf{/FC200/} Benutzer nach langer Inaktivität löschen                     \\
+     \textbf{/FC200/} Benutzer nach langer Inaktivität löschen. Wird eine Gruppe dadurch leer: Gruppe löschen\\
      \textbf{/FC210/} Anzeigen der Namen von Gruppenmitgliedern, die den Go-Button schon gedrückt haben\\
      \textbf{/FC220/} Benachrichtigung über das 'Aufbrechen' anderer Gruppenmitglieder\\
      \textbf{/FC230/} Benachrichtigung bei ändern eines Treffpunkt Parameters (Ort/Uhrzeit)\\

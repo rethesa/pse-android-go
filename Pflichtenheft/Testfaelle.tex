@@ -3,71 +3,205 @@
 %\begin{tabular}{ll}
 \textbf{/T010/} Benutzer registrieren (FC010) \\
 \begin{itemize}
-Der Benutzer wählt einen Benutzernamen.
-ist der Benutzername gültig, liegt auf dem Server ein Tupel (Benutzername, ID) vor.
+Voraussetzung: der Benutzer ist mit dem Internet verbunden.
+Der Benutzer gibt einen gültigen Benutzernamen ein.
+Nach der Aktion liegt ein Tupel (Benutzername, ID) auf dem Server vor.
 \end{itemize}
 
-\textbf{/T020/} Benutzeraccount löschen (FC020) \\
+\textbf{/T020/} Benutzer registrieren Fehlschlag 1 (FC010) \\
 \begin{itemize}
+Voraussetzung: der Benutzer ist mit dem Internet verbunden.
+Der Benutzer gibt einen ungültigen Benutzernamen ein.
+Nach der Aktion liegt kein Tupel (Benutzername, ID) auf dem Server vor.
+\end{itemize}
+
+\textbf{/T030/} Benutzer registrieren Fehlschlag 2 (FC010) \\
+\begin{itemize}
+Voraussetzung: der Benutzer ist nicht mit dem Internet verbunden.
+Der Benutzer gibt einen Benutzernamen ein.
+Nach der Aktion liegt kein Tupel (Benutzername, ID) auf dem Server vor.
+\end{itemize}
+
+\textbf{/T040/} Benutzeraccount löschen (FC020) \\
+\begin{itemize}
+Voraussetzung: der Benutzer ist mit dem Internet verbunden.
 Der Benutzer wählt aus, seinen Account zu löschen.
-Bei erfolgreicher Ausführung ist das Tupel (Benutzername, ID) vom Server gelöscht.
+Nach der Ausführung ist das Tupel (Benutzername, ID) vom Server gelöscht.
 \end{itemize}
 
-\textbf{/T030/} Erstellen einer Gruppe (FC030)\\
+\textbf{/T050/} Benutzeraccount löschen Fehlschlag (FC020) \\
 \begin{itemize}
+Voraussetzung: der Benutzer ist nicht mit dem Internet verbunden.
+Der Benutzer wählt aus, seinen Account zu löschen.
+Nach der Ausführung besteht das Tupel (Benutzername, ID) weiterhin auf dem Server.
+\end{itemize}
+
+\textbf{/T060/} Erstellen einer Gruppe (FC030)\\
+\begin{itemize}
+Voraussetzung: der Benutzer ist mit dem Internet verbunden.
 Der Benutzer wählt Gruppe erstellen im Menü aus und gibt einen Namen ein.
-Bei eindeutigem Namen liegt auf dem Server eine Gruppe vor, mit dem Ersteller als einzigem Mitglied.
+Als Folge liegt auf dem Server eine Gruppe vor, mit dem Ersteller als einzigem Mitglied.
 \end{itemize}
 
-\textbf{/T040/} Löschen einer Gruppe (FC040)\\
+\textbf{/T070/} Erstellen einer Gruppe Fehlschlag (FC030)\\
+\begin{itemize}
+Voraussetzung: der Benutzer ist nicht mit dem Internet verbunden.
+Der Benutzer wählt Gruppe erstellen im Menü aus und gibt einen Namen ein.
+Es wird keine neue Gruppe erzeugt, die auf dem Server auch nicht vorliegt.
+\end{itemize}
+
+\textbf{/T080/} Löschen einer Gruppe (FC040)\\
+Voraussetzung: der Benutzer ist mit dem Internet verbunden.
 Der Benutzer wählt aus, eine seiner selbst erstellten Gruppen zu löschen.
-Bei Erfolg ist die Gruppe sowohl vom Server, als auch bei den Mitgliedern gelöscht.
+Danach ist die Gruppe sowohl vom Server, als auch bei den Mitgliedern gelöscht.
 \begin{itemize}
 
-\textbf{/T050/} Erstellen eines Gruppenlinks (FC050)\\
+\textbf{/T090/} Löschen einer Gruppe Fehlschlag (FC040)\\
+Voraussetzung: der Benutzer ist nicht mit dem Internet verbunden.
+Der Benutzer wählt aus, eine seiner selbst erstellten Gruppen zu löschen.
+Die Gruppe bleibt sowohl beim Benutzer, als auch auf dem Server bestehen.
+\begin{itemize}
+
+\textbf{/T100/} Erstellen eines Gruppenlinks (FC050)\\
 Der Benutzer hat eine Gruppe erstellt und will Mitglieder einladen.
+Er ist mit dem Internet verbunden.
 Er wählt im Gruppenmenü der entsprechenden Gruppe "Mitglieder einladen" aus.
-Bei Erfolg erhält der Benutzer einen Gruppenlink, der auch in der Gruppe gespeichert ist.
+Der Benutzer erhält einen Gruppenlink, der auch in der Gruppe gespeichert ist.
 \begin{itemize}
 
-\textbf{/T060/} Beitreten einer Gruppe (FC060)\\
+\textbf{/T110/} Erstellen eines Gruppenlinks Fehlschlag (FC050)\\
+Der Benutzer hat eine Gruppe erstellt und will Mitglieder einladen.
+Er ist nicht mit dem Internet verbunden.
+Er wählt im Gruppenmenü der entsprechenden Gruppe "Mitglieder einladen" aus.
+Der Benutzer erhält keinen Gruppenlink und in der Gruppe auf dem Server ist auch kein neuer Link.
 \begin{itemize}
-Voraussetzung: Gruppe besteht, Benutzer ist registriert.
+
+\textbf{/T120/} Beitreten einer Gruppe (FC060)\\
+\begin{itemize}
+Voraussetzung: Gruppe besteht, Benutzer ist registriert und mit dem Internet verbunden.
 Der Benutzer bekommt einen Link zugesendet und öffnet ihn mit der App.
-Bei erfolgreichem Beitritt, ist der Benutzer in der Liste der entsprechenden Gruppe.
+Nach öffnen des Links, ist der Benutzer in der Liste der entsprechenden Gruppe.
 Außerdem ist der genutzte Link aus der Gruppe gelöscht.
 \end{itemize}
 
-\textbf{/T070/} Verlassen einer Gruppe (FC070)\\
+\textbf{/T130/} Beitreten einer Gruppe Fehlschlag (FC060)\\
 \begin{itemize}
-Voraussetzung: Benutzer ist mitglied in der Gruppe.
+Voraussetzung: Gruppe besteht, Benutzer ist registriert aber nicht mit dem Internet verbunden.
+Der Benutzer hat einen Link erhalten und öffnet ihn mit der App.
+Nach öffnen des Links, ist der Benutzer nicht in der Liste der entsprechenden Gruppe.
+Der Link bleibt in der Gruppe auf dem Server gespeichert.
+\end{itemize}
+
+\textbf{/T140/} Verlassen einer Gruppe (FC070)\\
+\begin{itemize}
+Voraussetzung: Benutzer ist mitglied in der Gruppe und mit dem Internet verbunden.
 Benutzer wählt "Gruppe verlassen" aus.
-Bei Erfolg ist der Benutzer nicht mehr in der Gruppenliste auf dem Server.
+Nach der Aktion ist der Benutzer nicht mehr in der Gruppenliste auf dem Server.
 Zudem ist die Gruppe nicht mehr in der Liste des Benutzers.
 \end{itemize}
 
-\textbf{/T080/} Entfernung von Gruppenmitgliedern (FC080)\\
+\textbf{/T150/} Verlassen einer Gruppe Fehlschlag (FC070)\\
 \begin{itemize}
-Voraussetzung: Benutzer ist Admin in der Gruppe.
+Voraussetzung: Benutzer ist mitglied in der Gruppe aber nicht mit dem Internet verbunden.
+Benutzer wählt "Gruppe verlassen" aus.
+Nach der Aktion verbleibt der Benutzer in der Gruppenliste auf dem Server.
+Zudem ist die Gruppe immernoch in der Liste des Benutzers.
+\end{itemize}
+
+\textbf{/T160/} Entfernung von Gruppenmitgliedern (FC080)\\
+\begin{itemize}
+Voraussetzung: Benutzer ist Admin in der Gruppe und mit dem Internet verbunden.
+In der Gruppe befindet sich ein Mitglied das entfernt werden soll.
 Der Benutzer wählt bei einem Mitglied "Mitglied entfernen" aus.
-Bei erfolgreicher Ausführung ist das Mitglied nicht mehr in seiner Liste.
+Nach der Ausführung ist das Mitglied nicht mehr in seiner Liste.
 Auf dem Server ist das Mitglied aus der Gruppenliste gelöscht.
 \end{itemize}
 
-\textbf{/T090/} Festlegen des Zielorts (FC090)\\
+\textbf{/T170/} Entfernung von Gruppenmitgliedern Fehlschlag (FC080)\\
 \begin{itemize}
-Voraussetzung: Benutzer ist Admin in der Gruppe.
+Voraussetzung: Benutzer ist Admin in der Gruppe aber nicht mit dem Internet verbunden.
+In der Gruppe befindet sich ein Mitglied das entfernt werden soll.
+Der Benutzer wählt bei einem Mitglied "Mitglied entfernen" aus.
+Nach der Ausführung bleibt das gewählte Mitglied in seiner Liste.
+Auf dem Server ist das Mitglied immernoch in der Gruppenliste.
+\end{itemize}
+
+\textbf{/T180/} Festlegen des Zielorts (FC090)\\
+\begin{itemize}
+Voraussetzung: Benutzer ist Admin in der Gruppe und mit dem Internet verbunden.
 Der Benutzer editiert den Zielort der Gruppe.
-Bei Erfolg ist der neue Zielort in der Gruppe sowohl beim Benutzer,
+Nach der Ausführung ist der neue Zielort in der Gruppe sowohl beim Benutzer,
 als auch auf dem Server gespeichert.
 \end{itemize}
 
-\textbf{/T100/} Festlegen der Uhrzeit (FC100)\\
+\textbf{/T190/} Festlegen der Uhrzeit (FC100)\\
 \begin{itemize}
-Voraussetzung: Benutzer ist Admin in der Gruppe.
+Voraussetzung: Benutzer ist Admin in der Gruppe und mit dem Internet verbunden.
 Der Benutzer editiert die Uhrzeit der Gruppe.
-Bei Erfolg ist die neue Uhrzeit beim Benutzer und auf dem Server gespeichert.
+Nach der Aktion ist die neue Uhrzeit beim Benutzer und auf dem Server gespeichert.
 \end{itemize}
+
+\textbf{/T200/} Festlegen eines Gruppenparameters Fehlschlag (FC100 / FC090)\\
+\begin{itemize}
+Voraussetzung: Benutzer ist Admin in der Gruppe aber nicht mit dem Internet verbunden.
+Der Benutzer editiert Uhrzeit/Zielort der Gruppe.
+Nach der Aktion ist die alte Uhrzeit/ der alte Zielort beim Benutzer und auf dem Server unverändert.
+\end{itemize}
+
+\textbf{/T210/} Drücken des Go-Buttons (FC110)\\
+\begin{itemize}
+Voraussetzung: Benutzer ist in der Gruppe und mit dem Internet verbunden, GPS aktiviert.
+Der Benutzer drückt den Go-Button und seine GPS-Daten werden vom Server empfangen.
+\end{itemize}
+
+\textbf{/T220/} Drücken des Go-Buttons ohne Internetverbindung (FC110)\\
+\begin{itemize}
+Voraussetzung: Benutzer ist in der Gruppe und nicht mit dem Internet verbunden.
+Der Benutzer drückt den Go-Button aber seine GPS-Daten werden nicht vom Server empfangen.
+\end{itemize}
+
+\textbf{/T230/} Erneutes Drücken des Go-Buttons (FC120)\\
+\begin{itemize}
+Voraussetzung: Benutzer ist in der Gruppe und mit dem Internet verbunden, GPS aktiviert.
+Der Benutzer drückt den Go-Button ein zweites Mal und seine GPS-Daten werden nicht mehr vom Server empfangen.
+\end{itemize}
+
+\textbf{/T240/} Anzeigen der GPS-Daten auf der Karte (FC130)\\
+\begin{itemize}
+Voraussetzung: Benutzer ist in der Gruppe und mit dem Internet verbunden.
+Der Benutzer empfängt GPS-Daten vom Server. Diese werden bei ausreichend geringem Abstand gemittelt
+und auf der Karte als einzelner Punkt angezeigt.
+\end{itemize}
+
+\textbf{/T250/} Verschlüsselung zwischen Client und Server (FC140 / FS130)\\
+\begin{itemize}
+Voraussetzung: Benutzer ist in der Gruppe und mit dem Internet verbunden.
+Von der App an das Internet gehende Daten sind verschlüsselt.
+Vom Server ausgehende Daten sind ebenfalls verschlüsselt.
+\end{itemize}
+
+\textbf{/T260/} Abrufen aktueller Gruppenparameter (FC150)\\
+\begin{itemize}
+Voraussetzung: Benutzer ist in der Gruppe und mit dem Internet verbunden.
+Der Benutzer hat die App geöffnet.
+Beim Server geht eine Anfrage ein über aktuelle Gruppenparameter des Benutzers.
+\end{itemize}
+
+\textbf{/T270/} Abrufen aktueller Gruppenparameter ohne Internetverbindung (FC150)\\
+\begin{itemize}
+Voraussetzung: Benutzer ist in der Gruppe aber nicht mit dem Internet verbunden.
+Der Benutzer hat die App geöffnet.
+Beim Server gehen keine Anfragem ein über aktuelle Gruppenparameter des Benutzers.
+\end{itemize}
+
+\textbf{Zu den Wunschkriterien:}\\
+
+\textbf{/T280/} Drücken des Go-Buttons ohne aktiviertem GPS (FC160)\\
+\begin{itemize}
+Voraussetzung: Benutzer ist in Gruppe und ist mit dem Internet verbunden.
+Benutzer drückt Go-Button, beim Server wird % TBC..
+\end{itemize}
+
 
 
 

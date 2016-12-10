@@ -1,0 +1,65 @@
+Codierung für die verschiedenen daten?
+puffert = überschreibt immer mit aktuellstem wert
+
+client:
+####################################
+client sendet einmalig:
+cmd: beginne GPS-übertragung
+seine ID
+gruppe(n) die es betrifft
+GPS-Daten
+
+client sendet nachfolgend:
+seine ID
+GPS-Daten
+timestamp
+
+client beendet übertragung mit:
+seine ID
+cmd: übertragung beenden
+
+nach timeout:
+schließe verbindung
+
+Server:
+####################################
+server erhält verbindungsanfrage des clients
+server erzeugt neuen thread für verbindung
+
+server empfängt+speichert :
+gruppe(n) die es betrifft
+go status für den client mit der ID
+puffert letzten standort von client
+puffert timestamp
+
+Server sendet an andere mitglieder (auf anfrage):
+server sendet einmalig:
+ID des clients
+gruppe(n) in der client mit ID go status hat
+go status des clients
+
+server sendet nachfolgend:
+clients ID
+GPS-Daten
+timestamp
+
+server sendet abschließend:
+go-deaktivieren status des clients mit ID
+gruppe(n) die es betrifft
+
+Gruppenmitglieder = andere Clients:
+####################################
+mitglied empfängt+speichert einmalig:
+gruppe(n) die es betrifft
+go status des clients mit ID
+puffert GPS-Daten des clients
+puffert timestamp
+
+mitglied empfängt+speichert folgend:
+client ID
+puffert GPS-daten
+puffert timestamp
+
+mitglied empfängt abschließend:
+go-deaktivieren status des clients
+gruppe(n) die es betrifft

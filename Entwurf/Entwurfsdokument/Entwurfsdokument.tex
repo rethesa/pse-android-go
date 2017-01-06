@@ -1,0 +1,49 @@
+\documentclass[parskip=full]{scrartcl}
+
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}	
+\usepackage[utf8]{inputenc}	
+
+\usepackage{graphicx}
+\usepackage[nooneline]{caption}
+\usepackage{wrapfig}
+\usepackage{pdfpages}
+\usepackage{hyperref}	% Als letztes laden.
+\hypersetup{
+pdftitle={
+	PSE: Entwurfsdokument},
+bookmarks=true
+}
+
+\begin{document}
+\title{Android-Go-App Entwurfsdokument}
+\author{\\Dennis Bäuml,\\ Matthias Dressel,\\ Theresa Heine,\\ Victoria Karl, \\ Tarek Wilkening\\
+	\\ \textbf{Betreuer:} \\Erik Burger, \\Axel Busch, \\Heiko Klare \\}
+	
+\date{\today}
+\maketitle
+\newpage
+\tableofcontents
+\newpage
+
+\input{Grobentwurf}
+\newpage
+\input{Feinentwurf}
+\newpage
+\input{Sequenzdiagramme}
+\newpage
+\input{Aenderungen}
+\newpage
+\input{Klassendiagramm}
+
+
+%Erfahrungsgemäßer Umfang:
+%100 Seiten, primär Klassenbeschreibungen
+%40–80 Klassen ohne Interfaces
+%Möglicherweise weitere UML-Diagrammarten?
+%Formale Spezifikation von Kernkomponenten?
+
+%Auch nicht zu vergessen sind Dinge die nicht im UML auftauchen. Bilder, SQL-Schema, JSONSchema,
+%Tools wie ein Leveleditor, etc.
+
+\end{document}

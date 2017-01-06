@@ -7,6 +7,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.androidgoapp.androidgoapp.Model.keineAhnungWieIchDasNennenSoll.Appointment;
+import com.example.androidgoapp.androidgoapp.Model.keineAhnungWieIchDasNennenSoll.AppointmentDate;
+import com.example.androidgoapp.androidgoapp.Model.keineAhnungWieIchDasNennenSoll.AppointmentDestination;
 import com.example.androidgoapp.androidgoapp.R;
 
 /**
@@ -15,7 +18,9 @@ import com.example.androidgoapp.androidgoapp.R;
 
 public class GroupAppointmentFragment extends Fragment implements View.OnClickListener
 {
-    private Appointment appointment;
+    private AppointmentDestination appointmentDestination;
+    private AppointmentDate appointmentDate;
+//    private Appointment appointment;
 
     public static GroupAppointmentFragment create()
     {
@@ -53,7 +58,17 @@ public class GroupAppointmentFragment extends Fragment implements View.OnClickLi
 
     }
 
-    public Appointment getAppointment() {
+/*    public Appointment getAppointment() {
         return appointment;
     }
+*/
+
+    public AppointmentDestination getAppointmentDestination() {
+        return appointmentDestination;
+    }
+
+    public AppointmentDate getAppointmentDate() {
+        return appointmentDate;
+    }
+
 }

@@ -1,10 +1,11 @@
-package com.example.androidgoapp.androidgoapp.ActivityAndFragments;
+package com.example.androidgoapp.androidgoapp.Model.keineAhnungWieIchDasNennenSoll;
 
 import android.webkit.GeolocationPermissions;
 
 import java.sql.Time;
 import java.util.Date;
 
+//if destination and date is definabel individual, this class is waste
 
 /**
  * Created by Schokomonsterchen on 21.12.2016.

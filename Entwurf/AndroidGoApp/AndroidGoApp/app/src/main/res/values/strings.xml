@@ -7,5 +7,6 @@
     <string name="place">Enter place…</string>
     <string name="appointment">hier muss aber der aktuelle Status des treffens stehen</string>
     <string name="addMember">add Member</string>
+    <string name="selectTime">select Time</string>
 
 </resources>

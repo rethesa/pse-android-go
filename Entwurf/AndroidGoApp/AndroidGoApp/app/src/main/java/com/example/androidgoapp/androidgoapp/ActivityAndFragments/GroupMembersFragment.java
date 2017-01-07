@@ -39,7 +39,7 @@ public class GroupMembersFragment extends Fragment implements View.OnClickListen
 
     }
 
-    //TODO: Button member(1).. member(numberOfMember) initialisieren
+    //TODO: Button member(1).. member(numberOfMember) initialisieren --> recycle fragment
 
     /**
      * um den Link zu teilen

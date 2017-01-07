@@ -9,6 +9,10 @@ public class Appointment {
     private AppointmentDate appointmentDate;
     private AppointmentDestination appointmentDestination;
 
+    public void Appointment() {
+
+    }
+
     protected void setAppointmentDate(String stringDate) {
         appointmentDate.setDate(stringDate);
     }

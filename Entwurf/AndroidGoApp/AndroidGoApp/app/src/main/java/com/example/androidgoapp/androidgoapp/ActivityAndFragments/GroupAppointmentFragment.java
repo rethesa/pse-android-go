@@ -18,9 +18,9 @@ import com.example.androidgoapp.androidgoapp.R;
 
 public class GroupAppointmentFragment extends Fragment implements View.OnClickListener
 {
-    private AppointmentDestination appointmentDestination;
-    private AppointmentDate appointmentDate;
-//    private Appointment appointment;
+//    private AppointmentDestination appointmentDestination;
+//    private AppointmentDate appointmentDate;
+    private Appointment appointment;
 
     public static GroupAppointmentFragment create()
     {
@@ -37,7 +37,7 @@ public class GroupAppointmentFragment extends Fragment implements View.OnClickLi
     }
 
     /**
-     * hier weren die Button map und next implementiert
+     * hier weren die Button map, selectTime und next implementiert
      * @param view
      */
     @Override
@@ -58,12 +58,12 @@ public class GroupAppointmentFragment extends Fragment implements View.OnClickLi
 
     }
 
-/*    public Appointment getAppointment() {
+    public Appointment getAppointment() {
         return appointment;
     }
-*/
 
-    public AppointmentDestination getAppointmentDestination() {
+
+/*    public AppointmentDestination getAppointmentDestination() {
         return appointmentDestination;
     }
 
@@ -71,4 +71,5 @@ public class GroupAppointmentFragment extends Fragment implements View.OnClickLi
         return appointmentDate;
     }
 
+*/
 }

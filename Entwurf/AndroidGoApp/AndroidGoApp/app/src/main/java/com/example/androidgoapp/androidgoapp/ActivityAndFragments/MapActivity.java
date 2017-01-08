@@ -15,13 +15,26 @@ public class MapActivity extends AppCompatActivity {
     //<GoService>
     //<Group.name>
 
-    public FeedReaderDbHelper myDbHelper;
+    //das ist im Moment doppelt
+    private FeedReaderDbHelper myDbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
         myDbHelper = new FeedReaderDbHelper(this);
+    }
+
+       /*
+    Since getWritableDatabase() and getReadableDatabase() are expensive to call when the database
+    is closed, you should leave your database connection open for as long as you possibly need to
+    access it. Typically, it is optimal to close the database in the onDestroy() of the calling
+    Activity.*/
+
+    @Override
+    protected void onDestroy() {
+        myDbHelper.close();
+        super.onDestroy();
     }
 
 

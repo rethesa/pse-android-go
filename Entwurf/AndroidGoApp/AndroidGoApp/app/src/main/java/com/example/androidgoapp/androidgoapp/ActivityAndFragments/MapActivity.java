@@ -15,13 +15,13 @@ public class MapActivity extends AppCompatActivity {
     //<GoService>
     //<Group.name>
 
-    FeedReaderDbHelper mDbHelper;
+    public FeedReaderDbHelper myDbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
-        mDbHelper = new FeedReaderDbHelper(this);
+        myDbHelper = new FeedReaderDbHelper(this);
     }
 
 

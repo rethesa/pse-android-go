@@ -76,4 +76,29 @@ public class Group {
     }
 
 
+
+
+
+
+    //to write in database
+    public int getGroupID() {
+        return groupID;
+    }
+
+    public String getGroupName() {
+        return groupName;
+    }
+
+    public GoService getGoService() {
+        return goService;
+    }
+
+    public AppointmentDate getAppointmentDate() {
+        return date;
+    }
+
+    public AppointmentDestination getAppointmentDest() {
+        return destination;
+    }
+
 }

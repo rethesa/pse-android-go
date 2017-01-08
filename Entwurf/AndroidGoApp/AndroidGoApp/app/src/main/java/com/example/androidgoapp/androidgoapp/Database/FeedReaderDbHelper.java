@@ -4,9 +4,9 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import static com.example.androidgoapp.androidgoapp.Database.FeedReaderContract.FeedEntry.SQL_CREATE_ENTRIES;
-import static com.example.androidgoapp.androidgoapp.Database.FeedReaderContract.FeedEntry.SQL_DELETE_ENTRIES;
-import static com.example.androidgoapp.androidgoapp.Database.FeedReaderContract.FeedEntry.TABLE_NAME;
+import static com.example.androidgoapp.androidgoapp.Database.FeedReaderContract.SQL_CREATE_ENTRIES;
+import static com.example.androidgoapp.androidgoapp.Database.FeedReaderContract.SQL_DELETE_ENTRIES;
+
 
 /**
  * Created by Theresa on 07.01.2017.
@@ -15,6 +15,7 @@ import static com.example.androidgoapp.androidgoapp.Database.FeedReaderContract.
 public class FeedReaderDbHelper extends SQLiteOpenHelper {
 
     public static final String DATABASE_NAME = "groups.db";
+    // If you change the database schema, you must increment the database version.
     public static final int DATABASE_VERSION = 1;
 
 
@@ -38,5 +39,6 @@ public class FeedReaderDbHelper extends SQLiteOpenHelper {
     public void onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         onUpgrade(db, oldVersion, newVersion);
     }
+
 
 }

@@ -19,13 +19,13 @@ public final class FeedReaderContractAllocation {
         public static final String COL3_US_ID = "user_id";
     }
 
-    protected static final String SQL_CREATE_ENTRIES_GROUP =
+    protected static final String SQL_CREATE_ENTRIES_ALLOCATION =
             "CREATE TABLE " + FeedReaderContractGroup.FeedEntryGroup.TABLE_NAME + " (" +
                     FeedEntryAllocation.COL1_ID + " INTEGER PRIMARY KEY," +
                     FeedEntryAllocation.COL2_GR_ID + " INTEGER," +
                     FeedEntryAllocation.COL3_US_ID + " INTEGER)";
 
-    protected static final String SQL_DELETE_ENTRIES_GROUP =
+    protected static final String SQL_DELETE_ENTRIES_ALLOCATION =
             "DROP TABLE IF EXISTS " + FeedEntryAllocation.TABLE_NAME;
 
 }

@@ -18,7 +18,6 @@ public class DBHandlerGroup extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NAME = "group.db";
 
-
     public DBHandlerGroup(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }

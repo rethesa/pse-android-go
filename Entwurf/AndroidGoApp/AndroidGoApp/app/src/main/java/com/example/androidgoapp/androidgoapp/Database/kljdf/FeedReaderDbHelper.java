@@ -1,11 +1,11 @@
-package com.example.androidgoapp.androidgoapp.Database;
+package com.example.androidgoapp.androidgoapp.Database.kljdf;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import static com.example.androidgoapp.androidgoapp.Database.FeedReaderContract.SQL_CREATE_ENTRIES;
-import static com.example.androidgoapp.androidgoapp.Database.FeedReaderContract.SQL_DELETE_ENTRIES;
+import static com.example.androidgoapp.androidgoapp.Database.kljdf.FeedReaderContract.SQL_CREATE_ENTRIES;
+import static com.example.androidgoapp.androidgoapp.Database.kljdf.FeedReaderContract.SQL_DELETE_ENTRIES;
 
 
 /**

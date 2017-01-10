@@ -1,8 +1,14 @@
 package com.example.androidgoapp.androidgoapp.Database;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import com.example.androidgoapp.androidgoapp.Model.keineAhnungWieIchDasNennenSoll.Group;
+
+import java.util.ArrayList;
+import java.util.Objects;
 
 /**
  * General functions of the group database.
@@ -33,6 +39,8 @@ public class DBHelperGroup extends SQLiteOpenHelper {
      */
     private static final String SQL_DELETE_ENTRIES_GROUP =
             "DROP TABLE IF EXISTS " + FeedReaderContractGroup.FeedEntryGroup.TABLE_NAME;
+
+    private SQLiteDatabase db;
 
     /**
      * Constructor to define general information of the database.
@@ -65,6 +73,46 @@ public class DBHelperGroup extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int oldVersion, int newVersion) {
         sqLiteDatabase.execSQL(SQL_DELETE_ENTRIES_GROUP);
         onCreate(sqLiteDatabase);
+    }
+
+    /**
+     * Add a group to database.
+     * @param group to add
+     * @return return true if insertig was successful
+     */
+    public boolean insertData(Group group) {
+        db = this.getWritableDatabase();
+        return false;
+    }
+
+    /**
+     * Get information about the given group id.
+     * @param groupId to get information of
+     * @return information of the group
+     */
+    public Cursor readData(int groupId) {
+        db = this.getReadableDatabase();
+        Cursor res =  db.rawQuery( "select * from contacts where id=" + groupId + "", null );
+        return res;
+    }
+
+    /**
+     * Delete a group.
+     * @param group to delete
+     * @return true if deletion was successful
+     */
+    public boolean deleteData(Group group) {
+        return false;
+    }
+
+    /**
+     * Update data when information about the group have changed.
+     * @param group to update
+     * @return true if update was successful
+     */
+    public boolean updateData(Group group) {
+        db = this.getWritableDatabase();
+        return false;
     }
 
 }

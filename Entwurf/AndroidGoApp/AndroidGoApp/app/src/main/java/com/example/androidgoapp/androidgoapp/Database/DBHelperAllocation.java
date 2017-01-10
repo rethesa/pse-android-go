@@ -13,7 +13,7 @@ import com.example.androidgoapp.androidgoapp.Model.keineAhnungWieIchDasNennenSol
  * @version 1.0
  */
 
-public class DBHelperAllocation extends SQLiteOpenHelper implements DBHelper{
+public class DBHelperAllocation extends SQLiteOpenHelper {
 
     // If you change the database schema, you must increment the database version.
     private static final int DATABASE_VERSION = 1;
@@ -68,23 +68,42 @@ public class DBHelperAllocation extends SQLiteOpenHelper implements DBHelper{
         onCreate(sqLiteDatabase);
     }
 
-    public boolean insertData(String groupId, String userId) {
+    /**
+     * Make connection between group and group member
+     * @param groupId to identify the group to add the user to
+     * @param userId user to be added as member to the group
+     * @return true if adding was successful
+     */
+    public boolean insertData(int groupId, int userId) {
         db = this.getWritableDatabase();
         return false;
     }
 
-    @Override
-    public Cursor readData(String name) {
+    /**
+     * Get information about the given group id.
+     * @param id of the group or the member to get information about
+     * @return information about the group or the member
+     */
+    public Cursor readData(int id) {
         return null;
     }
 
-    @Override
-    public boolean deleteData(String name) {
+    /**
+     * Delete connection betwenn an group and its member.
+     * @param groupid the group in which to delte the member
+     * @param userId meber to delete in group
+     * @return true if deletion was successful
+     */
+    public boolean deleteData(int groupid, int userId) {
         return false;
     }
 
-    @Override
-    public boolean updateData(String name) {
+    /**
+     * Update data between group and group member
+     * @param id of group or member to update
+     * @return true if update was successful
+     */
+    public boolean updateData(int id) {
         return false;
     }
 }

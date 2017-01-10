@@ -3,7 +3,10 @@ package com.example.androidgoapp.androidgoapp.Database;
 import android.provider.BaseColumns;
 
 /**
- * Created by Theresa on 09.01.2017.
+ * Define the structure of all group members of all groups the actual user is member of and how
+ * they will be saved on the client.
+ * @author Thersa Heine
+ * @version 1.0
  */
 
 public final class FeedReaderContractUser {
@@ -11,22 +14,30 @@ public final class FeedReaderContractUser {
     private FeedReaderContractUser() {
     }
 
+    /**
+     * Inner class that defines the table contents.
+     */
     public static class FeedEntryUser implements BaseColumns {
+        /**
+         * Define the name of the table.
+         */
         public static final String TABLE_NAME = "user_client";
-        //columns of table
+
+        /**
+         * First column is the user id (PRIMARY KEY).
+         */
         public static final String COL1_USER_ID = "user_id";
+        /**
+         * Second column is the name of the user.
+         */
         public static final String COL2_USER_NAME = "user_name";
-        public static final String COL3_LAST_KNOWN_USER_POSITION = "last_known_user_position";
+        /**
+         * Third column is the latitude of the users actual position.
+         */
+        public static final String COL3_LATITUDE = "last_known_latitude";
+        /**
+         * Foruth column is the longitude of the users actual position.
+         */
+        public static final String COL4_LONGITUDE = "last_known_longitude";
     }
-
-    // Create table
-    protected static final String SQL_CREATE_ENTRIES_USER =
-            "CREATE TABLE " + FeedReaderContractGroup.FeedEntryGroup.TABLE_NAME + " (" +
-                    FeedEntryUser.COL1_USER_ID + " INTEGER PRIMARY KEY," +
-                    FeedEntryUser.COL2_USER_NAME + " TEXT," +
-                    FeedEntryUser.COL3_LAST_KNOWN_USER_POSITION + " INTEGER)";  //ähh, geht das überhaupt, da das ja eigentlich zwei sind????
-
-    // Delete table
-    protected static final String SQL_DELETE_ENTRIES_USER =
-            "DROP TABLE IF EXISTS " + FeedEntryUser.TABLE_NAME;
 }

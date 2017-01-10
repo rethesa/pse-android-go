@@ -1,8 +1,11 @@
 package com.example.androidgoapp.androidgoapp.Database;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import com.example.androidgoapp.androidgoapp.Model.keineAhnungWieIchDasNennenSoll.Group;
 
 /**
  * General functions of the allocation database.
@@ -10,11 +13,12 @@ import android.database.sqlite.SQLiteOpenHelper;
  * @version 1.0
  */
 
-public class DBHelperAllocation extends SQLiteOpenHelper {
+public class DBHelperAllocation extends SQLiteOpenHelper implements DBHelper{
 
     // If you change the database schema, you must increment the database version.
     private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NAME = "allocation.db";
+    private SQLiteDatabase db;
 
     /**
      * Create table with the defined entries.
@@ -62,5 +66,25 @@ public class DBHelperAllocation extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int oldVersion, int newVersion) {
         sqLiteDatabase.execSQL(SQL_DELETE_ENTRIES_ALLOCATION);
         onCreate(sqLiteDatabase);
+    }
+
+    public boolean insertData(String groupId, String userId) {
+        db = this.getWritableDatabase();
+        return false;
+    }
+
+    @Override
+    public Cursor readData(String name) {
+        return null;
+    }
+
+    @Override
+    public boolean deleteData(String name) {
+        return false;
+    }
+
+    @Override
+    public boolean updateData(String name) {
+        return false;
     }
 }

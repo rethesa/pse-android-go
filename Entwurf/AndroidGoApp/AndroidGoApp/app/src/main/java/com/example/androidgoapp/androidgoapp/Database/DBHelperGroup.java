@@ -16,7 +16,7 @@ import java.util.Objects;
  * @version 1.0
  */
 
-public class DBHelperGroup extends SQLiteOpenHelper {
+public class DBHelperGroup extends SQLiteOpenHelper implements DBHelper {
 
     // If you change the database schema, you must increment the database version.
     private static final int DATABASE_VERSION = 1;
@@ -87,30 +87,30 @@ public class DBHelperGroup extends SQLiteOpenHelper {
 
     /**
      * Get information about the given group id.
-     * @param groupId to get information of
+     * @param groupName name of the group to get information from
      * @return information of the group
      */
-    public Cursor readData(int groupId) {
+    public Cursor readData(String groupName) {
         db = this.getReadableDatabase();
-        Cursor res =  db.rawQuery( "select * from contacts where id=" + groupId + "", null );
+        Cursor res =  db.rawQuery( "select * from contacts where id=" + groupName + "", null );
         return res;
     }
 
     /**
      * Delete a group.
-     * @param group to delete
+     * @param groupName name of the group to delete
      * @return true if deletion was successful
      */
-    public boolean deleteData(Group group) {
+    public boolean deleteData(String groupName) {
         return false;
     }
 
     /**
      * Update data when information about the group have changed.
-     * @param group to update
+     * @param groupName name of the group to update
      * @return true if update was successful
      */
-    public boolean updateData(Group group) {
+    public boolean updateData(String groupName) {
         db = this.getWritableDatabase();
         return false;
     }

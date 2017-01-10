@@ -1,8 +1,12 @@
 package com.example.androidgoapp.androidgoapp.Database;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import com.example.androidgoapp.androidgoapp.Model.keineAhnungWieIchDasNennenSoll.Group;
+import com.example.androidgoapp.androidgoapp.Model.keineAhnungWieIchDasNennenSoll.SimpleUser2;
 
 /**
  * General functions of the user database.
@@ -10,12 +14,13 @@ import android.database.sqlite.SQLiteOpenHelper;
  * @version 1.0
  */
 
-public class DBHelperUser extends SQLiteOpenHelper {
+public class DBHelperUser extends SQLiteOpenHelper implements DBHelper{
 
     // If you change the database schema, you must increment the database version.
     private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NAME = "user.db";
 
+    private SQLiteDatabase db;
     /**
      * Create table with the defined entries.
      */
@@ -59,5 +64,25 @@ public class DBHelperUser extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int oldVersion, int newVersion) {
         sqLiteDatabase.execSQL(SQL_DELETE_ENTRIES_USER);
         onCreate(sqLiteDatabase);
+    }
+
+    public boolean insertData(SimpleUser2 user) {
+        db = this.getWritableDatabase();
+        return false;
+    }
+
+    @Override
+    public Cursor readData(String userName) {
+        return null;
+    }
+
+    @Override
+    public boolean deleteData(String userName) {
+        return false;
+    }
+
+    @Override
+    public boolean updateData(String userName) {
+        return false;
     }
 }

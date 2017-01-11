@@ -6,7 +6,7 @@ import android.database.Cursor;
  * Created by Theresa on 10.01.2017.
  */
 
-public interface DBHelper {
+public interface Service {
 
     public Cursor readData(String name);
     public boolean deleteData(String name);

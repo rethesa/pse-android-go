@@ -20,6 +20,10 @@ public abstract class SimpleUser2 {
         return userName;
     }
 
+    public int getUserID() {
+        return userID;
+    }
+
 
 
 

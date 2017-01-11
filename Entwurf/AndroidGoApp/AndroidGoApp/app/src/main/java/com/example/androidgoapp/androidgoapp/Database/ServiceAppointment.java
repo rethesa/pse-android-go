@@ -16,7 +16,7 @@ import java.util.List;
  * Informationen über Appointent bekommen: return Appointment
  */
 
-public class ServiceAppointment implements Service {
+public class ServiceAppointment {
 
     private final DBHelperAppointment dbHelperAppointment;
     private SQLiteDatabase db;
@@ -31,7 +31,8 @@ public class ServiceAppointment implements Service {
      * @param appointment of the group (date, time, destination)
      * @return
      */
-    public boolean insertAppointment(int groupID, Appointment appointment) {
+    protected boolean insertAppointment(int groupID, Appointment appointment) {
+        //TODO
         db = dbHelperAppointment.getWritableDatabase();
         try {
 
@@ -47,6 +48,7 @@ public class ServiceAppointment implements Service {
      * @return appointment object
      */
     public Appointment readAppointmentData(int groupID) {
+        //TODO
         return null;
     }
 
@@ -55,8 +57,8 @@ public class ServiceAppointment implements Service {
      * @param groupID delete the appointment of this group
      * @return true if the deletion was successful
      */
-    @Override
-    public boolean deleteData(int groupID) {
+    protected boolean deleteAppointmentData(int groupID) { //EIGENTLICH REICHT HIER PROTECTED
+        //TODO
         return false;
     }
 
@@ -66,8 +68,8 @@ public class ServiceAppointment implements Service {
      * @param groupID to actualise the corresponding appointment
      * @return true if update was successful
      */
-    @Override
     public boolean updateData(int groupID) {
+        //TODO
         return false;
     }
 

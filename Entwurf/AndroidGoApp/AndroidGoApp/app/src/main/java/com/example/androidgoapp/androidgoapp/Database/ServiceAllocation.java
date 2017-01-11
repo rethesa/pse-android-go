@@ -1,6 +1,7 @@
 package com.example.androidgoapp.androidgoapp.Database;
 
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
@@ -30,19 +31,35 @@ public class ServiceAllocation {
      * Mitglied zu Admin machen
      */
 
-    
+
     /**
      * This method is called, when ServiceGroup a new group to it's database adds. It creates a new
      * connection between group and group member. The very first group member is always admin,
-     * because he created the group.
+     * because he created the group. The allocation Id will increase automatically.
      * @param groupId to put in second column
-     * @param userIdAdmin to add in third column and because he's the first user in this group, he
-     *                    is admin by default (admin == true)
      * @return true if adding was successful
      */
-    protected void insertNewGroup(int groupId, int userIdAdmin) {
+    protected void insertNewGroup(int groupId) {
         db = dbHelperAllocation.getWritableDatabase();
         //TODO
+    }
+
+    /**
+     * Add another user to the group.
+     * @param userID
+     * @param groupID
+     */
+    protected void insertNewGroupMemberAlloc(int groupID, int userID) {
+
+    }
+
+    /**
+     * Make another group member to admin
+     * @param groupId
+     * @param userID of the user to become admin
+     */
+    public void makeGroupMemberToAdmin(int groupId, int userID) { //PUBLIC ODER PROTECTED????
+
     }
 
     /**
@@ -50,35 +67,27 @@ public class ServiceAllocation {
      * in the user list have to be deleted, because they are in no other group with the actual user).
      * @param groupID of the group to delete
      */
-    public void deleteOldGroup(int groupID) {
+    protected void deleteOldGroup(int groupID) {
+        //TODO
+        //vielleicht noch überprüfen, ob jetzt die gelöschten userId's auch in keiner anderen Gruppe merh auftauchen
+        //damit diese dann ganz von user.db auch gelöscht werden können
     }
 
     /**
-     * Get all members where the second column of the database equals the given group Id
-     * @param groupID of the group to get the members from
-     * @return a list of the member id's
+     *
+     * @param groupID
+     * @return
      */
-    public List<String> getAllMembersOfOneGroup(int groupID) {
-        //getAllUserIdsOfOneGroup();
-        ServiceUser user = null;
-        user.getAllUsers(); //compare the user id's we got with the user id's of all users and
-        //add these names to the list where the id is in both lists
-        db = dbHelperAllocation.getReadableDatabase();
-        List<String> res = null;
-        return res;
+    protected List<Integer> getAllUserIdsOfOneGroup(int groupID) {
+
+        return null;
     }
-
-
-
-
-
-
     /**
      * Get information about the given group id.
      * @param id of the group or the member to get information about
      * @return information about the group or the member
      */
-    public Cursor readData(int id) {
+    public Cursor readData(int alloc_id) {
         return null;
     }
 
@@ -94,10 +103,10 @@ public class ServiceAllocation {
 
     /**
      * Update data between group and group member
-     * @param id of group or member to update
+     * @param alloc_id of group or member to update
      * @return true if update was successful
      */
-    public boolean updateData(int id) {
+    public boolean updateData(int alloc_id) {
         return false;
     }
 

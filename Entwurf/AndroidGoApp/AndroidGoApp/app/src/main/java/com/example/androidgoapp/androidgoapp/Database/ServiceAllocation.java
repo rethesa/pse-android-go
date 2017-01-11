@@ -4,6 +4,8 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import java.util.List;
+
 /**
  * Created by Theresa on 11.01.2017.
  */
@@ -18,15 +20,58 @@ public class ServiceAllocation {
     }
 
     /**
-     * Make connection between group and group member
-     * @param groupId to identify the group to add the user to
-     * @param userId user to be added as member to the group
+     * Mitglied zu Gruppe hinzufügen
+     * Mitglied aus Gruppe entfernen
+     * Alle Mitglieder einer Gruppe bekommen
+     * Alle Gruppen des actual users bekommen
+     * Admins einer Gruppe bekommen
+     * Neue Gruppe hinzufügen+++
+     * Alte Gruppe löschen +++
+     * Mitglied zu Admin machen
+     */
+
+    
+    /**
+     * This method is called, when ServiceGroup a new group to it's database adds. It creates a new
+     * connection between group and group member. The very first group member is always admin,
+     * because he created the group.
+     * @param groupId to put in second column
+     * @param userIdAdmin to add in third column and because he's the first user in this group, he
+     *                    is admin by default (admin == true)
      * @return true if adding was successful
      */
-    public boolean insertData(int groupId, int userId) {
+    protected void insertNewGroup(int groupId, int userIdAdmin) {
         db = dbHelperAllocation.getWritableDatabase();
-        return false;
+        //TODO
     }
+
+    /**
+     * Deletes all entries with this groupID in the second column (also needs to check, if some users
+     * in the user list have to be deleted, because they are in no other group with the actual user).
+     * @param groupID of the group to delete
+     */
+    public void deleteOldGroup(int groupID) {
+    }
+
+    /**
+     * Get all members where the second column of the database equals the given group Id
+     * @param groupID of the group to get the members from
+     * @return a list of the member id's
+     */
+    public List<String> getAllMembersOfOneGroup(int groupID) {
+        //getAllUserIdsOfOneGroup();
+        ServiceUser user = null;
+        user.getAllUsers(); //compare the user id's we got with the user id's of all users and
+        //add these names to the list where the id is in both lists
+        db = dbHelperAllocation.getReadableDatabase();
+        List<String> res = null;
+        return res;
+    }
+
+
+
+
+
 
     /**
      * Get information about the given group id.
@@ -55,4 +100,18 @@ public class ServiceAllocation {
     public boolean updateData(int id) {
         return false;
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

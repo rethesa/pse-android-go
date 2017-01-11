@@ -8,6 +8,7 @@ public class Appointment {
 
     private AppointmentDate appointmentDate;
     private AppointmentDestination appointmentDestination;
+    private DestinationPosition destinationPosition; //latitude and longitude
 
     protected void setAppointmentDate(String stringDate) {
         appointmentDate.setDate(stringDate);
@@ -16,5 +17,7 @@ public class Appointment {
     protected void setAppointmentDestination(String stringappointmentDestination) {
         appointmentDestination.setDestination(stringappointmentDestination);
     }
+
+
 
 }

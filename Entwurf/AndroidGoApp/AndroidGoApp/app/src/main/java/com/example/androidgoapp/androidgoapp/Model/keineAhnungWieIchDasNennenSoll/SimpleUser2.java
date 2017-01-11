@@ -16,6 +16,10 @@ public abstract class SimpleUser2 {
         //this.userPosition
     }
 
+    public String getUserName() {
+        return userName;
+    }
+
 
 
 

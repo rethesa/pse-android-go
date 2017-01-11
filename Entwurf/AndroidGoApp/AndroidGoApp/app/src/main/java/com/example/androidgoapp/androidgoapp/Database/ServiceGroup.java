@@ -42,7 +42,7 @@ public class ServiceGroup {
         //TODO
         sAlloc.insertNewGroup(group.getGroupID());//adds to allocation
         sAlloc.insertNewGroupMemberAlloc(group.getGroupID(), userID); //adds first group member
-        sAlloc.makeGroupMemberToAdmin(group.getGroupID(), userID);//as admin
+        sAlloc.updateGroupMemberToAdmin(group.getGroupID(), userID);//as admin
         Appointment appointment = null; //default Appointment
         sApp.insertAppointment(group.getGroupID(), appointment);
         db = dbHelperGroup.getWritableDatabase();
@@ -71,6 +71,9 @@ public class ServiceGroup {
     public Group readGroupData(int groupID) {
         //TODO
         db = dbHelperGroup.getReadableDatabase();
+        return null;
+    }
+    public List<String> getGroupAdmin(int groupID) {
         return null;
     }
 
@@ -112,6 +115,10 @@ public class ServiceGroup {
         sApp.deleteAppointmentData(groupID);//deletes group from appointment.db
         //also check if some users have to be deleted from the user.db
         //sUser.deleteData(); if some users arent in any group with the actual user anymore
+        return false;
+    }
+    public boolean deleteGroupMember(int groupID, int userID) {
+
         return false;
     }
 

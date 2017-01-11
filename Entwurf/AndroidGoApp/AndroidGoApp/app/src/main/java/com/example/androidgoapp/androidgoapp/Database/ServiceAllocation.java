@@ -58,7 +58,7 @@ public class ServiceAllocation {
      * @param groupId
      * @param userID of the user to become admin
      */
-    public void makeGroupMemberToAdmin(int groupId, int userID) { //PUBLIC ODER PROTECTED????
+    public void updateGroupMemberToAdmin(int groupId, int userID) { //PUBLIC ODER PROTECTED????
 
     }
 
@@ -83,11 +83,11 @@ public class ServiceAllocation {
         return null;
     }
     /**
-     * Get information about the given group id.
-     * @param id of the group or the member to get information about
-     * @return information about the group or the member
+     * Get admin of the given group.
+     * @param group_id of the group to get the admin from
+     * @return List of admins (because there can be more than one
      */
-    public Cursor readData(int alloc_id) {
+    protected List<String> getGroupAdminId(int group_id) {
         return null;
     }
 
@@ -97,30 +97,8 @@ public class ServiceAllocation {
      * @param userId meber to delete in group
      * @return true if deletion was successful
      */
-    public boolean deleteData(int groupid, int userId) {
+    protected boolean deleteGroupMemberId(int groupid, int userId) {
         return false;
     }
-
-    /**
-     * Update data between group and group member
-     * @param alloc_id of group or member to update
-     * @return true if update was successful
-     */
-    public boolean updateData(int alloc_id) {
-        return false;
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }

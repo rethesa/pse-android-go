@@ -19,11 +19,12 @@ public class GroupHandler {
     }
 
     private List getAllGroups() {
-
+        //Alle Gruppen des actual users bekommen
         return memberlist;
     }
 
     public void createGroup() {
+        //Neue Gruppe hinzufügen
         //TODO
     }
 }

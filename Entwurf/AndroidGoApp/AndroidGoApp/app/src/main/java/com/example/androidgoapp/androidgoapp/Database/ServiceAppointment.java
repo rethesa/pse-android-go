@@ -57,7 +57,7 @@ public class ServiceAppointment {
      * @param groupID delete the appointment of this group
      * @return true if the deletion was successful
      */
-    protected boolean deleteAppointmentData(int groupID) { //EIGENTLICH REICHT HIER PROTECTED
+    public boolean deleteAppointmentData(int groupID) { //EIGENTLICH REICHT HIER PROTECTED
         //TODO
         return false;
     }
@@ -68,7 +68,7 @@ public class ServiceAppointment {
      * @param groupID to actualise the corresponding appointment
      * @return true if update was successful
      */
-    public boolean updateData(int groupID) {
+    public boolean updateData(int groupID, Appointment appointment) {
         //TODO
         return false;
     }

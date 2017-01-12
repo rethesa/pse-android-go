@@ -42,14 +42,14 @@ public class ServiceAllocation {
     protected void insertNewGroup(int groupId) {
         db = dbHelperAllocation.getWritableDatabase();
         //TODO
-    }
+    }//WOFÜR BRAUCH ICH DIE NOCHMAL
 
     /**
      * Add another user to the group.
      * @param userID
      * @param groupID
      */
-    protected void insertNewGroupMemberAlloc(int groupID, int userID) {
+    public void insertNewGroupMemberAlloc(int groupID, int userID) {
 
     }
 
@@ -78,7 +78,7 @@ public class ServiceAllocation {
      * @param groupID
      * @return
      */
-    protected List<Integer> getAllUserIdsOfOneGroup(int groupID) {
+    public List<Integer> readAllUserIdsOfOneGroup(int groupID) {
 
         return null;
     }
@@ -87,7 +87,7 @@ public class ServiceAllocation {
      * @param group_id of the group to get the admin from
      * @return List of admins (because there can be more than one
      */
-    protected List<String> getGroupAdminId(int group_id) {
+    protected List<String> readGroupAdminId(int group_id) {
         return null;
     }
 
@@ -97,7 +97,11 @@ public class ServiceAllocation {
      * @param userId meber to delete in group
      * @return true if deletion was successful
      */
-    protected boolean deleteGroupMemberId(int groupid, int userId) {
+    public boolean deleteGroupMemberAlloc(int groupid, int userId) {
+        return false;
+    }
+
+    public boolean deleteAllGroupMemberAlloc(int groupId) {
         return false;
     }
 

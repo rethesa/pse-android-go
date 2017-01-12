@@ -82,10 +82,10 @@ public class ServiceGroup {
      * @param groupID of the group to get the members from
      * @return a list of the member id's
      */
-    public List<String> getAllMembersOfOneGroup(int groupID) {
+    public List<String> readAllMembersOfOneGroup(int groupID) {
         //getAllUserIdsOfOneGroup();
-        sAlloc.getAllUserIdsOfOneGroup(groupID);
-        sUser.getAllUsers(); //compare the user id's we got with the user id's of all users and
+        sAlloc.readAllUserIdsOfOneGroup(groupID);
+        sUser.readAllUsers(); //compare the user id's we got with the user id's of all users and
         //add these names to the list where the id is in both lists
         db = dbHelperGroup.getReadableDatabase();
         List<String> res = null;
@@ -97,7 +97,7 @@ public class ServiceGroup {
      * are just the ones he is member of, we can go through the list and return all group names
      * @return list of all names that are listed in the group database.
      */
-    public List<String> getAllGroupNames() {
+    public List<String> readAllGroupNames() {
         //TODO
         db = dbHelperGroup.getReadableDatabase();
         List<String> res = null;
@@ -117,21 +117,26 @@ public class ServiceGroup {
         //sUser.deleteData(); if some users arent in any group with the actual user anymore
         return false;
     }
-    public boolean deleteGroupMember(int groupID, int userID) {
+    public boolean deleteGroupMemberAllocation(int groupID, int userID) {
 
         return false;
     }
 
     /**
      * Update data when group name or go service of the group have changed.
-     * @param groupID of the group to update
+     * @param group to update name or go service
      * @return true if update was successful
      */
-    public boolean updateGroupData(int groupID) {
+    public boolean updateGroupData(Group group) {
         //TODO
         db = dbHelperGroup.getWritableDatabase();
         return false;
     }
+
+
+
+
+
 
     //BESTREITBAR: GET APPOINTMENT; ADD APPOINTMENT; DELETE APPOINTMENT
     //GROUP DATA IST ABER MIT ALLOC UND APPOINTMENT NICHT MEHR EINDEUTIG

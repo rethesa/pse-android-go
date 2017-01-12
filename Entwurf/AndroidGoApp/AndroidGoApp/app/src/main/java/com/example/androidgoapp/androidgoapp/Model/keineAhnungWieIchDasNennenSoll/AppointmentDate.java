@@ -2,6 +2,7 @@ package com.example.androidgoapp.androidgoapp.Model.keineAhnungWieIchDasNennenSo
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * Created by Theresa on 20.12.2016.
@@ -14,7 +15,7 @@ public class AppointmentDate {
     private java.util.Date date;
     private java.util.Date time;
 
-    protected AppointmentDate(){
+    private AppointmentDate(){
     }
 
     protected void setDate(String stringDate) {
@@ -33,13 +34,21 @@ public class AppointmentDate {
         }
     }
 
-    /*public Date getDate() {
+    /**
+     * Get the date of the appointment.
+     * @return date of the appointment
+     */
+    protected Date getDate() {
         return date;
-    }*/
+    }
 
-    /*
-    public Date getTime() {
+    /**
+     * Get the time of the appointment.
+     * @return time of the appointment
+     */
+    protected Date getTime() {
         return time;
-    }*/
+    }
+
 
 }

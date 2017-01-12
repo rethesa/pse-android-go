@@ -31,7 +31,7 @@ public class ServiceUser {
      * @param user object
      * @return true if insertion was successful
      */
-    protected boolean insertUserData(SimpleUser2 user) {
+    public boolean insertUserData(SimpleUser2 user) {
         //TODO
         //check if the user is already in the list
         db = dbHelperUser.getWritableDatabase();
@@ -52,7 +52,7 @@ public class ServiceUser {
      * Get all User objects of all groups the actual user is member of.
      * @return
      */
-    protected List<SimpleUser2> getAllUsers() {
+    public List<SimpleUser2> readAllUsers() {
         //TODO
         db = dbHelperUser.getReadableDatabase();
         List<SimpleUser2> res = null;

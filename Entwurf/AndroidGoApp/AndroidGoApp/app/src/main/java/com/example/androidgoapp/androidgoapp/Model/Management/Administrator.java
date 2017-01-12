@@ -1,4 +1,4 @@
-package com.example.androidgoapp.androidgoapp.Model.keineAhnungWieIchDasNennenSoll;
+package com.example.androidgoapp.androidgoapp.Model.Management;
 
 /**
  * Created by Theresa on 20.12.2016.

@@ -1,4 +1,4 @@
-package com.example.androidgoapp.androidgoapp.Model.keineAhnungWieIchDasNennenSoll;
+package com.example.androidgoapp.androidgoapp.Model.Management;
 
 /**
  * Created by Theresa on 20.12.2016.
@@ -16,6 +16,15 @@ public abstract class SimpleUser2 {
         //this.userPosition
     }
 
+    /**
+     * Change the name of the user to a different one.
+     * @param name
+     */
+    public void changeUserName(String name) {
+        userName = name;
+        //TODO
+    }
+
     public String getUserName() {
         return userName;
     }
@@ -24,6 +33,9 @@ public abstract class SimpleUser2 {
         return userID;
     }
 
+    public UserPosition getUserPosition() {
+        return userPosition;
+    }
 
 
 

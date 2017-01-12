@@ -1,12 +1,9 @@
 package com.example.androidgoapp.androidgoapp.Database;
 
 import android.content.Context;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.example.androidgoapp.androidgoapp.Model.keineAhnungWieIchDasNennenSoll.Appointment;
-
-import java.util.List;
+import com.example.androidgoapp.androidgoapp.Model.Management.Appointment;
 
 /**
  * Created by Theresa on 11.01.2017.
@@ -31,7 +28,7 @@ public class ServiceAppointment {
      * @param appointment of the group (date, time, destination)
      * @return
      */
-    protected boolean insertAppointment(int groupID, Appointment appointment) {
+    public boolean insertAppointment(int groupID, Appointment appointment) {
         //TODO
         db = dbHelperAppointment.getWritableDatabase();
         try {

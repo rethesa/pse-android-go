@@ -3,7 +3,7 @@ package com.example.androidgoapp.androidgoapp.Database;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.example.androidgoapp.androidgoapp.Model.keineAhnungWieIchDasNennenSoll.SimpleUser2;
+import com.example.androidgoapp.androidgoapp.Model.Management.SimpleUser2;
 
 import java.util.List;
 
@@ -27,7 +27,7 @@ public class ServiceUser {
 
     /**
      * Add a new user to the database (it just happens when when adding a new user to a group, and
-     * also then not always, just if the user doesn't exist yet).
+     * also then not always, just if the user doesn't exist already).
      * @param user object
      * @return true if insertion was successful
      */
@@ -60,16 +60,13 @@ public class ServiceUser {
     }
 
     /**
-     * Delete user in user.db and delete user in all groups --> deletion in allocation.db
+     * Delete user in user.db
      * @param userID of the user to delete
      * @return true if deletion was successful
      */
     public boolean deleteUser(int userID) {
-        //sAlloc.deleteUser(userID);
         return false;
     }
-
-    //public boolean delteUserInAllGrou
 
     /**
      * Update inforamtion about user.

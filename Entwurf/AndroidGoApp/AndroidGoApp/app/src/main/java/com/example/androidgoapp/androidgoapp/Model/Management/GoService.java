@@ -1,7 +1,6 @@
-package com.example.androidgoapp.androidgoapp.Model.keineAhnungWieIchDasNennenSoll;
+package com.example.androidgoapp.androidgoapp.Model.Management;
 
 import com.example.androidgoapp.androidgoapp.Model.MapView;
-import com.example.androidgoapp.androidgoapp.Model.keineAhnungWieIchDasNennenSoll.Group;
 
 
 /**

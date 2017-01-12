@@ -1,4 +1,4 @@
-package com.example.androidgoapp.androidgoapp.Model.keineAhnungWieIchDasNennenSoll;
+package com.example.androidgoapp.androidgoapp.Model.Management;
 
 import com.example.androidgoapp.androidgoapp.Database.ServiceAllocation;
 import com.example.androidgoapp.androidgoapp.Database.ServiceAppointment;
@@ -22,20 +22,20 @@ public class Group {
     private AppointmentDestination destination;
     private GoService goService;
     private List<String> groupMemberList;
-    
+
     private ServiceGroup sGroup;
     private ServiceUser sUser;
     private ServiceAppointment sApp;
     private ServiceAllocation sAlloc;
 
-    public Group(String name, Administrator admin) {
+    public Group(String name, SimpleUser2 user) {
         this.groupName = name;
         //this.groupID =     increases
         appointment.setAppointmentDate("01012000","0000");
         appointment.setAppointmentDestination("default");
         goService = new GoService();
         groupMemberList = new LinkedList<String>();
-        groupMemberList.add(admin.getUserName()); //the user who creates the group is admin by default
+        groupMemberList.add(user.getUserName()); //the user who creates the group is user by default
     }
 
     /**
@@ -161,24 +161,12 @@ public class Group {
     }
 
     /**
-     * Delete group from group.db, delete group from appointment.db, delete group and member from
-     * allocation.db and delete users who aren't in any other group with the actual user anymore
-     * from the user.db
-     * @param group to delete
-     */
-    public void deleteGroup(Group group){
-        sApp.deleteAppointmentData(group.getGroupID());
-        sAlloc.deleteAllGroupMemberAlloc(group.getGroupID());
-        //sUser.deleteUser()
-        sGroup.deleteGroupData(group.groupID);
-    }
-
-    /**
      * Change the name of the group to a different unique one.
      * @param newGroupName of the group
      */
-    public void setGroupName(String newGroupName) {
+    public void changeGroupName(Group group, String newGroupName) {
         //check newGroupName is unique (server)
+        sGroup.updateGroupData(group);
         groupName = newGroupName;
     }
 

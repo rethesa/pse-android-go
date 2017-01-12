@@ -1,7 +1,7 @@
 package com.example.androidgoapp.androidgoapp.Controller;
 
-import com.example.androidgoapp.androidgoapp.Model.keineAhnungWieIchDasNennenSoll.Group;
-import com.example.androidgoapp.androidgoapp.Model.keineAhnungWieIchDasNennenSoll.GroupMember;
+import com.example.androidgoapp.androidgoapp.Model.Management.Group;
+import com.example.androidgoapp.androidgoapp.Model.Management.GroupMember;
 
 import java.util.HashMap;
 import java.util.List;

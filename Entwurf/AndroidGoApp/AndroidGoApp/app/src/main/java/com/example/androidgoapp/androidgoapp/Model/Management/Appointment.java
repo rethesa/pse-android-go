@@ -1,4 +1,4 @@
-package com.example.androidgoapp.androidgoapp.Model.keineAhnungWieIchDasNennenSoll;
+package com.example.androidgoapp.androidgoapp.Model.Management;
 
 /**
  * Created by Schokomonsterchen on 21.12.2016.
@@ -13,19 +13,32 @@ public class Appointment {
     protected void Appointment() {
         appointmentDate.setDate("01012000");//default
         appointmentDate.setTime("0000");//default
-        appointmentDestination.setDestinationName(""); //coordinates will be created out of the name
+        appointmentDestination.setDestinationCoordinatesByName(""); //coordinates will be created out of the name
     }
 
+    /**
+     * Set new date and time for the next appointment.
+     * @param stringDate
+     * @param stringTime
+     */
     protected void setAppointmentDate(String stringDate, String stringTime) {
         appointmentDate.setDate(stringDate);
         appointmentDate.setTime(stringTime);
     }
 
+    /**
+     * Set a new destination for the appointment.
+     * @param appointmentDestination
+     */
     protected void setAppointmentDestination(String appointmentDestination){
 
     }
 
-    protected AppointmentDate getAppointmentDate() {
+    /**
+     * To show in activity.
+     * @return
+     */
+    public AppointmentDate getAppointmentDate() {
         return appointmentDate;
     }
 }

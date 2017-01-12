@@ -3,9 +3,7 @@ package com.example.androidgoapp.androidgoapp.Database;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.example.androidgoapp.androidgoapp.Model.keineAhnungWieIchDasNennenSoll.Appointment;
-import com.example.androidgoapp.androidgoapp.Model.keineAhnungWieIchDasNennenSoll.Group;
-import com.example.androidgoapp.androidgoapp.Model.keineAhnungWieIchDasNennenSoll.SimpleUser2;
+import com.example.androidgoapp.androidgoapp.Model.Management.Group;
 
 import java.util.List;
 
@@ -32,36 +30,16 @@ public class ServiceGroup {
     }
 
     /**
-     * Add a new group to database and add the user who creates the group as first member and as
-     * admin. There is no appointment set (or do we set an default appointment?)
+     * Add a new group to group.db database
      * @param group to add to database
      * @param userID of the user who created the group and will be admin
      * @return return true if inserting was successful
      */
     public boolean insertNewGroup(Group group, int userID) {
         //TODO
-        sAlloc.insertNewGroup(group.getGroupID());//adds to allocation
-        sAlloc.insertNewGroupMemberAlloc(group.getGroupID(), userID); //adds first group member
-        sAlloc.updateGroupMemberToAdmin(group.getGroupID(), userID);//as admin
-        Appointment appointment = null; //default Appointment
-        sApp.insertAppointment(group.getGroupID(), appointment);
         db = dbHelperGroup.getWritableDatabase();
         return false;
     }
-
-    /**
-     * Needed because if I would make in ServiceAllocation the insertNewGroupMemberAlloc pulic, then
-     * I would have an back arrow from Allocation to User (and I try to avoid circles)
-     * @param groupID of the group to add the memeber to
-     * @param user object to add to user.db if it doesn't exist yet and to allocation.db
-     * @return true if adding was successful
-     */
-    public boolean insertNewGroupMember(int groupID, SimpleUser2 user) {
-        //TODO
-        sUser.insertUserData(user); //if user is not already in this database
-        sAlloc.insertNewGroupMemberAlloc(groupID, user.getUserID());
-        return false;
-    }//BESTREITBAR!!!!!!!!!!!!! eigentlich in Alloc
 
     /**
      * Get name and go service of the group with the given group id.
@@ -73,24 +51,6 @@ public class ServiceGroup {
         db = dbHelperGroup.getReadableDatabase();
         return null;
     }
-    public List<String> getGroupAdmin(int groupID) {
-        return null;
-    }
-
-    /**
-     * Get all members names where the second column of the database equals the given group Id
-     * @param groupID of the group to get the members from
-     * @return a list of the member id's
-     */
-    public List<String> readAllMembersOfOneGroup(int groupID) {
-        //getAllUserIdsOfOneGroup();
-        sAlloc.readAllUserIdsOfOneGroup(groupID);
-        sUser.readAllUsers(); //compare the user id's we got with the user id's of all users and
-        //add these names to the list where the id is in both lists
-        db = dbHelperGroup.getReadableDatabase();
-        List<String> res = null;
-        return res;
-    } //GEENAUSO BESTREITBAR OB NICHT IN ALLOC
 
     /**
      * To get all groups the actual user is member of and because all the groups saved in the database
@@ -105,20 +65,12 @@ public class ServiceGroup {
     }
 
     /**
-     * Delete a group in group.db, in appointment.db, in alloc.db and maybe also in user.db.
+     * Delete a group in group.db.
      * @param groupID of the group to delete
      * @return true if deletion was successful
      */
     public boolean deleteGroupData(int groupID) {
         //TODO
-        sAlloc.deleteOldGroup(groupID);//deletes group from allocation.db
-        sApp.deleteAppointmentData(groupID);//deletes group from appointment.db
-        //also check if some users have to be deleted from the user.db
-        //sUser.deleteData(); if some users arent in any group with the actual user anymore
-        return false;
-    }
-    public boolean deleteGroupMemberAllocation(int groupID, int userID) {
-
         return false;
     }
 
@@ -132,13 +84,5 @@ public class ServiceGroup {
         db = dbHelperGroup.getWritableDatabase();
         return false;
     }
-
-
-
-
-
-
-    //BESTREITBAR: GET APPOINTMENT; ADD APPOINTMENT; DELETE APPOINTMENT
-    //GROUP DATA IST ABER MIT ALLOC UND APPOINTMENT NICHT MEHR EINDEUTIG
 
 }

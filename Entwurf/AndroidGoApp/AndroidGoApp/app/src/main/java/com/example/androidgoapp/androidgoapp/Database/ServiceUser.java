@@ -3,7 +3,7 @@ package com.example.androidgoapp.androidgoapp.Database;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.example.androidgoapp.androidgoapp.Model.keineAhnungWieIchDasNennenSoll.SimpleUser2;
+import com.example.androidgoapp.androidgoapp.Model.Management.UserDecorator;
 
 import java.util.List;
 
@@ -27,11 +27,11 @@ public class ServiceUser {
 
     /**
      * Add a new user to the database (it just happens when when adding a new user to a group, and
-     * also then not always, just if the user doesn't exist yet).
+     * also then not always, just if the user doesn't exist already).
      * @param user object
      * @return true if insertion was successful
      */
-    protected boolean insertUserData(SimpleUser2 user) {
+    public boolean insertUserData(UserDecorator user) {
         //TODO
         //check if the user is already in the list
         db = dbHelperUser.getWritableDatabase();
@@ -43,7 +43,7 @@ public class ServiceUser {
      * @param userID of the user to get information about
      * @return user object
      */
-    public SimpleUser2 readUserData(int userID) {
+    public UserDecorator readUserData(int userID) {
         //TODO
         return null;
     }
@@ -52,24 +52,21 @@ public class ServiceUser {
      * Get all User objects of all groups the actual user is member of.
      * @return
      */
-    protected List<SimpleUser2> getAllUsers() {
+    public List<UserDecorator> readAllUsers() {
         //TODO
         db = dbHelperUser.getReadableDatabase();
-        List<SimpleUser2> res = null;
+        List<UserDecorator> res = null;
         return res;
     }
 
     /**
-     * Delete user in user.db and delete user in all groups --> deletion in allocation.db
+     * Delete user in user.db
      * @param userID of the user to delete
      * @return true if deletion was successful
      */
     public boolean deleteUser(int userID) {
-        //sAlloc.deleteUser(userID);
         return false;
     }
-
-    //public boolean delteUserInAllGrou
 
     /**
      * Update inforamtion about user.

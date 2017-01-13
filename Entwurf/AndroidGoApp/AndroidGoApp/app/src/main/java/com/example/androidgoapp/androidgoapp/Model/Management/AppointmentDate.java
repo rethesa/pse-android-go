@@ -1,7 +1,8 @@
-package com.example.androidgoapp.androidgoapp.Model.keineAhnungWieIchDasNennenSoll;
+package com.example.androidgoapp.androidgoapp.Model.Management;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * Created by Theresa on 20.12.2016.
@@ -14,9 +15,13 @@ public class AppointmentDate {
     private java.util.Date date;
     private java.util.Date time;
 
-    protected AppointmentDate(){
+    private AppointmentDate(){
     }
 
+    /**
+     * Set the date of the appointment of the group
+     * @param stringDate in dd.MM.yyyy
+     */
     protected void setDate(String stringDate) {
         try {
             this.date = dateParser.parse(stringDate);
@@ -25,6 +30,10 @@ public class AppointmentDate {
         }
     }
 
+    /**
+     * Set the time of the appointment for the group.
+     * @param stringTime time in HH:mm
+     */
     protected void setTime(String stringTime) {
         try {
             this.time = timeParser.parse(stringTime);
@@ -33,13 +42,21 @@ public class AppointmentDate {
         }
     }
 
-    /*public Date getDate() {
+    /**
+     * Get the date of the appointment.
+     * @return date of the appointment
+     */
+    protected Date getDate() {
         return date;
-    }*/
+    }
 
-    /*
-    public Date getTime() {
+    /**
+     * Get the time of the appointment.
+     * @return time of the appointment
+     */
+    protected Date getTime() {
         return time;
-    }*/
+    }
+
 
 }

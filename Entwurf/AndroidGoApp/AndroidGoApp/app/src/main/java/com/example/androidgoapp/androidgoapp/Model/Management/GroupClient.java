@@ -19,8 +19,7 @@ public class GroupClient {
     private String groupName;
     private Appointment appointment;
     private AppointmentDate date;
-    private DestinationName destinationName;
-    private DestinationPosition destinationPosition;
+    private AppointmentDestination appointmentDestination;
     private GoStatus goStatus;
     private List<String> groupMemberList;
 
@@ -44,7 +43,6 @@ public class GroupClient {
     /**
      * Admin can create a Link and send it with an extern messenger to the person he wants to add to
      * the groupClient.
-     * @param groupClient where the created link corresponds to.
      */
     public Link createInviteLink() {
         //server creates link and it's just saved there
@@ -55,7 +53,6 @@ public class GroupClient {
 
     /**
      * Adds a new groupClient member to the given groupClient.
-     * @param groupClient to add the member to
      * @param user to be added
      */
     public void addGroupMember(UserDecorator user) {
@@ -65,7 +62,6 @@ public class GroupClient {
 
     /**
      * Admin can upgrade a groupClient member to an admin.
-     * @param groupClient where user should become admin
      * @param user to become new admin of the groupClient (while the other one still exists)
      */
     public void makeGroupMemberToAdmin(UserDecorator user) {
@@ -75,7 +71,6 @@ public class GroupClient {
 
     /**
      * Get all the member names who are in the same groupClient.
-     * @param groupClient to show the members of
      * @return names of all users which are in the given groupClient
      */
     public List<String> getAllGroupMemberNames() {
@@ -89,7 +84,6 @@ public class GroupClient {
      * GroupClient admin deletes one of his groupClient members. After that it has to be checked, if the deleted
      * user is still in any other groupClient with the actual user. If not also delete this user from the
      * user.db
-     * @param groupClient of the groupClient to delete the user
      * @param user of the user to delete
      */
     public void deleteGroupMember(UserDecorator user) {
@@ -100,7 +94,6 @@ public class GroupClient {
 
     /**
      * User leaves groupClient by himself. It's like the admin deletes a groupClient member.
-     * @param groupClient
      * @param user
      */
     public void leaveGroup(UserDecorator user) {
@@ -110,7 +103,6 @@ public class GroupClient {
 
     /**
      * Set the time and date of a new appointment.
-     * @param groupClient with the appointment
      * @param date of the appointment
      * @param time of the appointment
      */
@@ -123,8 +115,6 @@ public class GroupClient {
     /**
      * Set a new destination just with the address of the place where the groupClient will meet.
      * The coordinates of that place will be generated.
-     * @param groupClient
-     * @param appointment
      * @param destination
      */
     public void setGroupAppointmentDestinationName(String destination) {
@@ -136,7 +126,6 @@ public class GroupClient {
     /**
      * Set a new destination over the map and just set a needle where the groupClient will meet. The name
      * will be generated.
-     * @param groupClient
      * @param latitude
      * @param longitude
      */
@@ -146,7 +135,6 @@ public class GroupClient {
 
     /**
      * Activate the go button of the current groupClient of the actual user.
-     * @param groupClient in which actual user says that he will be on his way to the appointment.
      */
     public void activateGoService() {
         goStatus.activateGoStatus();//sets goStatus to true
@@ -156,7 +144,6 @@ public class GroupClient {
     /**
      * Deactivate the go button of the current groupClient of the actual user.
      * This normally happens after the appointment is over.
-     * @param groupClient of the groupClient who met
      */
     public void deactivateGoService() {
         goStatus.deactivateGoStatus();//sets goStatus to false
@@ -201,16 +188,8 @@ public class GroupClient {
      * Get the destination name of the appointment of the group.
      * @return destinantion name and destination position
      */
-    public DestinationName getAppointmentName() {
-        return destinationName;
-    }
-
-    /**
-     * Get the destination position on the map of the appointment of the group.
-     * @return
-     */
-    public DestinationPosition getAppointmentPosition() {
-        return destinationPosition;
+    public AppointmentDestination getAppointmentDestinaion() {
+        return appointmentDestination;
     }
 
     /**
@@ -233,9 +212,4 @@ public class GroupClient {
         return us;
     }
 
-
-    /**
-     public Appointment getAppointment();
-
-     */
 }

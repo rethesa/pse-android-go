@@ -18,6 +18,10 @@ public class AppointmentDate {
     private AppointmentDate(){
     }
 
+    git/**
+     * Set the date of the appointment of the group
+     * @param stringDate in dd.MM.yyyy
+     */
     protected void setDate(String stringDate) {
         try {
             this.date = dateParser.parse(stringDate);
@@ -26,6 +30,10 @@ public class AppointmentDate {
         }
     }
 
+    /**
+     * Set the time of the appointment for the group.
+     * @param stringTime time in HH:mm
+     */
     protected void setTime(String stringTime) {
         try {
             this.time = timeParser.parse(stringTime);

@@ -16,14 +16,15 @@ public class DestinationPosition {
     private DestinationPosition() {
     }
 
-
     /**
-     * Admin chooses a place on the map where the group will meet.
-     * @param destinationPosition
+     * Admin of the group writes the address/ name of the place where the group will meet and if
+     * the address/ name is valid the app will show the place on the map.
+     * @param destinationName where the group will meet
      */
-    protected String setDestinationNameByCoordinates(Pair<Float, Float> destinationPosition) {
-        String destinationName = null;//get with osmdroid
-        return destinationName;
+    protected Pair<Float, Float> setDestinationPositionByName(String destinationName) {
+        destinationPosition = null; //get with osmdroid
+        //get coordinates of this place with osmdroid
+        return destinationPosition;
     }
 
     /**

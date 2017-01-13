@@ -7,13 +7,14 @@ package com.example.androidgoapp.androidgoapp.Model.Management;
 public class Appointment {
 
     private AppointmentDate appointmentDate;
-    private AppointmentDestination appointmentDestination;
+    private DestinationPosition destinationPosition;
     //private DestinationPosition destinationPosition; //latitude and longitude
 
     protected void Appointment() {
         appointmentDate.setDate("01012000");//default
         appointmentDate.setTime("0000");//default
-        appointmentDestination.setDestinationCoordinatesByName(""); //coordinates will be created out of the name
+        destinationPosition.setDestinationPositionByName("default city");
+         //coordinates will be created out of the name
     }
 
     /**

@@ -4,16 +4,18 @@ import com.example.androidgoapp.androidgoapp.Model.MapView;
 
 
 /**
- * To get the positions of all group members every few seconds.
+ * When activated, the GoStatus keeps requesting updates of the target group.
+ * Also it will send GPS-Broadcasts in certain intervals.
+ * @author tarek
  */
 
 public class GoService implements Runnable {
 
-    Group group;
-    boolean goStatus;
-    MapView map;
+    private boolean goStatus;
+    private Group targetGroup;
 
-    protected GoService() {
+    public GoService(Group targetGroup) {
+        this.targetGroup = targetGroup;
         goStatus = false;
     }
 
@@ -22,39 +24,30 @@ public class GoService implements Runnable {
      */
     @Override
     public void run() {
-        while(this.goStatus) {
-            group.update();
+        while(goStatus) {
+            // TODO keep the thread busy by sending requests to the server.
+            // targetGroup.broadcastGps();
+            // take GPS-data from response and draw on the map
+
+            // Sleep(5); TBD...
         }
     }
 
+    /**
+     * Begin broadcasting GPS-Data and requesting updates when user presses his go button.
+     */
+    public void activateGoStatus(){
+        goStatus = true;
+        run();
+    }
 
     /**
-     * When user presses his go Button he activates his go status and sends his position in
-     * regular periods to the other group members.
+     * Stop sending GPS-Data and requesting updates for this group.
      */
-    protected void activateGoStatus(){
-        goStatus = true;
-    }
-
-    protected void deactivateGoStatus() {
+    public void deactivateGoStatus() {
         goStatus = false;
     }
-
-
-
-
-
-
-
-    void updateGroup(){
-
-    }
-
-    void updateMap() {
-
-    }
-
-
+    
 }
 
 

@@ -18,7 +18,7 @@ public class AppointmentDate {
     private AppointmentDate(){
     }
 
-    git/**
+    /**
      * Set the date of the appointment of the group
      * @param stringDate in dd.MM.yyyy
      */

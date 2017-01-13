@@ -7,13 +7,15 @@ package com.example.androidgoapp.androidgoapp.Model.Management;
 public class Appointment {
 
     private AppointmentDate appointmentDate;
-    private DestinationPosition destinationPosition;
+    //private DestinationPosition destinationPosition;
+    private AppointmentDestination appointmentDestination;
     //private DestinationPosition destinationPosition; //latitude and longitude
 
     protected void Appointment() {
         appointmentDate.setDate("01012000");//default
         appointmentDate.setTime("0000");//default
-        destinationPosition.setDestinationPositionByName("default city");
+        appointmentDestination.setDestinationName("default address");//somehow get the coordinates of this place with osmdroid
+
          //coordinates will be created out of the name
     }
 
@@ -22,17 +24,9 @@ public class Appointment {
      * @param stringDate
      * @param stringTime
      */
-    protected void setAppointmentDate(String stringDate, String stringTime) {
+    public void setAppointmentDate(String stringDate, String stringTime) {
         appointmentDate.setDate(stringDate);
         appointmentDate.setTime(stringTime);
-    }
-
-    /**
-     * Set a new destination for the appointment.
-     * @param appointmentDestination
-     */
-    protected void setAppointmentDestination(String appointmentDestination){
-
     }
 
     /**
@@ -42,4 +36,22 @@ public class Appointment {
     public AppointmentDate getAppointmentDate() {
         return appointmentDate;
     }
+
+    /**
+     * Set a new destination for the appointment.
+     * @param appointmentDestination
+     */
+    public void setAppointmentDestination(String appointmentDestination){
+
+    }
+
+    /**
+     * Get the name and the position of the appointment.
+     * @return name and position.
+     */
+    public AppointmentDestination getAppointmentDestination() {
+
+        return appointmentDestination;
+    }
+
 }

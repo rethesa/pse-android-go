@@ -42,15 +42,15 @@ public class GroupClient {
     }
 
     /**
-     * Admin can create a Links and send it with an extern messenger to the person he wants to add to
+     * Admin can create a Link and send it with an extern messenger to the person he wants to add to
      * the groupClient.
      * @param groupClient where the created link corresponds to.
      */
-    public Links createInviteLink() {
-        //server creates links and it's just saved there
+    public Link createInviteLink() {
+        //server creates link and it's just saved there
         //TODO
-        Links links = null;
-        return links;
+        Link link = null;
+        return link;
     }
 
     /**

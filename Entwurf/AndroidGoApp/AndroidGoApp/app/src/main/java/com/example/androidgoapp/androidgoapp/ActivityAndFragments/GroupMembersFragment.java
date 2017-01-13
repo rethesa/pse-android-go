@@ -42,7 +42,7 @@ public class GroupMembersFragment extends Fragment implements View.OnClickListen
     //TODO: Button member(1).. member(numberOfMember) initialisieren --> recycle fragment
 
     /**
-     * um den Links zu teilen
+     * um den Link zu teilen
      */
     private void shareBranchLink()
     {
@@ -50,7 +50,7 @@ public class GroupMembersFragment extends Fragment implements View.OnClickListen
     }
 
     /**
-     * um den Links auf dem server zu speichern
+     * um den Link auf dem server zu speichern
      */
     private void saveLinkonServer()
     {

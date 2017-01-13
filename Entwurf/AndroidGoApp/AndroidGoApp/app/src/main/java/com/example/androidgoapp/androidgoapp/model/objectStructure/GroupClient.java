@@ -177,27 +177,20 @@ public class GroupClient {
     }
 
     /**
-     * Get the date and the time of the appointment of the group.
-     * @return date and time
-     */
-    public AppointmentDate getAppointmentDate() {
-        return date;
-    }
-
-    /**
-     * Get the destination name of the appointment of the group.
-     * @return destinantion name and destination position
-     */
-    public AppointmentDestination getAppointmentDestinaion() {
-        return appointmentDestination;
-    }
-
-    /**
      * Get the go service of the group of the actual user.
      * @return go service
      */
     public GoStatus getGoStatus() {
         return goStatus;
+    }
+
+
+    /**
+     * Get the appointment (time, date, name or destination) of the group.
+     * @return appointment information
+     */
+    public Appointment getAppointment() {
+        return appointment;
     }
 
     /**

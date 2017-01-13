@@ -19,7 +19,8 @@ public class Group {
     private String groupName;
     private Appointment appointment;
     private AppointmentDate date;
-    private AppointmentDestination destination;
+    private DestinationName destinationName;
+    private DestinationPosition destinationPosition;
     private GoService goService;
     private List<String> groupMemberList;
 
@@ -33,7 +34,7 @@ public class Group {
         //this.groupID =     increases
         appointment.setAppointmentDate("01012000","0000");
         appointment.setAppointmentDestination("default");
-        goService = new GoService();
+        goService = new GoService(null);//????? CONSTRUCTOR IN GOSERVICE
         groupMemberList = new LinkedList<String>();
         groupMemberList.add(user.getUserName()); //the user who creates the group is user by default
     }
@@ -195,11 +196,19 @@ public class Group {
     }
 
     /**
-     * Get the destination name and the position of the appointment of the group.
+     * Get the destination name of the appointment of the group.
      * @return destinantion name and destination position
      */
-    public AppointmentDestination getAppointmentDest() {
-        return destination;
+    public DestinationName getAppointmentName() {
+        return destinationName;
+    }
+
+    /**
+     * Get the destination position on the map of the appointment of the group.
+     * @return
+     */
+    public DestinationPosition getAppointmentPosition() {
+        return destinationPosition;
     }
 
     /**

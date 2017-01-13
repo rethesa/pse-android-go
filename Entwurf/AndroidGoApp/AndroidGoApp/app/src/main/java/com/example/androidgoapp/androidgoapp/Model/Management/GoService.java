@@ -32,7 +32,7 @@ public class GoService implements Runnable {
             // Sleep(5); TBD...
         }
     }
-
+    
     /**
      * Begin broadcasting GPS-Data and requesting updates when user presses his go button.
      */
@@ -47,7 +47,7 @@ public class GoService implements Runnable {
     public void deactivateGoStatus() {
         goStatus = false;
     }
-    
+
 }
 
 

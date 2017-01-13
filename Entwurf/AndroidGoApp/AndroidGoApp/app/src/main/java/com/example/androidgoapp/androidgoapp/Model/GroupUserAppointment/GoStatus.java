@@ -1,7 +1,7 @@
-package com.example.androidgoapp.androidgoapp.Model;
+package com.example.androidgoapp.androidgoapp.Model.GroupUserAppointment;
 
 
-import com.example.androidgoapp.androidgoapp.Model.GroupClient;
+import com.example.androidgoapp.androidgoapp.Model.GroupUserAppointment.GroupClient;
 
 /**
  * When activated, the GoStatus keeps requesting updates of the target group.

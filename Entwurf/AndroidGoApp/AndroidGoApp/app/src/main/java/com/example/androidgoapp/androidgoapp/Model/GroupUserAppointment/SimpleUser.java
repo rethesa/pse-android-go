@@ -1,6 +1,4 @@
-package com.example.androidgoapp.androidgoapp.Model;
-
-import com.example.androidgoapp.androidgoapp.Model.UserComponent;
+package com.example.androidgoapp.androidgoapp.Model.GroupUserAppointment;
 
 /**
  * Created by Theresa on 13.01.2017.

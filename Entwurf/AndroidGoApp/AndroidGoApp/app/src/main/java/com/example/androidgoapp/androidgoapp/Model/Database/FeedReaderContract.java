@@ -1,4 +1,4 @@
-package com.example.androidgoapp.androidgoapp.Database;
+package com.example.androidgoapp.androidgoapp.Model.Database;
 
 import android.provider.BaseColumns;
 

@@ -1,9 +1,10 @@
-package com.example.androidgoapp.androidgoapp.Database;
+package com.example.androidgoapp.androidgoapp.Controler.Database;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.example.androidgoapp.androidgoapp.Model.Appointment;
+import com.example.androidgoapp.androidgoapp.Model.Database.DBHelperAppointment;
+import com.example.androidgoapp.androidgoapp.Model.GroupUserAppointment.Appointment;
 
 /**
  * Created by Theresa on 11.01.2017.

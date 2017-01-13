@@ -1,8 +1,10 @@
-package com.example.androidgoapp.androidgoapp.Database;
+package com.example.androidgoapp.androidgoapp.Model.Database;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import com.example.androidgoapp.androidgoapp.Model.Database.FeedReaderContract;
 
 /**
  * General functions of the group database.

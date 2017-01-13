@@ -1,4 +1,4 @@
-package com.example.androidgoapp.androidgoapp.Database;
+package com.example.androidgoapp.androidgoapp.Model.Database;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

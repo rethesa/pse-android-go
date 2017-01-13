@@ -1,4 +1,4 @@
-package com.example.androidgoapp.androidgoapp.Model;
+package com.example.androidgoapp.androidgoapp.Model.GroupUserAppointment;
 
 /**
  * Created by Theresa on 13.01.2017.

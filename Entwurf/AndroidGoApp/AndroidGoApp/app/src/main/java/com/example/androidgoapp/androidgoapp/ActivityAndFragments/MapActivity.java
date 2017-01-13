@@ -3,7 +3,7 @@ package com.example.androidgoapp.androidgoapp.ActivityAndFragments;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import com.example.androidgoapp.androidgoapp.Database.DBHelperGroup;
+import com.example.androidgoapp.androidgoapp.Model.Database.DBHelperGroup;
 import com.example.androidgoapp.androidgoapp.R;
 
 /**

@@ -1,8 +1,8 @@
-package com.example.androidgoapp.androidgoapp.Model;
+package com.example.androidgoapp.androidgoapp.Controler.GroupUserAppointment;
 
-import com.example.androidgoapp.androidgoapp.Database.ServiceAllocation;
-import com.example.androidgoapp.androidgoapp.Database.ServiceUser;
-import com.example.androidgoapp.androidgoapp.Model.Management.UserDecorator;
+import com.example.androidgoapp.androidgoapp.Controler.Database.ServiceAllocation;
+import com.example.androidgoapp.androidgoapp.Controler.Database.ServiceUser;
+import com.example.androidgoapp.androidgoapp.Model.GroupUserAppointment.UserDecorator;
 
 /**
  * hält Informationen darüber wer ich bin

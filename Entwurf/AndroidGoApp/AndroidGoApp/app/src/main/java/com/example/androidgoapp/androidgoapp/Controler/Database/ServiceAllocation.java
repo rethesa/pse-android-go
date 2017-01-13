@@ -1,9 +1,9 @@
-package com.example.androidgoapp.androidgoapp.Database;
+package com.example.androidgoapp.androidgoapp.Controler.Database;
 
 import android.content.Context;
-import android.content.Intent;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+
+import com.example.androidgoapp.androidgoapp.Model.Database.DBHelperAllocation;
 
 import java.util.List;
 

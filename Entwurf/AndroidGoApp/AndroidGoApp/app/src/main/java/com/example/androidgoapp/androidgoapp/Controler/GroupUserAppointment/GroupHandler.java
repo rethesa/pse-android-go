@@ -1,9 +1,11 @@
-package com.example.androidgoapp.androidgoapp.Model;
+package com.example.androidgoapp.androidgoapp.Controler.GroupUserAppointment;
 
-import com.example.androidgoapp.androidgoapp.Database.ServiceAllocation;
-import com.example.androidgoapp.androidgoapp.Database.ServiceAppointment;
-import com.example.androidgoapp.androidgoapp.Database.ServiceGroup;
-import com.example.androidgoapp.androidgoapp.Model.Management.UserDecorator;
+import com.example.androidgoapp.androidgoapp.Controler.Database.ServiceAllocation;
+import com.example.androidgoapp.androidgoapp.Controler.Database.ServiceAppointment;
+import com.example.androidgoapp.androidgoapp.Controler.Database.ServiceGroup;
+import com.example.androidgoapp.androidgoapp.Model.GroupUserAppointment.Appointment;
+import com.example.androidgoapp.androidgoapp.Model.GroupUserAppointment.GroupClient;
+import com.example.androidgoapp.androidgoapp.Model.GroupUserAppointment.UserDecorator;
 
 import java.util.LinkedList;
 import java.util.List;

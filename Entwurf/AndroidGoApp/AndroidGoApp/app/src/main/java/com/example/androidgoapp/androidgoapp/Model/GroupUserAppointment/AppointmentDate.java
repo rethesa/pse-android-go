@@ -1,4 +1,4 @@
-package com.example.androidgoapp.androidgoapp.Model;
+package com.example.androidgoapp.androidgoapp.Model.GroupUserAppointment;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

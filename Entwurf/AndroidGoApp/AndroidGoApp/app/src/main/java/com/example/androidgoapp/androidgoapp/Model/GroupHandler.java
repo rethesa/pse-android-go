@@ -3,8 +3,6 @@ package com.example.androidgoapp.androidgoapp.Model;
 import com.example.androidgoapp.androidgoapp.Database.ServiceAllocation;
 import com.example.androidgoapp.androidgoapp.Database.ServiceAppointment;
 import com.example.androidgoapp.androidgoapp.Database.ServiceGroup;
-import com.example.androidgoapp.androidgoapp.Model.Management.Appointment;
-import com.example.androidgoapp.androidgoapp.Model.Management.GroupClient;
 import com.example.androidgoapp.androidgoapp.Model.Management.UserDecorator;
 
 import java.util.LinkedList;

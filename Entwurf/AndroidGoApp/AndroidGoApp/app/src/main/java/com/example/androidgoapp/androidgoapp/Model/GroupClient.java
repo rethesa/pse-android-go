@@ -1,4 +1,4 @@
-package com.example.androidgoapp.androidgoapp.Model.Management;
+package com.example.androidgoapp.androidgoapp.Model;
 
 import com.example.androidgoapp.androidgoapp.Database.ServiceAllocation;
 import com.example.androidgoapp.androidgoapp.Database.ServiceAppointment;

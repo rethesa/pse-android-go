@@ -1,4 +1,6 @@
-package com.example.androidgoapp.androidgoapp.Model.Management;
+package com.example.androidgoapp.androidgoapp.Model;
+
+import com.example.androidgoapp.androidgoapp.Model.UserDecorator;
 
 /**
  * Created by Theresa on 20.12.2016.

@@ -3,7 +3,7 @@ package com.example.androidgoapp.androidgoapp.Database;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.example.androidgoapp.androidgoapp.Model.Management.Appointment;
+import com.example.androidgoapp.androidgoapp.Model.Appointment;
 
 /**
  * Created by Theresa on 11.01.2017.

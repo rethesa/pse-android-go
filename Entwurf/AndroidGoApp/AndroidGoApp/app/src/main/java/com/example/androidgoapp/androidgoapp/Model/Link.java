@@ -1,4 +1,4 @@
-package com.example.androidgoapp.androidgoapp.Model.Management;
+package com.example.androidgoapp.androidgoapp.Model;
 
 /**
  * Created by Theresa on 13.01.2017.

@@ -1,10 +1,12 @@
-package com.example.androidgoapp.androidgoapp.Model.Management;
+package com.example.androidgoapp.androidgoapp.Model;
+
+import com.example.androidgoapp.androidgoapp.Model.UserComponent;
 
 /**
  * Created by Theresa on 13.01.2017.
  */
 
-public class SimpleUser implements UserComponent{
+public class SimpleUser implements UserComponent {
 
     private String userName;
     private int userId;

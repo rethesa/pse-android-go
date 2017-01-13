@@ -3,7 +3,7 @@ package com.example.androidgoapp.androidgoapp.Database;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.example.androidgoapp.androidgoapp.Model.Management.UserDecorator;
+import com.example.androidgoapp.androidgoapp.Model.UserDecorator;
 
 import java.util.List;
 

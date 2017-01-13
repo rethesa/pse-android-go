@@ -1,4 +1,4 @@
-package com.example.androidgoapp.androidgoapp.Model.Management;
+package com.example.androidgoapp.androidgoapp.Model;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

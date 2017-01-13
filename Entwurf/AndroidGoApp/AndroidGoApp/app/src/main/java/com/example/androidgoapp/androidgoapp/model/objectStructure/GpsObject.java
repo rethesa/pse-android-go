@@ -1,5 +1,6 @@
 package com.example.androidgoapp.androidgoapp.model.objectStructure;
 
+import android.graphics.Point;
 import android.util.Pair;
 
 /**
@@ -8,16 +9,14 @@ import android.util.Pair;
 
 public class GpsObject {
 
-    private float latitude;
-    private float longitude;
     private String timestamp;
-    private Pair<Float,Float> userPosition;
+    private Point userPosition;
 
     private GpsObject() {
     }
 
-    public Pair<Float, Float> getGpsObject() {
-        userPosition = new Pair<>(latitude, longitude);
+    public Point getGpsObject() {
+        userPosition = new Point();
         //TODO
         return userPosition;
     }
@@ -30,7 +29,7 @@ public class GpsObject {
         return timestamp;
     }
 
-    public void showGpsObjectOnMap(Pair<Float, Float> position) {
+    public void showGpsObjectOnMap(Point position) {
         //TODO
     }
 }

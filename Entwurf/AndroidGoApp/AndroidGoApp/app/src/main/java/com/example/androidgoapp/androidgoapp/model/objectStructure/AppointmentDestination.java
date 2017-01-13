@@ -1,5 +1,6 @@
 package com.example.androidgoapp.androidgoapp.model.objectStructure;
 
+import android.graphics.Point;
 import android.util.Pair;
 
 /**
@@ -9,9 +10,7 @@ import android.util.Pair;
 public class AppointmentDestination {
 
     private String destinationName;
-    private float latitude;
-    private float longitude;
-    private Pair<Float,Float> destinationPosition;
+    private Point destinationPosition;
 
     private AppointmentDestination() {
         //destinationPosition = new Pair<>(latitude,latitude);
@@ -21,7 +20,7 @@ public class AppointmentDestination {
         this.destinationName = destinationName;
     }
 
-    protected void setDestinationPosition(Pair<Float, Float> destinationPosition) {
+    protected void setDestinationPosition(Point destinationPosition) {
         this.destinationPosition = destinationPosition;
     }
 
@@ -29,7 +28,7 @@ public class AppointmentDestination {
         return destinationName;
     }
 
-    protected Pair<Float,Float> getDestinationPosition() {
+    protected Point getDestinationPosition() {
         return destinationPosition;
     }
 }

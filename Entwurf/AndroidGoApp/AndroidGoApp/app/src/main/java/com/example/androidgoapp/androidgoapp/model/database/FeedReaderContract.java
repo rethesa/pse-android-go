@@ -95,8 +95,8 @@ public class FeedReaderContract {
                 "CREATE TABLE " + TABLE_NAME + " (" +
                         COL1_USER_ID + " INTEGER PRIMARY KEY," +
                         FeedEntryUser.COL2_USER_NAME + " TEXT," +
-                        FeedEntryUser.COL3_USER_LATITUDE + " INTEGER," +
-                        FeedEntryUser.COL4_LONGITUDE + " INTEGER)";
+                        FeedEntryUser.COL3_USER_LATITUDE + " DOUBLE," +
+                        FeedEntryUser.COL4_LONGITUDE + " DOUBLE)";
         /**
          * Delete table.
          */
@@ -196,8 +196,8 @@ public class FeedReaderContract {
                         COL2_APPOINTMENT_DATE + " INTEGER," +
                         COL3_APPOINTMENT_TIME + " INTEGER, " +
                         COL4_APPOINTMENT_DEST + " TEXT, " +
-                        COL5_APPOINTMENT_LATITUDE + " INTEGER, " +
-                        COL6_APPOINTMENT_LONGITUDE + " INTEGER)";
+                        COL5_APPOINTMENT_LATITUDE + " DOUBLE, " +
+                        COL6_APPOINTMENT_LONGITUDE + " DOUBLE)";
 
         /**
          * Delete table if exists.

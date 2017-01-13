@@ -4,9 +4,9 @@ package com.example.androidgoapp.androidgoapp.Model.Management;
  * Created by Theresa on 20.12.2016.
  */
 
-public class Administrator extends GroupMember {
+public class GroupAdmin extends GroupMember {
 
-    public Administrator(String name) {
+    public GroupAdmin(String name) {
         super(name);
     }
 

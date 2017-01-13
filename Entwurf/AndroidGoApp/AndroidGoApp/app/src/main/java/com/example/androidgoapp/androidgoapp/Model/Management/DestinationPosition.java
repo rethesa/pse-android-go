@@ -10,10 +10,10 @@ public class DestinationPosition {
 
     private float latitude;
     private float longitude;
-
     private Pair<Float,Float> destinationPosition;
 
-    private DestinationPosition() {
+    public DestinationPosition() {
+        destinationPosition = new Pair<>(latitude, latitude);
     }
 
     /**

@@ -1,6 +1,6 @@
 package com.example.androidgoapp.androidgoapp.Controller;
 
-import com.example.androidgoapp.androidgoapp.Model.Management.Group;
+import com.example.androidgoapp.androidgoapp.Model.Management.GroupClient;
 import com.example.androidgoapp.androidgoapp.Model.Management.GroupMember;
 
 import java.util.HashMap;
@@ -13,18 +13,18 @@ import java.util.List;
 public class GroupManager {
 
     private List<GroupMember> groupMemberList;
-    private List<Group> groupList;
+    private List<GroupClient> groupClientList;
 
     private HashMap<Integer, String> map = new HashMap<Integer, String>();
 
     private GroupManager() {
     }
 
-    private void addGroupToGroupManager(Group group) {
+    private void addGroupToGroupManager(GroupClient groupClient) {
         //TODO
     }
 
-    public void deleteGroup(Group group) {
+    public void deleteGroup(GroupClient groupClient) {
 
     }
 

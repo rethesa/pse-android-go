@@ -12,8 +12,8 @@ import com.example.androidgoapp.androidgoapp.R;
 
 public class MapActivity extends AppCompatActivity {
 
-    //<GoService>
-    //<Group.name>
+    //<GoStatus>
+    //<GroupClient.name>
 
     //das ist im Moment doppelt
     private DBHelperGroup myDbHelper;

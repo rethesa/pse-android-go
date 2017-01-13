@@ -3,7 +3,7 @@ package com.example.androidgoapp.androidgoapp.Database;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.example.androidgoapp.androidgoapp.Model.Management.SimpleUser2;
+import com.example.androidgoapp.androidgoapp.Model.Management.UserDecorator;
 
 import java.util.List;
 
@@ -31,7 +31,7 @@ public class ServiceUser {
      * @param user object
      * @return true if insertion was successful
      */
-    public boolean insertUserData(SimpleUser2 user) {
+    public boolean insertUserData(UserDecorator user) {
         //TODO
         //check if the user is already in the list
         db = dbHelperUser.getWritableDatabase();
@@ -43,7 +43,7 @@ public class ServiceUser {
      * @param userID of the user to get information about
      * @return user object
      */
-    public SimpleUser2 readUserData(int userID) {
+    public UserDecorator readUserData(int userID) {
         //TODO
         return null;
     }
@@ -52,10 +52,10 @@ public class ServiceUser {
      * Get all User objects of all groups the actual user is member of.
      * @return
      */
-    public List<SimpleUser2> readAllUsers() {
+    public List<UserDecorator> readAllUsers() {
         //TODO
         db = dbHelperUser.getReadableDatabase();
-        List<SimpleUser2> res = null;
+        List<UserDecorator> res = null;
         return res;
     }
 

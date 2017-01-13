@@ -4,8 +4,8 @@ import com.example.androidgoapp.androidgoapp.Database.ServiceAllocation;
 import com.example.androidgoapp.androidgoapp.Database.ServiceAppointment;
 import com.example.androidgoapp.androidgoapp.Database.ServiceGroup;
 import com.example.androidgoapp.androidgoapp.Model.Management.Appointment;
-import com.example.androidgoapp.androidgoapp.Model.Management.Group;
-import com.example.androidgoapp.androidgoapp.Model.Management.SimpleUser2;
+import com.example.androidgoapp.androidgoapp.Model.Management.GroupClient;
+import com.example.androidgoapp.androidgoapp.Model.Management.UserDecorator;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -32,27 +32,27 @@ public class GroupHandler {
      * @param groupName the user wants to call his group
      * @param user who creates the group and becomes admin
      */
-    public void createGroup(String groupName, SimpleUser2 user) {
-        Group group = new Group(groupName, user);
+    public void createGroup(String groupName, UserDecorator user) {
+        GroupClient groupClient = new GroupClient(groupName, user);
         Appointment appointment = new Appointment();
-        sGroup.insertNewGroup(group, user.getUserID());
-        sApp.insertAppointment(group.getGroupID(), appointment);
-        sAlloc.insertNewGroupMemberAlloc(group.getGroupID(), user.getUserID());
-        sAlloc.updateGroupMemberToAdmin(group.getGroupID(), user.getUserID());//as admin
+        sGroup.insertNewGroup(groupClient, user.getUserID());
+        sApp.insertAppointment(groupClient.getGroupID(), appointment);
+        sAlloc.insertNewGroupMemberAlloc(groupClient.getGroupID(), user.getUserID());
+        sAlloc.updateGroupMemberToAdmin(groupClient.getGroupID(), user.getUserID());//as admin
         //TODO
     }
 
     /**
-     * Delete group from group.db, delete group from appointment.db, delete group and member from
-     * allocation.db and delete users who aren't in any other group with the actual user anymore
+     * Delete groupClient from groupClient.db, delete groupClient from appointment.db, delete groupClient and member from
+     * allocation.db and delete users who aren't in any other groupClient with the actual user anymore
      * from the user.db
-     * @param group to delete
+     * @param groupClient to delete
      */
-    public void deleteGroup(Group group){
-        sApp.deleteAppointmentData(group.getGroupID());
-        sAlloc.deleteAllGroupMemberAlloc(group.getGroupID());
+    public void deleteGroup(GroupClient groupClient){
+        sApp.deleteAppointmentData(groupClient.getGroupID());
+        sAlloc.deleteAllGroupMemberAlloc(groupClient.getGroupID());
         //sUser.deleteUser()
-        sGroup.deleteGroupData(group.getGroupID());
+        sGroup.deleteGroupData(groupClient.getGroupID());
     }
 
     /**

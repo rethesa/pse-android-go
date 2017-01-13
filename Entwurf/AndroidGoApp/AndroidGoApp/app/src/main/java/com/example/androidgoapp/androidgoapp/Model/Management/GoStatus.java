@@ -1,6 +1,5 @@
 package com.example.androidgoapp.androidgoapp.Model.Management;
 
-import com.example.androidgoapp.androidgoapp.Model.MapView;
 
 
 /**
@@ -9,13 +8,13 @@ import com.example.androidgoapp.androidgoapp.Model.MapView;
  * @author tarek
  */
 
-public class GoService implements Runnable {
+public class GoStatus implements Runnable {
 
     private boolean goStatus;
-    private Group targetGroup;
+    private GroupClient targetGroupClient;
 
-    public GoService(Group targetGroup) {
-        this.targetGroup = targetGroup;
+    public GoStatus(GroupClient targetGroupClient) {
+        this.targetGroupClient = targetGroupClient;
         goStatus = false;
     }
 
@@ -26,13 +25,13 @@ public class GoService implements Runnable {
     public void run() {
         while(goStatus) {
             // TODO keep the thread busy by sending requests to the server.
-            // targetGroup.broadcastGps();
+            // targetGroupClient.broadcastGps();
             // take GPS-data from response and draw on the map
 
             // Sleep(5); TBD...
         }
     }
-    
+
     /**
      * Begin broadcasting GPS-Data and requesting updates when user presses his go button.
      */

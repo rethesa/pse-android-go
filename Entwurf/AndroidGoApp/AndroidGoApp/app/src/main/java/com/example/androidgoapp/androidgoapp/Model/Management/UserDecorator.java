@@ -4,7 +4,7 @@ package com.example.androidgoapp.androidgoapp.Model.Management;
  * Created by Theresa on 20.12.2016.
  */
 
-public abstract class UserDecorator implements UserComponent{
+public abstract class UserDecorator implements UserComponent {
 
     private String userName;
     private int userID;
@@ -16,30 +16,27 @@ public abstract class UserDecorator implements UserComponent{
         //this.gpsObject
     }
 
-
-
-
+    @Override
     public String getUserName() {
         return userName;
     }
 
+    @Override
     public int getUserID() {
         return userID;
+    }
+
+    @Override
+    public String getUserDeviceId() {
+        return null;
+    }
+
+    public boolean getView() {
+        return false;
     }
 
     public GpsObject getGpsObject() {
         return gpsObject;
     }
-
-
-
-
-
-
-
-
-
-
-
 
 }

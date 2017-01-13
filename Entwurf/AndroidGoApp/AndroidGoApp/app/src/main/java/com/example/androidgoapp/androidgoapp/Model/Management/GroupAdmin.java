@@ -10,22 +10,6 @@ public class GroupAdmin extends UserDecorator {
         super(name);
     }
 
-
-    @Override
-    public String getUserName() {
-        return null;
-    }
-
-    @Override
-    public int getUserID() {
-        return 0;
-    }
-
-    @Override
-    public String getUserDeviceId() {
-        return null;
-    }
-
     @Override
     public boolean getView() {
         return false;

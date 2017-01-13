@@ -10,4 +10,9 @@ public class GroupMember extends UserDecorator {
         super(name);
     }
 
+    @Override
+    public boolean getView() {
+        return false;
+    }
+
 }

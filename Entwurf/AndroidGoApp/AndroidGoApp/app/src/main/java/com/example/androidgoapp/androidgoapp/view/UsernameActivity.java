@@ -1,25 +1,23 @@
 package com.example.androidgoapp.androidgoapp.view;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.TextView;
 
 /**
- * Created by Schokomonsterchen on 12.01.2017.
+ * Created by Schokomonsterchen on 10.01.2017.
  */
 
-public class GroupActivity extends AppCompatActivity {
+public class UsernameActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.group_activity_dynamisch);
+        setContentView(R.layout.username_activity_dynamisch);
 
         if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.group_container, new GroupMapFragment()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.username_container, new UsernameChangeFragment()).commit();
         }
 
     }

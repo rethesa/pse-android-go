@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/groupmembers_fragment"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent">
+
+    <org.osmdroid.views.MapView android:id="@+id/map"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" />
 
     <Button
         android:id="@+id/groupname_button"
@@ -26,6 +29,7 @@
         android:layout_toRightOf="@id/groupname_button"
         />
 
+
     <Button
         android:id="@+id/appointment_button"
         android:layout_width="wrap_content"
@@ -36,9 +40,15 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true" />
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recyclerview"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+    <Button
+        android:id="@+id/go_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/go"
+        android:textColor="#FFFFFFFF"
+        android:background="#FFFF0000"
+        android:shape="ring"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

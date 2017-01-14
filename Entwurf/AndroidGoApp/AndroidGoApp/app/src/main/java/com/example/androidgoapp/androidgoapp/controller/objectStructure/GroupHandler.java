@@ -57,7 +57,7 @@ public class GroupHandler {
 
     /**
      * To get all names of the groups the actual user is member of to show these on the side bar
-     * in the MapActivity.
+     * in the GroupMapFragmentGo.
      * @return list of the group names
      */
     public List<String> getAllGroupNames() {

@@ -8,19 +8,19 @@
 	
 	\textbf{Methoden}
 	\begin{enumerate}
-		\item[protected void onCreate(Bundle savedInstanceState)] 
+		\item \underline{protected void onCreate(Bundle savedInstanceState)} 
 		Erweitert die onCreate Methode der AppCompatActivity indem sie, wenn der Client schon registriert ist, erst an die UsernameActivity weiterleitet. Ist er jedoch schon registriert, so leitet sie direkt an die zuletzt aufgerufene GroupActivity weiter.
-		\item[protected void onStart()]
+		\item \underline{protected void onStart()}
 		Erweitert die onStart() Methode der AppCompatActivity %- blabla ich habe keine Ahnung, was die wirklich macht
-		\item[protected void onRestart()]
+		\item \underline{protected void onRestart()}
 		Erweitert die onRestart() Methode der AppCompatActivity %- blabla ich habe keine Ahnung, was die wirklich macht
-		\item[protected void onResume()]
+		\item \underline{protected void onResume()}
 		Erweitert die onResume() Methode der AppCompatActivity %- blabla ich habe keine Ahnung, was die wirklich macht
-		\item[protected void onPause()]
+		\item \underline{protected void onPause()}
 		Erweitert die onPause() Methode der AppCompatActivity %- blabla ich habe keine Ahnung, was die wirklich macht
-		\item[protected void onStop()]
+		\item \underline{protected void onStop()}
 		Erweitert die onStop() Methode der AppCompatActivity %- blabla ich habe keine Ahnung, was die wirklich macht
-		\item[protected void onDestroy()]
+		\item \underline{protected void onDestroy()}
 		Erweitert die onDesroy() Methode der AppCompatActivity %- blabla ich habe keine Ahnung, was die wirklich macht
 	\end{enumerate}
 	
@@ -32,7 +32,7 @@
 	\textbf{Methoden}
 	
 	\begin{enumerate}
-		\item[protected void onCreate(@Nullable Bundle savedInstanceState)]
+		\item \underline{protected void onCreate(@Nullable Bundle savedInstanceState)}
 		Erweitert die onCreate Methode der AppCompatActivity mit dem laden des UsernameChangeFragments.
 	\end{enumerate}
 	
@@ -44,9 +44,9 @@
 	\textbf{Methoden}
 	
 	\begin{enumerate}
-		\item[public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)]
+		\item \underline{public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)}
 		Erweitert die onCreateView Methode des Fragments mit der gewünschten Ansicht, die der View übergeben wird und fürgt dem OnClickListener den Button hinzu. Diese Methode gibt die aktuelle View zurück.
-		\item[public void onClick(View view)]
+		\item \underline{public void onClick(View view)}
 		Implementiert die onClick Methode des OnClickListeners, so dass beim Klicken auf den Next-Button überprüft wird, ob der gewünschte Benutzername zugelassen ist. In diesem Fall legt er einen neuen User an und leitet an eine leere GroupActivity weiter.
 	\end{enumerate}
 
@@ -58,9 +58,9 @@
 	\textbf{Methoden}
 	
 	\begin{enumerate}
-		\item[public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)]
+		\item \underline{public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)}
 		Erweitert die onCreateView Methode des Fragments mit der gewünschten Ansicht, die der View übergeben wird und fügt dem OnClickListener den Button hinzu, wenn der Benutzer die App nicht zum ersten Mal öffnet. In diesem Fall lädt es das UsernameRegistrationFragment in den username\_container der UsernameActivity. Diese Methode gibt die aktuelle View zurück.
-		\item[public void onClick(View view)]
+		\item \underline{public void onClick(View view)}
 		Implementiert die onClick Methode des OnClickListeners, so dass beim Klick auf dem Next-Button überprüft wird, ob der gewünschte neue Benutzername zugelassen ist. In diesem Fall ändert er diesen und leitet an die zuletzt aufgerufene GroupActivity weiter.
 	\end{enumerate}
 	
@@ -72,7 +72,7 @@
 	\textbf{Methoden}
 	
 	\begin{enumerate}
-		\item[]
+		\item \underline{}
 		
 	\end{enumerate}
 	
@@ -83,9 +83,9 @@
 	
 	\textbf{Methoden}	
 	\begin{enumerate}
-		\item[public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)]
+		\item \underline{public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)}
 		Erweitert die onCreateView Methode des Fragments mit der gewünschten Ansicht, die der View übergeben wird und fügt dem OnClickListener die Button hinzu, wenn der Benutzer den Go-Button nicht gedrückt hat. In diesem Fall lädt es das GroupMapFragmentGo in den group\_container der GroupActivity. Diese Methode gibt die aktuelle View zurück.
-		\item[public void onClick(View view)]
+		\item \underline{public void onClick(View view)}
 		Implementiert die onClick Methode des OnClickListeners, so dass er beim Klick auf den Gruppennamen das GroupMembersFragment in den group\_container der GroupActivity lädt, beim Klick auf das Datum, wenn man Gruppenadministrator ist, das GroupAppointmentFragment in den group\_container der GroupActivity lädt und beim Klick auf den Go-Button das GroupActivityGoFragment in den group\_container der GroupActivity lädt.	
 	\end{enumerate}
 	
@@ -96,7 +96,7 @@
 	
 	\textbf{Methoden}
 	\begin{enumerate}
-		\item[]
+		\item \underline{}
 		
 	\end{enumerate}
 	
@@ -106,7 +106,7 @@
 	
 	\textbf{Methoden}
 	\begin{enumerate}
-		\item[]
+		\item \underline{}
 		
 	\end{enumerate}
 
@@ -117,7 +117,7 @@
 	
 	\textbf{Methoden}
 	\begin{enumerate}
-		\item[]
+		\item \underline{}
 		
 	\end{enumerate}
 
@@ -128,7 +128,7 @@
 	
 	\textbf{Methoden}
 	\begin{enumerate}
-		\item[]
+		\item \underline{}
 		
 	\end{enumerate}
 
@@ -139,7 +139,7 @@
 	
 	\textbf{Methoden}
 	\begin{enumerate}
-		\item[]
+		\item \underline{}
 		
 	\end{enumerate}
 	
@@ -150,7 +150,7 @@
 	
 	\textbf{Methoden}	
 	\begin{enumerate}
-		\item[]
+		\item \underline{}
 		
 	\end{enumerate}
 
@@ -162,7 +162,7 @@
 	\textbf{Methoden}
 	
 	\begin{enumerate}
-		\item[]
+		\item \underline{}
 		
 	\end{enumerate}
 	\item \textbf{\underline{MemberAdapter}}
@@ -172,7 +172,7 @@
 	
 	\textbf{Methoden}
 	\begin{enumerate}
-		\item[]
+		\item \underline{}
 		
 	\end{enumerate}
 	\item \textbf{\underline{TimePickerFragment}}
@@ -182,7 +182,7 @@
 	
 	\textbf{Methoden}
 	\begin{enumerate}
-		\item[]
+		\item \underline{}
 		
 	\end{enumerate}
 \end{enumerate}

@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
+import com.example.androidgoapp.androidgoapp.R;
+
 /**
  * Created by Schokomonsterchen on 10.01.2017.
  */

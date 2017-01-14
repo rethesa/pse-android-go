@@ -4,6 +4,8 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.example.androidgoapp.androidgoapp.model.database.DBHelperUser;
+import com.example.androidgoapp.androidgoapp.model.objectStructure.SimpleUser;
+import com.example.androidgoapp.androidgoapp.model.objectStructure.UserComponent;
 import com.example.androidgoapp.androidgoapp.model.objectStructure.UserDecoratorClient;
 
 import java.util.List;
@@ -32,7 +34,7 @@ public class ServiceUser {
      * @param user object
      * @return true if insertion was successful
      */
-    public boolean insertUserData(UserDecoratorClient user) {
+    public boolean insertUserData(UserComponent user) {
         //TODO
         //check if the user is already in the list
         db = dbHelperUser.getWritableDatabase();
@@ -44,7 +46,7 @@ public class ServiceUser {
      * @param userID of the user to get information about
      * @return user object
      */
-    public UserDecoratorClient readUserData(int userID) {
+    public UserComponent readUserData(int userID) {
         //TODO
         return null;
     }
@@ -53,10 +55,10 @@ public class ServiceUser {
      * Get all User objects of all groups the actual user is member of.
      * @return
      */
-    public List<UserDecoratorClient> readAllUsers() {
+    public List<UserComponent> readAllUsers() {
         //TODO
         db = dbHelperUser.getReadableDatabase();
-        List<UserDecoratorClient> res = null;
+        List<UserComponent> res = null;
         return res;
     }
 

@@ -1,19 +1,19 @@
-package com.example.androidgoapp.androidgoapp.Model;
+package com.example.androidgoapp.androidgoapp.model;
 
 import android.app.IntentService;
 import android.content.Context;
 import android.content.Intent;
 
-import com.example.androidgoapp.androidgoapp.Model.keineAhnungWieIchDasNennenSoll.Group;
+import com.example.androidgoapp.androidgoapp.model.objectStructure.GroupClient;
 
 /**
  * Created by Tarek on 13.01.17.
  */
 
 public class GoIntentService extends IntentService {
-    private Group group;
+    private GroupClient group;
 
-    public GoIntentService(Group group) {
+    public GoIntentService(GroupClient group) {
         super(GoIntentService.class.getSimpleName());
         this.group = group;
     }

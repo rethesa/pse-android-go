@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.androidgoapp.androidgoapp.R;
+
 /**
  * Created by dennisbauml on 12.01.17.
  */

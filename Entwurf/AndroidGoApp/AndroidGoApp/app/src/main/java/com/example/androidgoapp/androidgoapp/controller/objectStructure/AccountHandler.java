@@ -2,7 +2,7 @@ package com.example.androidgoapp.androidgoapp.controller.objectStructure;
 
 import com.example.androidgoapp.androidgoapp.controller.database.ServiceAllocation;
 import com.example.androidgoapp.androidgoapp.controller.database.ServiceUser;
-import com.example.androidgoapp.androidgoapp.model.objectStructure.UserDecorator;
+import com.example.androidgoapp.androidgoapp.model.objectStructure.UserDecoratorClient;
 
 /**
  * hält Informationen darüber wer ich bin
@@ -25,7 +25,7 @@ public class AccountHandler {
      * groups.
      * @param user to be deleted.
      */
-    public void deleteUserAccount(UserDecorator user) {
+    public void deleteUserAccount(UserDecoratorClient user) {
         ServiceUser sUser = null;
         sUser.deleteUser(user.getUserID());
         ServiceAllocation sAlloc = null;

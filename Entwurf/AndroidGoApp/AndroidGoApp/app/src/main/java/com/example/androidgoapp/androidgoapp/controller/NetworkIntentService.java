@@ -5,19 +5,17 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v4.BuildConfig;
 import android.util.Log;
-import com.example.androidgoapp.androidgoapp.common.communication.Response;
 
 import java.io.BufferedReader;
-import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.StringWriter;
 import java.net.URL;
 import java.net.URLConnection;
-import java.util.prefs.Preferences;
 
-import com.example.androidgoapp.androidgoapp.common.communication.Request;
+import com.example.androidgoapp.androidgoapp.communication.Request;
+import com.example.androidgoapp.androidgoapp.communication.Response;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 

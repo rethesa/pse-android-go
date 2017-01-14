@@ -12,7 +12,7 @@ public class GpsObject {
     private String timestamp;
     private Point userPosition;
 
-    private GpsObject() {
+    public GpsObject() {
     }
 
     public Point getGpsObject() {

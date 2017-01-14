@@ -16,6 +16,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
+import com.example.androidgoapp.androidgoapp.R;
+
 
 /**
  * Created by Schokomonsterchen on 12.01.2017.

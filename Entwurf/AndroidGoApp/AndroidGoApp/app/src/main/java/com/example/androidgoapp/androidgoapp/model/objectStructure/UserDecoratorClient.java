@@ -1,16 +1,20 @@
 package com.example.androidgoapp.androidgoapp.model.objectStructure;
 
+import android.graphics.Point;
+
+import java.security.Policy;
+
 /**
  * Created by Theresa on 20.12.2016.
  */
 
-public abstract class UserDecorator implements UserComponent {
+public abstract class UserDecoratorClient implements UserComponent {
 
     private String userName;
     private int userID;
     private GpsObject gpsObject;
 
-    public UserDecorator(String name) {
+    public UserDecoratorClient(String name) {
         this.userName = name;
         //this.userID =
         //this.gpsObject
@@ -29,6 +33,11 @@ public abstract class UserDecorator implements UserComponent {
     @Override
     public String getUserDeviceId() {
         return null;
+    }
+
+    @Override
+    public Point getUserPosition() {
+       return null;
     }
 
     public boolean getView() {

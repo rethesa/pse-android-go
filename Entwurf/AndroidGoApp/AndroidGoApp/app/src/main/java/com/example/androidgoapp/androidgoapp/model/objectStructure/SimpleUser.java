@@ -1,5 +1,7 @@
 package com.example.androidgoapp.androidgoapp.model.objectStructure;
 
+import android.graphics.Point;
+
 /**
  * Created by Theresa on 13.01.2017.
  */
@@ -29,6 +31,11 @@ public class SimpleUser implements UserComponent {
 
     @Override
     public String getUserDeviceId() {
+        return null;
+    }
+
+    @Override
+    public Point getUserPosition() {
         return null;
     }
 

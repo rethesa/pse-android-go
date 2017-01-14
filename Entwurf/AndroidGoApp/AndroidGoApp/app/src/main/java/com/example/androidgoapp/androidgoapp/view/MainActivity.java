@@ -14,16 +14,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
 
-        if(openFirstTime()) {
+        if(isUnregistered()) {
             Intent intent = new Intent(this, UsernameActivity.class);
             intent.putExtra("OpenFirstTime", "true");
             startActivity(new Intent(intent));
-        } else if(!openFirstTime()) {
+        } else if(!isUnregistered()) {
             startActivity(new Intent(this, GroupActivity.class));
         }
     }
 
-    private boolean openFirstTime() {
+    private boolean isUnregistered() {
         //TODO: openFirstTime muss irgendwo anders gespeichert sein und geholt werden
         return true;
     }

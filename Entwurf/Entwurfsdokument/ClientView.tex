@@ -1,1 +1,188 @@
 \subsubsection{ClientView}
+\begin{enumerate}
+	%- hier muss das PDF mit der Gesamtübersicht hin
+	\item \textbf{\underline{MainActivity}}
+	
+	%- hier muss das PDF classcom_1_1example_1_1androidgoapp_1_1androidgoapp_1_1view_1_1_main_activity__inherit__graph.pdf eingebunden werden
+	Aufgrund der MVC Struktur der App ist die MainActivity die Hauptactivity des View Teil. Beim Öffnen der App auf dem Client wird diese als erste Activity geöffnet. Sie hat vor allem eine managende Funktion: sie überpfüft ob dieser Client schon registriert ist oder nicht. Sie erbt von der AppCompatActivity und implementiert dementsprechen auch deren Methoden.
+	
+	\textbf{Methoden}
+	\begin{enumerate}
+		\item[protected void onCreate(Bundle savedInstanceState)] 
+		Erweitert die onCreate Methode der AppCompatActivity indem sie, wenn der Client schon registriert ist, erst an die UsernameActivity weiterleitet. Ist er jedoch schon registriert, so leitet sie direkt an die zuletzt aufgerufene GroupActivity weiter.
+		\item[protected void onStart()]
+		Erweitert die onStart() Methode der AppCompatActivity %- blabla ich habe keine Ahnung, was die wirklich macht
+		\item[protected void onRestart()]
+		Erweitert die onRestart() Methode der AppCompatActivity %- blabla ich habe keine Ahnung, was die wirklich macht
+		\item[protected void onResume()]
+		Erweitert die onResume() Methode der AppCompatActivity %- blabla ich habe keine Ahnung, was die wirklich macht
+		\item[protected void onPause()]
+		Erweitert die onPause() Methode der AppCompatActivity %- blabla ich habe keine Ahnung, was die wirklich macht
+		\item[protected void onStop()]
+		Erweitert die onStop() Methode der AppCompatActivity %- blabla ich habe keine Ahnung, was die wirklich macht
+		\item[protected void onDestroy()]
+		Erweitert die onDesroy() Methode der AppCompatActivity %- blabla ich habe keine Ahnung, was die wirklich macht
+	\end{enumerate}
+	
+	\item \textbf{\underline{UsernameActivity}}
+	
+	%- hier muss das PDF classcom_1_1example_1_1androidgoapp_1_1androidgoapp_1_1view_1_1_username_activity__inherit__graph.pdf eingebunden werden
+	Die UsernameActivity ist für das benennen des Benutzernamens zuständig. Sie wird sowohl zum ersten Start der App von der MainActivity aufgerufen, als auch von von der GroupActivity, wenn der Benutzer auf den Benutzernamen tippt. Sie enthält das UsernameChangeFragment und das UsernameRegistrationFragment. Sie erbt von der AppCompatActivity und implementiert dementsprechen auch deren Methoden.
+	
+	\textbf{Methoden}
+	
+	\begin{enumerate}
+		\item[protected void onCreate(@Nullable Bundle savedInstanceState)]
+		Erweitert die onCreate Methode der AppCompatActivity mit dem laden des UsernameChangeFragments.
+	\end{enumerate}
+	
+	\item \textbf{\underline{UsernameRegistrationFragment}}
+	
+	%- hier muss das PDF classcom_1_1example_1_1androidgoapp_1_1androidgoapp_1_1view_1_1_username_registration_fragment__inherit__graph.pdf eingebunden werden
+	Das UsernameCreateFragment ist dafür zuständig einen neuen User auf dem Server anzulegen. Es wird auf jedem Client in den username\_container der UsernameActivity geladen und somit nur einmalig aufgerufen, bis sich der Benutzer registriert hat. Es legt die erste Ansicht fest, die ein Benutzer sieht, wenn er die App das erste mal öffnet, bzw. wenn er die App öffnet und sich noch nie registriert hat. Es erbt von Fragment und implementiert den View.onClickListener. Dementsprechend implementiert sie auch deren Methoden.
+	
+	\textbf{Methoden}
+	
+	\begin{enumerate}
+		\item[public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)]
+		Erweitert die onCreateView Methode des Fragments mit der gewünschten Ansicht, die der View übergeben wird und fürgt dem OnClickListener den Button hinzu. Diese Methode gibt die aktuelle View zurück.
+		\item[public void onClick(View view)]
+		Implementiert die onClick Methode des OnClickListeners, so dass beim Klicken auf den Next-Button überprüft wird, ob der gewünschte Benutzername zugelassen ist. In diesem Fall legt er einen neuen User an und leitet an eine leere GroupActivity weiter.
+	\end{enumerate}
+
+	\item \textbf{\underline{UsernameChangeFragment}}
+		
+	%- hier muss das PDF classcom_1_1example_1_1androidgoapp_1_1androidgoapp_1_1view_1_1_username_change_fragment__inherit__graph.pdf eingebunden werden
+	Das UsernameChangeFragment ist dafür zuständig den Username zu ändern. Es wird von der UsernameActivity in den username\_container geladen. Es legt die Ansicht fest, die ein Benutzer sieht, wenn er seinen Benutzernamen ändern möchte. Es erbt von Fragment und implementiert den View.onClickListener. Dementsprechend implementiert es auch deren Methoden.
+	
+	\textbf{Methoden}
+	
+	\begin{enumerate}
+		\item[public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)]
+		Erweitert die onCreateView Methode des Fragments mit der gewünschten Ansicht, die der View übergeben wird und fügt dem OnClickListener den Button hinzu, wenn der Benutzer die App nicht zum ersten Mal öffnet. In diesem Fall lädt es das UsernameRegistrationFragment in den username\_container der UsernameActivity. Diese Methode gibt die aktuelle View zurück.
+		\item[public void onClick(View view)]
+		Implementiert die onClick Methode des OnClickListeners, so dass beim Klick auf dem Next-Button überprüft wird, ob der gewünschte neue Benutzername zugelassen ist. In diesem Fall ändert er diesen und leitet an die zuletzt aufgerufene GroupActivity weiter.
+	\end{enumerate}
+	
+	\item \textbf{\underline{GroupActivity}}
+	
+	%- hier muss das PDF classcom_1_1example_1_1androidgoapp_1_1androidgoapp_1_1view_1_1_group_activity__inherit__graph.pdf eingebunden werden
+	GroupActivity ist für das Management der Gruppe zuständig. Sie ist die Activity, die die meiste Zeit geöffnet ist. Von allen anderen Activitys aus kann sie aus geöffnet werden. Sie enthält das Group
+	
+	\textbf{Methoden}
+	
+	\begin{enumerate}
+		\item[]
+		
+	\end{enumerate}
+	
+	\item \textbf{\underline{GroupMapFragment}}
+	
+	%- hier muss das PDF classcom_1_1example_1_1androidgoapp_1_1androidgoapp_1_1view_1_1_group_map_fragment__inherit__graph.pdf eingebunden werden
+	Das GroupMapFragment ist dafür zuständig, die Map-Ansicht anzuzeigen. Es wird von der GroupActivity in den group\_container geladen, immer dann wenn eine Gruppe aufgerufen wird. Es legt die Map-Ansicht einer Gruppe fest. Es erbt von Fragment und implementiert den View.onClickListener. Dementsprechend implementiert es auch deren Methoden.
+	
+	\textbf{Methoden}	
+	\begin{enumerate}
+		\item[public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)]
+		Erweitert die onCreateView Methode des Fragments mit der gewünschten Ansicht, die der View übergeben wird und fügt dem OnClickListener die Button hinzu, wenn der Benutzer den Go-Button nicht gedrückt hat. In diesem Fall lädt es das GroupMapFragmentGo in den group\_container der GroupActivity. Diese Methode gibt die aktuelle View zurück.
+		\item[public void onClick(View view)]
+		Implementiert die onClick Methode des OnClickListeners, so dass er beim Klick auf den Gruppennamen das GroupMembersFragment in den group\_container der GroupActivity lädt, beim Klick auf das Datum, wenn man Gruppenadministrator ist, das GroupAppointmentFragment in den group\_container der GroupActivity lädt und beim Klick auf den Go-Button das GroupActivityGoFragment in den group\_container der GroupActivity lädt.	
+	\end{enumerate}
+	
+	\item \textbf{\underline{DatePickerFragment}}
+	
+	%- hier muss das PDF classcom_1_1example_1_1androidgoapp_1_1androidgoapp_1_1view_1_1_date_picker_fragment__inherit__graph.pdf eingebunden werden
+	%- text
+	
+	\textbf{Methoden}
+	\begin{enumerate}
+		\item[]
+		
+	\end{enumerate}
+	
+	\item \textbf{\underline{GroupAppointmentFragment}}
+	%- hier muss das PDF classcom_1_1example_1_1androidgoapp_1_1androidgoapp_1_1view_1_1_group_appointment_fragment__inherit__graph.pdf eingebunden werden
+	%- text
+	
+	\textbf{Methoden}
+	\begin{enumerate}
+		\item[]
+		
+	\end{enumerate}
+
+	\item \textbf{\underline{GroupMapFragmentGo}}
+
+	%- hier muss das PDF classcom_1_1example_1_1androidgoapp_1_1androidgoapp_1_1view_1_1_group_map_fragment_go__inherit__graph.pdf eingebunden werden
+	%- text
+	
+	\textbf{Methoden}
+	\begin{enumerate}
+		\item[]
+		
+	\end{enumerate}
+
+	\item \textbf{\underline{GroupMembersFragment}}
+	
+	%- hier muss das PDF classcom_1_1example_1_1androidgoapp_1_1androidgoapp_1_1view_1_1_group_members_fragment__inherit__graph.pdf eingebunden werden
+	%- text
+	
+	\textbf{Methoden}
+	\begin{enumerate}
+		\item[]
+		
+	\end{enumerate}
+
+	\item \textbf{\underline{GroupnameActivity}}
+	
+	%- hier muss das PDF classcom_1_1example_1_1androidgoapp_1_1androidgoapp_1_1view_1_1_groupname_activity__inherit__graph.pdf eingebunden werden
+	%- text
+	
+	\textbf{Methoden}
+	\begin{enumerate}
+		\item[]
+		
+	\end{enumerate}
+	
+	\item \textbf{\underline{GroupnameChangeFragment}}
+	
+	%- hier muss das PDF classcom_1_1example_1_1androidgoapp_1_1androidgoapp_1_1view_1_1_groupname_change_fragment__inherit__graph.pdf eingebunden werden
+	%- text
+	
+	\textbf{Methoden}	
+	\begin{enumerate}
+		\item[]
+		
+	\end{enumerate}
+
+	\item \textbf{\underline{GroupnameCreateFragment}}
+	
+	%- hier muss das PDF classcom_1_1example_1_1androidgoapp_1_1androidgoapp_1_1view_1_1_groupname_create_fragment__inherit__graph.pdf eingebunden werden
+	%- text
+	
+	\textbf{Methoden}
+	
+	\begin{enumerate}
+		\item[]
+		
+	\end{enumerate}
+	\item \textbf{\underline{MemberAdapter}}
+	
+	%- hier muss das PDF classcom_1_1example_1_1androidgoapp_1_1androidgoapp_1_1view_1_1_member_adapter__inherit__graph.pdf eingebunden werden
+	%- text
+	
+	\textbf{Methoden}
+	\begin{enumerate}
+		\item[]
+		
+	\end{enumerate}
+	\item \textbf{\underline{TimePickerFragment}}
+	
+	%- hier muss das PDF classcom_1_1example_1_1androidgoapp_1_1androidgoapp_1_1view_1_1_time_picker_fragment__inherit__graph.pdf eingebunden werden
+	%- text
+	
+	\textbf{Methoden}
+	\begin{enumerate}
+		\item[]
+		
+	\end{enumerate}
+\end{enumerate}

@@ -5,25 +5,7 @@
 \paragraph{Database}
 
 Die folgenden Service Klassen stellen die grundlegenden Funktionen zur Verfügung, mit welchen auf die Daten der in den Innenklassen von FeedReaderContract definierten Datenbanken zugegriffen werden kann. Dabei können Daten hinzugefügt (insert), gelesen (read), gelöscht (delete) und verändert (update) werden.
-Weitere Details dazu, wie die jeweilige Datenbanken aufgebaut sind, finden sie in FeedEntryAllocation, FeedEntryAppointment, FeedEntryGroup und FeedEntryUser.
-
-\textbf{ServiceAllocation}
-\begin{figure}[H]
-	\includegraphics[scale = 1]{res/umlClasses/service_allocation__coll__graph.pdf} 
-	\centering
-\end{figure}
-In der Datenbank auf die ServiceAllocation zugreift, wird die Verbindung zwischen Gruppen und Gruppenmitgliedern bzw. Administratoren gespeichert. 
-Sobald ein Mitglied einer Gruppe hinzugefügt oder aus einer Gruppe entfernt werden soll, wird entweder eine Verbindung erstellt oder gelöscht. 
-Um in der App dem Benutzer alle seine Gruppenmitglieder anzeigen zu können, müssen alle UserId's mit derselben GruppenId zurückgegeben werden, um anschließend die dazugehörigen Benutzernamen zu visualisieren.
-Update wird bei diesem Service nur benötigt, sobald ein normales Gruppenmitglied zum Gruppenadministrator gemacht werden soll und sich die Administratorvariable ändert.
-	
-\textbf{ServiceAppointment}
-\begin{figure}[H]
-	\includegraphics[scale = 1]{res/umlClasses/service_appointment__coll__graph.pdf}
-	\centering
-\end{figure}
-In der Datenbank auf die ServiceAppointment zugreift, wird zu jeder Gruppe das aktuelle Treffen gespeichert und verändert, sobald ein neues existiert. 
-Sollte die Gruppe gelöscht werden, so wird auch das Treffen aus der Datenbank entfernt.
+Weitere Details dazu, wie die jeweilige Datenbanken aufgebaut sind, finden sie in FeedEntryGroup, FeedEntryUser, FeedEntryAppointment, FeedEntryAllocation.
 
 \textbf{ServiceGroup}
 \begin{figure}[H]
@@ -41,6 +23,24 @@ In der Datenbank auf die ServiceUser zugreift ist der Name und die zuletzt bekan
 Ein Benutzer wird nur aus dieser Datenbank gelöscht, wenn er in keiner einzigen Gruppe mehr mit dem aktuellen User ist.
 Sobald der aktuelle Benutzer mit einem Gruppenmitglied in einer Gruppe ist, wird dieses auch auf dem Endgerät gespeichert.
 
+\textbf{ServiceAppointment}
+\begin{figure}[H]
+	\includegraphics[scale = 1]{res/umlClasses/service_appointment__coll__graph.pdf}
+	\centering
+\end{figure}
+In der Datenbank auf die ServiceAppointment zugreift, wird zu jeder Gruppe das aktuelle Treffen gespeichert und verändert, sobald ein neues existiert. InsertAppointment() wird nur verwendet, wenn die Gruppe erstellt wird, danach wird dieser Wert für ein neues Treffen einfach überschrieben.
+Sollte die Gruppe gelöscht werden, so wird auch das Treffen aus der Datenbank entfernt.
+
+\textbf{ServiceAllocation}
+\begin{figure}[H]
+	\includegraphics[scale = 1]{res/umlClasses/service_allocation__coll__graph.pdf} 
+	\centering
+\end{figure}
+In der Datenbank auf die ServiceAllocation zugreift, wird die Verbindung zwischen Gruppen und Gruppenmitgliedern bzw. Administratoren gespeichert. 
+Sobald ein Mitglied einer Gruppe hinzugefügt oder aus einer Gruppe entfernt werden soll, wird entweder eine Verbindung erstellt oder gelöscht. 
+Um in der App dem Benutzer alle seine Gruppenmitglieder anzeigen zu können, müssen alle UserId's mit derselben GruppenId zurückgegeben werden, um anschließend die dazugehörigen Benutzernamen zu visualisieren.
+Update wird bei diesem Service nur benötigt, sobald ein normales Gruppenmitglied zum Gruppenadministrator gemacht werden soll und sich die Administratorvariable ändert.
+	
 
 \paragraph{ObjectStructure}
 

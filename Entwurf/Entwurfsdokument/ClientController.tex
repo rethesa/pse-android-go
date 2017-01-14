@@ -4,17 +4,17 @@
 
 \paragraph{Database}
 
+\textbf{Services}
+
 Die folgenden Service Klassen stellen die grundlegenden Funktionen zur Verfügung, mit welchen auf die Daten der in den Innenklassen von FeedReaderContract definierten Datenbanken zugegriffen werden kann. Dabei können Daten hinzugefügt (insert), gelesen (read), gelöscht (delete) und verändert (update) werden.
 Weitere Details dazu, wie die jeweilige Datenbanken aufgebaut sind, finden sie in FeedEntryGroup, FeedEntryUser, FeedEntryAppointment, FeedEntryAllocation.
 
-\textbf{ServiceGroup}
 \begin{figure}[H]
 	\includegraphics[scale = 1]{res/umlClasses/service_group__coll__graph.pdf}
 	\centering
 \end{figure}
 In der Datenbank auf die ServiceGroup zugreift, werden die Gruppen gespeichert und ob der aktuelle Nutzer der Go-App für diese spezielle Gruppe seinen Go-Button aktiviert hat oder nicht. Sobald sich dieser Zustand ändert, wird das auch sofort in der Datenbank angepasst. Dasselbe gilt, wenn der Gruppenname nachträglich nochmal verändert wird.
 
-\textbf{ServiceUser}
 \begin{figure}[H]
 	\includegraphics[scale = 1]{res/umlClasses/service_appointment__coll__graph.pdf}
 	\centering
@@ -23,7 +23,6 @@ In der Datenbank auf die ServiceUser zugreift ist der Name und die zuletzt bekan
 Ein Benutzer wird nur aus dieser Datenbank gelöscht, wenn er in keiner einzigen Gruppe mehr mit dem aktuellen User ist.
 Sobald der aktuelle Benutzer mit einem Gruppenmitglied in einer Gruppe ist, wird dieses auch auf dem Endgerät gespeichert.
 
-\textbf{ServiceAppointment}
 \begin{figure}[H]
 	\includegraphics[scale = 1]{res/umlClasses/service_appointment__coll__graph.pdf}
 	\centering
@@ -31,7 +30,6 @@ Sobald der aktuelle Benutzer mit einem Gruppenmitglied in einer Gruppe ist, wird
 In der Datenbank auf die ServiceAppointment zugreift, wird zu jeder Gruppe das aktuelle Treffen gespeichert und verändert, sobald ein neues existiert. InsertAppointment() wird nur verwendet, wenn die Gruppe erstellt wird, danach wird dieser Wert für ein neues Treffen einfach überschrieben.
 Sollte die Gruppe gelöscht werden, so wird auch das Treffen aus der Datenbank entfernt.
 
-\textbf{ServiceAllocation}
 \begin{figure}[H]
 	\includegraphics[scale = 1]{res/umlClasses/service_allocation__coll__graph.pdf} 
 	\centering

@@ -14,6 +14,8 @@ import java.io.StringWriter;
 import java.net.URL;
 import java.net.URLConnection;
 
+import com.example.androidgoapp.androidgoapp.communication.Request;
+import com.example.androidgoapp.androidgoapp.communication.Response;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 

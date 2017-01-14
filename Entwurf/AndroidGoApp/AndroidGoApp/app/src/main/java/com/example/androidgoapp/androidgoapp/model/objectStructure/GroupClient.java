@@ -30,7 +30,7 @@ public class GroupClient {
     private ServiceAppointment sApp;
     private ServiceAllocation sAlloc;
 
-    public GroupClient(String name, UserDecorator user) {
+    public GroupClient(String name, UserDecoratorClient user) {
         this.groupName = name;
         //this.groupID =     increases
         appointment.setAppointmentDate("01012000","0000");
@@ -55,7 +55,7 @@ public class GroupClient {
      * Adds a new groupClient member to the given groupClient.
      * @param user to be added
      */
-    public void addGroupMember(UserDecorator user) {
+    public void addGroupMember(UserDecoratorClient user) {
         sUser.insertUserData(user); //just if user does not exist already
         sAlloc.insertNewGroupMemberAlloc(groupClient.groupID, user.getUserID());
     }
@@ -64,7 +64,7 @@ public class GroupClient {
      * Admin can upgrade a groupClient member to an admin.
      * @param user to become new admin of the groupClient (while the other one still exists)
      */
-    public void makeGroupMemberToAdmin(UserDecorator user) {
+    public void makeGroupMemberToAdmin(UserDecoratorClient user) {
         sAlloc.updateGroupMemberToAdmin(groupClient.getGroupID(), user.getUserID());//set admin boolean true
         //TODO
     }
@@ -86,7 +86,7 @@ public class GroupClient {
      * user.db
      * @param user of the user to delete
      */
-    public void deleteGroupMember(UserDecorator user) {
+    public void deleteGroupMember(UserDecoratorClient user) {
         sAlloc.deleteGroupMemberAlloc(groupClient.getGroupID(), user.getUserID());
         //check if user has to be deleted (not in any other groupClient with the actual user)
         //TODO
@@ -96,7 +96,7 @@ public class GroupClient {
      * User leaves groupClient by himself. It's like the admin deletes a groupClient member.
      * @param user
      */
-    public void leaveGroup(UserDecorator user) {
+    public void leaveGroup(UserDecoratorClient user) {
         groupClient.deleteGroupMember(user);
         //TODO
     }
@@ -194,9 +194,9 @@ public class GroupClient {
     }
 
     /**
-     * Find out what kind of user (GroupAdmin or GroupMember) the actual user is, so he gets the
-     * right view of the group. The GroupAdmin has more functionality than a GroupMember and because
-     * of that the GroupAdmin gets a different view.
+     * Find out what kind of user (GroupAdminClient or GroupMemberClient) the actual user is, so he gets the
+     * right view of the group. The GroupAdminClient has more functionality than a GroupMemberClient and because
+     * of that the GroupAdminClient gets a different view.
      * @param userId
      * @return the type of the actual user in this group.
      */

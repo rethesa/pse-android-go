@@ -5,7 +5,7 @@ import com.example.androidgoapp.androidgoapp.controller.database.ServiceAppointm
 import com.example.androidgoapp.androidgoapp.controller.database.ServiceGroup;
 import com.example.androidgoapp.androidgoapp.model.objectStructure.Appointment;
 import com.example.androidgoapp.androidgoapp.model.objectStructure.GroupClient;
-import com.example.androidgoapp.androidgoapp.model.objectStructure.UserDecorator;
+import com.example.androidgoapp.androidgoapp.model.objectStructure.UserDecoratorClient;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -32,7 +32,7 @@ public class GroupHandler {
      * @param groupName the user wants to call his group
      * @param user who creates the group and becomes admin
      */
-    public void createGroup(String groupName, UserDecorator user) {
+    public void createGroup(String groupName, UserDecoratorClient user) {
         GroupClient groupClient = new GroupClient(groupName, user);
         Appointment appointment = new Appointment();
         sGroup.insertNewGroup(groupClient, user.getUserID());

@@ -8,13 +8,13 @@ import java.security.Policy;
  * Created by Theresa on 20.12.2016.
  */
 
-public abstract class UserDecorator implements UserComponent {
+public abstract class UserDecoratorClient implements UserComponent {
 
     private String userName;
     private int userID;
     private GpsObject gpsObject;
 
-    public UserDecorator(String name) {
+    public UserDecoratorClient(String name) {
         this.userName = name;
         //this.userID =
         //this.gpsObject

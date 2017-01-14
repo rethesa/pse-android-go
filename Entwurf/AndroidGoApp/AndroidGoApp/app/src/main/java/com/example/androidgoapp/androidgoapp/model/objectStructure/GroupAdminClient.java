@@ -4,9 +4,9 @@ package com.example.androidgoapp.androidgoapp.model.objectStructure;
  * Created by Theresa on 20.12.2016.
  */
 
-public class GroupMember extends UserDecorator {
+public class GroupAdminClient extends UserDecoratorClient {
 
-    public GroupMember(String name) {
+    public GroupAdminClient(String name) {
         super(name);
     }
 
@@ -14,5 +14,4 @@ public class GroupMember extends UserDecorator {
     public boolean getView() {
         return false;
     }
-
 }

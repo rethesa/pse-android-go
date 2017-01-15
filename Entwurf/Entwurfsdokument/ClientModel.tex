@@ -1,6 +1,21 @@
 \subsubsection{ClientModel}
 
 \textbf{GoIntentService}
+\begin{figure}[H]
+	\includegraphics[scale = .3]{res/umlClasses/GoIntentService.png}
+	\centering	
+\end{figure}
+Der GokIntentService kümmert sich um Netzwerkanfragen die den GoStatus, also Anfragen in regelmäßigen Zeitintervallen an den Server sendet und Koordinaten übermittelt. Dieser Service läuft im Hintergrund ab, um die Benutzeroberfläche nicht zu behindern.
+\begin{enumerate}
+	\item public GoIntentService(group: Group)
+		Konstruktor für den IntentService.
+	\item public activate(context: Context):void
+		GoIntetnService wird aktiviert, wenn der GoStatus aktiviert wurde.
+	\item public deactivate():void
+		GoIntentService wird deaktiviert, wenn der GoStatus deaktiviert wurde.
+	\item protected onHandleIntent(intent: Intent): void
+		Für jede Netzwerkanfrage wird ein neuer Thread gestartet und es wird verhindert, dass Anfragen beim Drehen des Bildschirms verloren gehen.
+\end{enumerate}
 
 \paragraph{Database}
 \begin{figure}[H]
@@ -19,29 +34,29 @@ Die vier nachfolgenden DBHelper erben ihren Konstruktor und ihre Methoden von SQ
 		Diese Methode wird verwendet, wenn man die Datenbank verändert hat. Dieser wird dann eine neue Versionsnummer zugeteilt.	
 \end{enumerate}
 \begin{figure}[H]
-	\includegraphics[scale = 1]{res/umlClasses/d_b_helper_group__coll__graph.pdf}
+	\includegraphics[scale = .5]{res/umlClasses/DBHelperGroup.png}
 	\centering	
 \end{figure}
 
 \begin{figure}[H]
-	\includegraphics[scale = 1]{res/umlClasses/d_b_helper_user__coll__graph.pdf}
+	\includegraphics[scale = .5]{res/umlClasses/DBHelperUser.png}
 	\centering
 \end{figure}
 
 \begin{figure}[H]
-	\includegraphics[scale = 1]{res/umlClasses/d_b_helper_appointment__coll__graph.pdf}
+	\includegraphics[scale = .58]{res/umlClasses/DBHelperAppointment.png}
 	\centering
 \end{figure}
 
 \begin{figure}[H]
-	\includegraphics[scale = 1]{res/umlClasses/d_b_helper_allocation__coll__graph.pdf}
+	\includegraphics[scale = .5]{res/umlClasses/DBHelperAllocation.png}
 	\centering
 \end{figure}
 
 
 \textbf{FeedReaderContract}
 \begin{figure}[H]
-	\includegraphics[scale = 1]{res/umlClasses/feed_reader_contract__coll__graph.pdf}
+	\includegraphics[scale = .5]{res/umlClasses/FeedReaderContract.png}
 	\centering
 \end{figure}
 Die FeedReaderContract Klasse definiert in statischen Innenklassen wie die Tabellen der Datenbank aufgebaut sind. Jede der nachfolgenden FeedEntry Klassen implementiert dabei das Interface BaseColumns.
@@ -55,7 +70,7 @@ Die FeedReaderContract Klasse definiert in statischen Innenklassen wie die Tabel
 
 \textbf{FeedEntyGroup}
 \begin{figure}[H]
-	\includegraphics[scale = 1]{res/umlClasses/feed_reader_contract_group.pdf}
+	\includegraphics[scale = .5]{res/umlClasses/FeedEntryGroup.png}
 	\centering
 \end{figure}
 Die Innenklasse FeedEntryGroup definiert den Namen und die Spalten der Tabelle, welche die Gruppen auf dem Client speichert. 
@@ -64,7 +79,7 @@ Wenn eine Gruppe gelöscht wird, dann wird auch ihr Eintrag in der Datenbank gel
 
 \textbf{FeedEntyUser}
 \begin{figure}[H]
-	\includegraphics[scale = 1]{res/umlClasses/feed_reader_contract_user.pdf}
+	\includegraphics[scale = .6]{res/umlClasses/FeedEntryUser.png}
 	\centering
 \end{figure}
 Die Innenklasse FeedEntryUser definiert den Namen und die Spalten der Tabelle, welche die Benutzer auf dem Client speichert. 
@@ -73,7 +88,7 @@ Es werden nur Benutzer gespeichert mit denen der aktuelle Benutzer in mindestens
 
 \textbf{FeedEntyAppointment}
 \begin{figure}[H]
-	\includegraphics[scale = 1]{res/umlClasses/feed_reader_contract_appointment.pdf}
+	\includegraphics[scale = .5]{res/umlClasses/FeedEntryAppointment.png}
 	\centering
 \end{figure}
 Die Innenklasse FeedEntryAppointment definiert den Namen und die Spalten der Tabelle, welche die Treffpunkte zu jeder Gruppe speichert. Jede Gruppe hat dabei nur eine Zeile, welche den Treffpunkt definiert. 
@@ -83,7 +98,7 @@ Sollte die die Gruppe des dazugehörigen Treffpunktes gelöscht werden, dann wir
 
 \textbf{FeedEntyAllocation}
 \begin{figure}[H]
-	\includegraphics[scale = 1]{res/umlClasses/feed_reader_contract_allocation.pdf}
+	\includegraphics[scale = .5]{res/umlClasses/FeedEntryAllocation.png}
 	\centering
 \end{figure}
 Die Innenklasse FeedEntryAllocation definiert den Namen und die Spalten der Tabelle, welche die jeweiligen Mitglieder jeder Gruppe speichert, in der der aktuelle Benutzer Mitglied ist. Zu jedem Mitglied wird vermerkt, ob dieses Administratorrechte hat.
@@ -100,7 +115,7 @@ Gruppen id wird für jedes Gruppenmitglied vermerkt, also kommt mehrmals vor, so
 
 \textbf{GroupClient}
 \begin{figure}[H]
-	\includegraphics[scale = 1]{res/umlClasses/group_client__coll__graph.pdf}
+	\includegraphics[scale = .5]{res/umlClasses/GroupClient.png}
 	\centering
 \end{figure}
 Die Klasse GroupClient definiert wie eine Gruppe auf dem Client aufgebaut ist und welche Funktionalität ihr zur Verfügung steht.
@@ -139,7 +154,7 @@ Die Klasse GroupClient definiert wie eine Gruppe auf dem Client aufgebaut ist un
 
 \textbf{UserComponent}
 \begin{figure}[H]
-	\includegraphics[scale = 1]{res/umlClasses/user_component__coll__graph.pdf}
+	\includegraphics[scale = .5]{res/umlClasses/UserComponent.png}
 	\centering
 \end{figure}
 Dieses Interface ist die erste Komponente des Decorator pattern und definiert grundlegende Funktionen des Benutzers die jederzeit aufgerufen werden können. 
@@ -157,7 +172,7 @@ Mit getUserDeviceId() kann der Benutzer auf dem Server angelegt werden. Jede Ger
 
 \textbf{SimpleUser}
 \begin{figure}[H]
-	\includegraphics[scale = 1]{res/umlClasses/simple_user__coll__graph.pdf}
+	\includegraphics[scale = .5]{res/umlClasses/SimpleUser.png}
 	\centering
 \end{figure}
 Die SimpleUser Klasse implementiert das UserComponent Interface. Der Benutzer ist ein SimpleUser Objekt, wenn er nicht in der Gruppenansicht ist und so weder einem Gruppenadministrator noch einem Gruppenmitglied entspricht.
@@ -174,7 +189,7 @@ Die SimpleUser Klasse implementiert das UserComponent Interface. Der Benutzer is
 
 \textbf{UserDecorator}
 \begin{figure}[H]
-	\includegraphics[scale = 1]{res/umlClasses/user_decorator_client__coll__graph.pdf}
+	\includegraphics[scale = .5]{res/umlClasses/UserDecorator.png}
 	\centering
 \end{figure}
 Die UserDecorator Klasse ist eine abstrakte Klasse, die wie SimpleUser das UserComponent Interface implementiert. 
@@ -193,7 +208,7 @@ Die UserDecorator Klasse ist eine abstrakte Klasse, die wie SimpleUser das UserC
 
 \textbf{GroupAdmin}
 \begin{figure}[H]
-	\includegraphics[scale = 1]{res/umlClasses/group_admin_client__coll__graph.pdf}
+	\includegraphics[scale = .5]{res/umlClasses/GroupAdmin.png}
 	\centering
 \end{figure}
 Der Gruppenadministrator unterscheidet sich vom Gruppenmitglied in sofern, dass ihm weitaus mehr Funktionen zur Verfügung stehen, wie Mitglieder hinzufügen/ entfernen und Treffpunkte festlegen.
@@ -206,7 +221,7 @@ Der Gruppenadministrator unterscheidet sich vom Gruppenmitglied in sofern, dass 
 
 \textbf{GroupMember}
 \begin{figure}[H]
-	\includegraphics[scale = 1]{res/umlClasses/group_member_client__coll__graph.pdf}
+	\includegraphics[scale = .5]{res/umlClasses/GroupMember.png}
 	\centering
 \end{figure}
 Das Gruppenmitglied unterscheidet sich vom Gruppenadministrator in sofern, dass ihm die Gruppe betreffend kaum Funktionen zur Verfügung stehen.  
@@ -219,7 +234,7 @@ Das Gruppenmitglied unterscheidet sich vom Gruppenadministrator in sofern, dass 
 
 \textbf{GoStatus}
 \begin{figure}[H]
-	\includegraphics[scale = 1]{res/umlClasses/go_status__coll__graph.pdf}
+	\includegraphics[scale = .5]{res/umlClasses/GoStatus.png}
 	\centering
 \end{figure}
 Der GoStatus bestimmt darüber in welchen Abständen die Position des aktuellen Benutzers an die anderen Gruppenmitglieder übermittelt wird.
@@ -235,11 +250,11 @@ Der GoStatus bestimmt darüber in welchen Abständen die Position des aktuellen 
 \end{enumerate}
 
 \textbf{Link}
-Mit dem Link kann man andere Mitglieder 
 \begin{figure}[H]
-	\includegraphics[scale = 1]{res/umlClasses/link__coll__graph.pdf}
+	\includegraphics[scale = .5]{res/umlClasses/Link.png}
 	\centering
 \end{figure}
+Mit dem Link kann man andere Mitglieder 
 \begin{enumerate}
 	\item public Link(url: String, groupName: String , secret: String)\\
 		Konstruktor für einen Link. Ein Gruppenlink besteht aus den gelisteten drei Komponenten. Durch den Gruppennamen lässt sich das Mitglied welches den Link betätigt zu derjenigen Gruppe hinzufügen und das sercret verhindert, dass der Link leicht regenerierbar ist.
@@ -249,7 +264,7 @@ Mit dem Link kann man andere Mitglieder
 
 \textbf{GpsObject}
 \begin{figure}[H]
-	\includegraphics[scale = 1]{res/umlClasses/gps_object__coll__graph.pdf}
+	\includegraphics[scale = .5]{res/umlClasses/GpsObject.png}
 	\centering
 \end{figure}
 Das GpsObject gibt an in welcher Form die Gps Daten übermittelt werden.
@@ -262,7 +277,7 @@ Das GpsObject gibt an in welcher Form die Gps Daten übermittelt werden.
 
 \textbf{Appointment}
 \begin{figure}[H]
-	\includegraphics[scale = 1]{res/umlClasses/appointment__coll__graph.pdf}
+	\includegraphics[scale = .6]{res/umlClasses/Appointment.png}
 	\centering
 \end{figure}
 Appointment fasst alle Informationen zusammen die es über den Treffpunkt zu speichern gibt.
@@ -281,7 +296,7 @@ Appointment fasst alle Informationen zusammen die es über den Treffpunkt zu spe
 
 \textbf{AppointmentDate}
 \begin{figure}[H]
-	\includegraphics[scale = 1]{res/umlClasses/appointment_date__coll__graph.pdf}
+	\includegraphics[scale = .5]{res/umlClasses/AppointmentDate.png}
 	\centering
 \end{figure}
 AppointmentDate legt fest wie Datum und Uhrzeit formatiert werden.
@@ -298,7 +313,7 @@ AppointmentDate legt fest wie Datum und Uhrzeit formatiert werden.
 
 \textbf{AppointmentDestination}
 \begin{figure}[H]
-	\includegraphics[scale = 1]{res/umlClasses/appointment_destination__coll__graph.pdf}
+	\includegraphics[scale = .5]{res/umlClasses/AppointmentDestination.png}
 	\centering
 \end{figure}
 AppointmentDestination legt fest wie Name und Position des Zielortes definiert sind.

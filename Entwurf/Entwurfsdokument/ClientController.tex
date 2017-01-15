@@ -5,6 +5,17 @@
 \end{figure}
 
 \textbf{NetworkIntentService}
+\begin{figure}[H]
+	\includegraphics[scale = .3]{res/umlClasses/NoteIntentService.png}
+	\centering
+\end{figure}
+Der NetworkIntentService kümmert sich um Netzwerkanfragen, läuft aber im Hintergurnd ab um die Benutzeroberfläche nicht zu behindern.
+\begin{enumerate}
+	\item public NetworkIntentService()
+		Konstruktor für den GoIntentService.
+	\item protected onHandleIntent(intent: Intent)
+		Für jede Netzwerkanfrage wird ein neuer Thread gestartet und es wird verhindert, dass Anfragen beim Drehen des Bildschirms verloren gehen.
+\end{enumerate}
 
 \paragraph{Database}
 
@@ -13,7 +24,7 @@ Die folgenden Service Klassen stellen die grundlegenden Funktionen zur Verfügun
 Weitere Details dazu, wie die jeweilige Datenbanken aufgebaut sind, finden sie in FeedEntryGroup, FeedEntryUser, FeedEntryAppointment, FeedEntryAllocation.
 
 \begin{figure}[H]
-	\includegraphics[scale = 1]{res/umlClasses/service_group__coll__graph.pdf}
+	\includegraphics[scale = .6]{res/umlClasses/ServiceGroup.png}
 	\centering
 \end{figure}
 In der Datenbank auf die ServiceGroup zugreift, werden die Gruppen gespeichert und ob der aktuelle Nutzer der Go-App für diese spezielle Gruppe seinen Go-Button aktiviert hat oder nicht. 
@@ -33,7 +44,7 @@ In der Datenbank auf die ServiceGroup zugreift, werden die Gruppen gespeichert u
 \end{enumerate}
 
 \begin{figure}[H]
-	\includegraphics[scale = 1]{res/umlClasses/service_user__coll__graph.pdf}
+	\includegraphics[scale = .5]{res/umlClasses/ServiceUser.png}
 	\centering
 \end{figure}
 In der Datenbank auf die ServiceUser zugreift ist der Name und die zuletzt bekannte Position des Benutzers gespeichert, welche bei neuen Informationen angepasst werden. 
@@ -53,7 +64,7 @@ In der Datenbank auf die ServiceUser zugreift ist der Name und die zuletzt bekan
 \end{enumerate}
 
 \begin{figure}[H]
-	\includegraphics[scale = 1]{res/umlClasses/service_appointment__coll__graph.pdf}
+	\includegraphics[scale = .5]{res/umlClasses/ServiceAppointment.png}
 	\centering
 \end{figure}
 In der Datenbank auf die ServiceAppointment zugreift, wird zu jeder Gruppe das aktuelle Treffen gespeichert und verändert, sobald ein neues existiert.
@@ -71,7 +82,7 @@ In der Datenbank auf die ServiceAppointment zugreift, wird zu jeder Gruppe das a
 \end{enumerate}
 
 \begin{figure}[H]
-	\includegraphics[scale = 1]{res/umlClasses/service_allocation__coll__graph.pdf} 
+	\includegraphics[scale = .5]{res/umlClasses/ServiceAllocation.png} 
 	\centering
 \end{figure}
 In der Datenbank auf die ServiceAllocation zugreift, wird die Verbindung zwischen Gruppen und Gruppenmitgliedern bzw. Administratoren gespeichert. 
@@ -97,7 +108,7 @@ In Account- und GroupHandler werden allgemeine Funktionen definiert, die nicht s
 
 \textbf{AccountHandler}
 \begin{figure}[H]
-	\includegraphics[scale = 1]{res/umlClasses/account_handler__coll__graph.pdf}
+	\includegraphics[scale = .5]{res/umlClasses/AccoundHandler.png}
 	\centering
 \end{figure}
 Die AccountHandler Klasse handelt das Registrieren und löschen vom aktuellen Benutzer ab.
@@ -110,7 +121,7 @@ Die AccountHandler Klasse handelt das Registrieren und löschen vom aktuellen Be
 
 \textbf{GroupHandler}
 \begin{figure}[H]
-	\includegraphics[scale = 1]{res/umlClasses/group_handler__coll__graph.pdf}
+	\includegraphics[scale = .55]{res/umlClasses/GroupHandler.png}
 	\centering
 \end{figure}
 Die GroupHandler Klasse handelt das Erstellen und Löschen von Gruppen ab.

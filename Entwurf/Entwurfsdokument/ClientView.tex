@@ -98,62 +98,134 @@
 	\end{enumerate}
 	
 	\item \textbf{\underline{GroupMapFragment}}
+
+	%- hier muss das PDF classcom_1_1example_1_1androidgoapp_1_1androidgoapp_1_1view_1_1_group_map__fragment__inherit__graph.pdf eingebunden werden, welches aber noch nicht existiert
 	
-	%- hier muss das PDF classcom_1_1example_1_1androidgoapp_1_1androidgoapp_1_1view_1_1_group_map_fragment__inherit__graph.pdf eingebunden werden
-	Das GroupMapFragment ist dafür zuständig, die Map-Ansicht anzuzeigen. Es wird von der GroupActivity in den group\_container geladen, immer dann wenn eine Gruppe aufgerufen wird. Es legt die Map-Ansicht einer Gruppe fest. Es erbt von Fragment und implementiert den View.onClickListener. Dementsprechend implementiert es auch deren Methoden.
+	Das GroupMapFragment ist dafür zuständig, die Map-Ansicht anzuzeigen. Allerdings hat es lediglich die Funktion die Oberklasse für das GroupMapGoFragment und das GroupMapNotGoFragment zu sein, wird also niemals direkt aufgerufen. Es erbt von Fragment und implementiert den View.onClickListener. Dementsprechend implementiert es auch deren Methoden.
 	
 	\textbf{Methoden}	
 	\begin{enumerate}
 		\item public onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState): View
 		
-		Erweitert die onCreateView Methode des Fragments mit der gewünschten Ansicht, die der View übergeben wird und fügt dem OnClickListener die Button hinzu, wenn der Benutzer den Go-Button nicht gedrückt hat. In diesem Fall lädt es das GroupMapFragmentGo in den group\_container der GroupActivity. Diese Methode gibt die aktuelle View zurück.
+		Erweitert die onCreateView Methode des Fragments mit der gewünschten Ansicht, indem es defineView() aufruft und den controller der MapView definiert. Außerdem fügt es dem OnClickListener die Button hinzu.Diese Methode gibt die aktuelle View zurück.
+		
+		\item protected defineView(LayoutInflater inflater, ViewGroup container): View
+
+		Gibt die gewünschte View zurück. Allerdings ist diese Methode hier lediglich ein Platzhalter für detaillierte Methoden.
 		
 		\item public onClick(View view)
 		
-		Implementiert die onClick Methode des OnClickListeners, so dass er beim Klick auf den Gruppennamen das GroupMembersFragment in den group\_container der GroupActivity lädt, beim Klick auf das Datum, wenn man Gruppenadministrator ist, das GroupAppointmentFragment in den group\_container der GroupActivity lädt und beim Klick auf den Go-Button das GroupActivityGoFragment in den group\_container der GroupActivity lädt.	
+		Implementiert die onClick Methode des OnClickListeners, so dass er beim Klick auf den Gruppennamen das GroupMembersFragment in den group\_container der GroupActivity lädt, beim Klick auf das Datum, wenn man Gruppenadministrator ist, das GroupAppointmentFragment in den group\_container der GroupActivity lädt und beim Klick auf den Go-Button die go() Methode aufruft.
+		
+		\item protected go(MapView mapView)
+		
+		Definiert was passiert, wenn der Benutzer den Go-Button drückt. Allerdings ist diese Methode hier lediglich ein Platzhalter für detaillierte Methoden.
 	\end{enumerate}
 	
-	\item \textbf{\underline{DatePickerFragment}}
+	\item \textbf{\underline{GroupMapNotGoFragment}}
 	
-	%- hier muss das PDF classcom_1_1example_1_1androidgoapp_1_1androidgoapp_1_1view_1_1_date_picker_fragment__inherit__graph.pdf eingebunden werden
-	%- text
+	%- hier muss das PDF classcom_1_1example_1_1androidgoapp_1_1androidgoapp_1_1view_1_1_group_map_not_go_fragment__inherit__graph.pdf eingebunden werden, welches aber noch nicht existiert
+	Das GroupMapNotGoFragment ist dafür zuständig, die Map-Ansicht anzuzeigen, wenn der Go-Button nicht gedrückt ist. Es wird von der GroupActivity in den group\_container geladen, immer dann wenn eine Gruppe aufgerufen wird. Es erbt von dem GroupMapFragment und implementiert dementsprechen auch dessen Methoden.
 	
+	\textbf{Methoden}	
+	\begin{enumerate}
+		
+		\item protected defineView(LayoutInflater inflater, ViewGroup container): View
+
+		Gibt die gewünschte View zurück. Wenn jedoch der Go-Button gedrückt ist, lädt es das GroupMapGoFragment in den group\_container der GroupActivity.
+		
+		\item protected go(MapView mapView)
+		
+		Lädt das GroupMapGoFragment in den group\_container der GroupActivity.
+	\end{enumerate}
+			
+	\item \textbf{\underline{GroupMapGoFragmen}}
+
+	%- hier muss das PDF classcom_1_1example_1_1androidgoapp_1_1androidgoapp_1_1view_1_1_group_map_fragment_go__inherit__graph.pdf eingebunden werden, welches aber noch nicht existiert
+	Das GroupMapGoFragment ist dafür zuständig, die Map-Ansicht anzuzeigen, wenn der Go Button gedrückt ist. In diesem Fall wird es von dem GroupMapNotGoFragment in den group\_container geladen, wenn der Benutzer go drückt, bzw. go gedrückt hat. Es erbt von dem GroupMapFragment und implementiert dementsprechend auch dessen Methoden.
+
 	\textbf{Methoden}
 	\begin{enumerate}
-		\item 
-		
+		\item protected defineView(LayoutInflater inflater, ViewGroup container): View
+
+		Gibt die gewünschte View zurück.
+
+		\item protected go(MapView mapView)
+
+		Lädt das GroupMapNotGoFragment in den group\_container der GroupActivity.
+
 	\end{enumerate}
-	
+
 	\item \textbf{\underline{GroupAppointmentFragment}}
+
 	%- hier muss das PDF classcom_1_1example_1_1androidgoapp_1_1androidgoapp_1_1view_1_1_group_appointment_fragment__inherit__graph.pdf eingebunden werden
-	%- text
+	Das GroupAppointmentFragment ist dafür zuständig ein neues Treffen zu erstellen. Es wird von einem GroupFragment in den group\_container geladen, wenn der Gruppenadministrator auf den Appointment-Button drückt. Es erbt von Fragment und implementiert den View.onClickListener. Dementsprechend implementiert es auch deren Methoden.
 	
 	\textbf{Methoden}
 	\begin{enumerate}
-		\item 
+		\item public onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState): View
+			Gibt die gewünschte View zurück und fügt dem On.Click.Listener die Button hinzu.
+			
+		\item public onClick(View view)
+		
+		Implementiert die onClick Methode des OnClickListeners, so dass er beim Klick auf den Gruppennamen das GroupMembersFragment in den group\_container der GroupActivity lädt, beim Klick auf das Datum das GroupMapGoFragment, bzw. das GroupMapNotGoFragment in den group\_container der GroupActivity lädt, beim Klick auf die Time-, Date-, bzw. Place-Button das TimePickerFragment, DatePickerFragment, bzw. das GroupMapFragment lädt damit der Gruppenadministrator die Daten für ein Treffen auszuwählen und beim Klick auf den Next-Button dieses Appointment zu bestätigen kann. Dieses wird dann als nächstes Treffen in der Gruppe gespeichert.
 		
 	\end{enumerate}
+	\item \textbf{\underline{TimePickerFragment}}
 
-	\item \textbf{\underline{GroupMapFragmentGo}}
+	%- hier muss das PDF classcom_1_1example_1_1androidgoapp_1_1androidgoapp_1_1view_1_1_time_picker_fragment__inherit__graph.pdf eingebunden werden
+	Das TimePickerFragment ist dafür zuständig eine Uhrzeit auszuwählen und diese zurückzugeben. Es wird von dem GroupAppointmentFragment geladen, wenn der Benutzer den Time-Button drückt. Es erbt vom DialogFragment und implementiert den TimePickerDialog.OnTimeSetListener. Dementsprechend implementiert es auch deren Methoden.
 
-	%- hier muss das PDF classcom_1_1example_1_1androidgoapp_1_1androidgoapp_1_1view_1_1_group_map_fragment_go__inherit__graph.pdf eingebunden werden
-	%- text
-	
 	\textbf{Methoden}
 	\begin{enumerate}
-		\item 
+		\item public onCreateDialog(Bundle savedInstanceState): Dialog
+	
+		Öffnet den TimePickerDialog
 		
+		\item public onTimeSet(TimePicker view, int hourOfDay, int minute)
+	
+		Speichert die gewählte Zeit in einem gesonderten Appointment
+		
+		\item public showTimePickerDialog(View view)
+		
+		Macht den TimePickerDialog sichtbar
 	\end{enumerate}
+	\item \textbf{\underline{DatePickerFragment}}
+
+	%- hier muss das PDF classcom_1_1example_1_1androidgoapp_1_1androidgoapp_1_1view_1_1_date_picker_fragment__inherit__graph.pdf eingebunden werden
+	Das DatePickerFragment ist dafür zuständig ein Datum auszuwählen und dieses zurückzugeben. Es wird von dem GroupAppointmentFragment geladen, wenn der Benutzer den Date-Button drückt. Es erbt vom DialogFragment und implementiert den DatePickerDialog.OnDateSetListener. Dementsprechend implementiert es auch deren Methoden.
+
+	\textbf{Methoden}
+	\begin{enumerate}
+		\item public onCreateDialog(Bundle savedInstanceState): Dialog
+
+		Öffnet den DatePickerDialog
+
+		\item public onDateSet(DatePicker view, int year, int month, int day)
+
+		Speichert das gewählte Datum in einem gesonderten Appointment
+
+		\item public showDatePickerDialog(View view)
+
+		Macht den DatePickerDialog sichtbar
+	
+	\end{enumerate}
+
 
 	\item \textbf{\underline{GroupMembersFragment}}
 	
 	%- hier muss das PDF classcom_1_1example_1_1androidgoapp_1_1androidgoapp_1_1view_1_1_group_members_fragment__inherit__graph.pdf eingebunden werden
-	%- text
+	Das GroupMembersFragment ist dafür zuständig die Gruppenmitglieder zu verwalten. Es wird von einem GroupFragment in den group\_container geladen, wenn der Benutzer auf den Groupname-Button drückt. Es erbt von Fragment und implementiert den View.onClickListener. Dementsprechend implementiert es auch deren Methoden.
 	
 	\textbf{Methoden}
 	\begin{enumerate}
-		\item 
+		\item public onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState): View
 		
+		Erweitert die onCreateView Methode des Fragments mit der gewünschten Ansicht, je nachdem ob der Benutzer Gruppenadministrator dieser Gruppe ist oder nicht. Außerdem kreiert es eine RecyclerView, ruft den MemberAdapter auf um alle Gruppenmitglieder anzeigen zu können und fügt der OnClickListener die Button hinzu.
+		
+		\item public onClick(View view)
+		
+		Implementiert die onClick Methode des OnClickListeners, so dass er beim Klick auf den Gruppennamen das GrouMapNotGoFragment, bzw. das GroupMapGoFragment in den group\_container der GroupActivity lädt, beim Klick auf das Datum das GroupAppointmentFragment, in den group\_container der GroupActivity lädt und beim Klick auf den AddMember-Button den SendLinkDialog lädt.
 	\end{enumerate}
 
 	\item \textbf{\underline{GroupnameActivity}}
@@ -199,14 +271,6 @@
 		\item 
 		
 	\end{enumerate}
-	\item \textbf{\underline{TimePickerFragment}}
-	
-	%- hier muss das PDF classcom_1_1example_1_1androidgoapp_1_1androidgoapp_1_1view_1_1_time_picker_fragment__inherit__graph.pdf eingebunden werden
-	%- text
-	
-	\textbf{Methoden}
-	\begin{enumerate}
-		\item 
-		
-	\end{enumerate}
+
+
 \end{enumerate}

@@ -45,7 +45,7 @@ public class GroupAppointmentFragment extends Fragment implements View.OnClickLi
     public void onClick(View view) {
         int id = view.getId();
         Fragment groupMapFragment;
-        if (go()) {
+        if (goStatus()) {
             groupMapFragment = new GroupMapGoFragment();
         } else {
             groupMapFragment = new GroupMapNotGoFragment();
@@ -84,7 +84,7 @@ public class GroupAppointmentFragment extends Fragment implements View.OnClickLi
 
     }
 
-    private boolean go() {
+    private boolean goStatus() {
         //TODO: überprüfen, ob go gedrückt ist
         return false;
     }

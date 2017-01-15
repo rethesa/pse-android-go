@@ -30,10 +30,10 @@ public  class DatePickerFragment extends DialogFragment
     }
 
     public void onDateSet(DatePicker view, int year, int month, int day) {
-        //TODO: speichere date
+        //TODO: speichere date in gesondertem Appointment
     }
 
-    public void showDatePickerDialog(View v) {
+    public void showDatePickerDialog(View view) {
         DialogFragment newFragment = new DatePickerFragment();
         //TODO: herausfinden woher diese Methode kommt
         //newFragment.show(getSupportFragmentManager(), "datePicker");

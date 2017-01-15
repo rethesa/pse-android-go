@@ -8,19 +8,32 @@
 	
 	\textbf{Methoden}
 	\begin{enumerate}
-		\item \underline{protected void onCreate(Bundle savedInstanceState)} 
+		\item protected onCreate(Bundle savedInstanceState) 
+		
 		Erweitert die onCreate Methode der AppCompatActivity indem sie, wenn der Client schon registriert ist, erst an die UsernameActivity weiterleitet. Ist er jedoch schon registriert, so leitet sie direkt an die zuletzt aufgerufene GroupActivity weiter.
-		\item \underline{protected void onStart()}
+		
+		\item protected onStart()
+		
 		Erweitert die onStart() Methode der AppCompatActivity %- blabla ich habe keine Ahnung, was die wirklich macht
-		\item \underline{protected void onRestart()}
+		
+		\item protected onRestart()
+		
 		Erweitert die onRestart() Methode der AppCompatActivity %- blabla ich habe keine Ahnung, was die wirklich macht
-		\item \underline{protected void onResume()}
+		
+		\item protected onResume()
+
 		Erweitert die onResume() Methode der AppCompatActivity %- blabla ich habe keine Ahnung, was die wirklich macht
-		\item \underline{protected void onPause()}
+		
+		\item protected onPause()
+
 		Erweitert die onPause() Methode der AppCompatActivity %- blabla ich habe keine Ahnung, was die wirklich macht
-		\item \underline{protected void onStop()}
+		
+		\item protected onStop()
+
 		Erweitert die onStop() Methode der AppCompatActivity %- blabla ich habe keine Ahnung, was die wirklich macht
-		\item \underline{protected void onDestroy()}
+		
+		\item protected onDestroy()
+
 		Erweitert die onDesroy() Methode der AppCompatActivity %- blabla ich habe keine Ahnung, was die wirklich macht
 	\end{enumerate}
 	
@@ -32,7 +45,8 @@
 	\textbf{Methoden}
 	
 	\begin{enumerate}
-		\item \underline{protected void onCreate(@Nullable Bundle savedInstanceState)}
+		\item protected onCreate(@Nullable Bundle savedInstanceState)
+		
 		Erweitert die onCreate Methode der AppCompatActivity mit dem laden des UsernameChangeFragments.
 	\end{enumerate}
 	
@@ -44,9 +58,12 @@
 	\textbf{Methoden}
 	
 	\begin{enumerate}
-		\item \underline{public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)}
+		\item public onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState): View
+
 		Erweitert die onCreateView Methode des Fragments mit der gewünschten Ansicht, die der View übergeben wird und fürgt dem OnClickListener den Button hinzu. Diese Methode gibt die aktuelle View zurück.
-		\item \underline{public void onClick(View view)}
+		
+		\item public onClick(View view)
+
 		Implementiert die onClick Methode des OnClickListeners, so dass beim Klicken auf den Next-Button überprüft wird, ob der gewünschte Benutzername zugelassen ist. In diesem Fall legt er einen neuen User an und leitet an eine leere GroupActivity weiter.
 	\end{enumerate}
 
@@ -58,22 +75,26 @@
 	\textbf{Methoden}
 	
 	\begin{enumerate}
-		\item \underline{public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)}
+		\item public onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState): View
+		
 		Erweitert die onCreateView Methode des Fragments mit der gewünschten Ansicht, die der View übergeben wird und fügt dem OnClickListener den Button hinzu, wenn der Benutzer die App nicht zum ersten Mal öffnet. In diesem Fall lädt es das UsernameRegistrationFragment in den username\_container der UsernameActivity. Diese Methode gibt die aktuelle View zurück.
-		\item \underline{public void onClick(View view)}
+		
+		\item public onClick(View view)
+		
 		Implementiert die onClick Methode des OnClickListeners, so dass beim Klick auf dem Next-Button überprüft wird, ob der gewünschte neue Benutzername zugelassen ist. In diesem Fall ändert er diesen und leitet an die zuletzt aufgerufene GroupActivity weiter.
 	\end{enumerate}
 	
 	\item \textbf{\underline{GroupActivity}}
 	
 	%- hier muss das PDF classcom_1_1example_1_1androidgoapp_1_1androidgoapp_1_1view_1_1_group_activity__inherit__graph.pdf eingebunden werden
-	GroupActivity ist für das Management der Gruppe zuständig. Sie ist die Activity, die die meiste Zeit geöffnet ist. Von allen anderen Activitys aus kann sie aus geöffnet werden. Sie enthält das Group
+	GroupActivity ist für das Management der Gruppe zuständig. Sie ist die Activity, die die meiste Zeit geöffnet ist. Von allen anderen Activitys aus kann sie aus geöffnet werden. Sie enthält das GroupMapFragment, das GroupMapGoFragment und das GroupmembersFragment. Sie erbt von der AppCompatActivity und implementiert dementsprechen auch deren Methoden.
 	
 	\textbf{Methoden}
 	
 	\begin{enumerate}
-		\item \underline{}
-		
+		\item protected onCreate(@Nullable Bundle savedInstanceState
+
+		Erweitert die onCreate Methode der AppCompatActivity mit dem laden des GroupMapFragments in den group\_container .
 	\end{enumerate}
 	
 	\item \textbf{\underline{GroupMapFragment}}
@@ -83,9 +104,12 @@
 	
 	\textbf{Methoden}	
 	\begin{enumerate}
-		\item \underline{public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)}
+		\item public onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState): View
+		
 		Erweitert die onCreateView Methode des Fragments mit der gewünschten Ansicht, die der View übergeben wird und fügt dem OnClickListener die Button hinzu, wenn der Benutzer den Go-Button nicht gedrückt hat. In diesem Fall lädt es das GroupMapFragmentGo in den group\_container der GroupActivity. Diese Methode gibt die aktuelle View zurück.
-		\item \underline{public void onClick(View view)}
+		
+		\item public onClick(View view)
+		
 		Implementiert die onClick Methode des OnClickListeners, so dass er beim Klick auf den Gruppennamen das GroupMembersFragment in den group\_container der GroupActivity lädt, beim Klick auf das Datum, wenn man Gruppenadministrator ist, das GroupAppointmentFragment in den group\_container der GroupActivity lädt und beim Klick auf den Go-Button das GroupActivityGoFragment in den group\_container der GroupActivity lädt.	
 	\end{enumerate}
 	
@@ -96,7 +120,7 @@
 	
 	\textbf{Methoden}
 	\begin{enumerate}
-		\item \underline{}
+		\item 
 		
 	\end{enumerate}
 	
@@ -106,7 +130,7 @@
 	
 	\textbf{Methoden}
 	\begin{enumerate}
-		\item \underline{}
+		\item 
 		
 	\end{enumerate}
 
@@ -117,7 +141,7 @@
 	
 	\textbf{Methoden}
 	\begin{enumerate}
-		\item \underline{}
+		\item 
 		
 	\end{enumerate}
 
@@ -128,7 +152,7 @@
 	
 	\textbf{Methoden}
 	\begin{enumerate}
-		\item \underline{}
+		\item 
 		
 	\end{enumerate}
 
@@ -139,7 +163,7 @@
 	
 	\textbf{Methoden}
 	\begin{enumerate}
-		\item \underline{}
+		\item 
 		
 	\end{enumerate}
 	
@@ -150,7 +174,7 @@
 	
 	\textbf{Methoden}	
 	\begin{enumerate}
-		\item \underline{}
+		\item 
 		
 	\end{enumerate}
 
@@ -162,7 +186,7 @@
 	\textbf{Methoden}
 	
 	\begin{enumerate}
-		\item \underline{}
+		\item 
 		
 	\end{enumerate}
 	\item \textbf{\underline{MemberAdapter}}
@@ -172,7 +196,7 @@
 	
 	\textbf{Methoden}
 	\begin{enumerate}
-		\item \underline{}
+		\item 
 		
 	\end{enumerate}
 	\item \textbf{\underline{TimePickerFragment}}
@@ -182,7 +206,7 @@
 	
 	\textbf{Methoden}
 	\begin{enumerate}
-		\item \underline{}
+		\item 
 		
 	\end{enumerate}
 \end{enumerate}

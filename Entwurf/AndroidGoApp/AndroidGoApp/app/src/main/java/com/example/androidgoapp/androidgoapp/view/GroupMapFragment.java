@@ -35,17 +35,7 @@ public class GroupMapFragment extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View view;
-        if (!go()) {
-            view = inflater.inflate(R.layout.group_map_fragment, container, false);
-        } else {
-            getFragmentManager().beginTransaction()
-                    .replace(R.id.group_container, new GroupMapFragmentGo())
-                    .addToBackStack(null)
-                    .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
-                    .commit();
-            view = inflater.inflate(R.layout.group_map_fragment_go, container, false);
-        }
+        View view = defineView(inflater, container);
 
         OpenStreetMapTileProviderConstants.setUserAgentValue(android.support.v7.appcompat.BuildConfig.APPLICATION_ID);
         //Configuration.getInstance().load(this, PreferenceManager.getDefaultSharedPreferences(this));
@@ -75,6 +65,11 @@ public class GroupMapFragment extends Fragment implements View.OnClickListener {
         view.findViewById(R.id.go_button).setOnClickListener(this);
 
         return view;
+    }
+
+
+    protected View defineView(LayoutInflater inflater, ViewGroup container) {
+        return inflater.inflate(R.layout.group_map_fragment, container, false);
     }
 
     /**
@@ -108,14 +103,11 @@ public class GroupMapFragment extends Fragment implements View.OnClickListener {
                     .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                     .commit();
         } else if (R.id.go_button == id) {
-            GroupMapFragmentGo groupMapFragmentGo = new GroupMapFragmentGo();
-            groupMapFragmentGo.setActuallView(mapView.getMapCenter(), mapView.getZoomLevel());
-            getFragmentManager().beginTransaction()
-                    .replace(R.id.group_container, groupMapFragmentGo)
-                    .addToBackStack(null)
-                    .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
-                    .commit();
+            go(mapView);
         }
+    }
+
+    protected void go(MapView mapView) {
     }
 
 
@@ -130,7 +122,7 @@ public class GroupMapFragment extends Fragment implements View.OnClickListener {
         return true;
     }
 
-    private boolean go() {
+    protected boolean goStatus() {
         //TODO: überprüfen, ob go gedrückt ist
         return false;
     }

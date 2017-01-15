@@ -53,7 +53,7 @@
 	\item \textbf{\underline{UsernameRegistrationFragment}}
 	
 	%- hier muss das PDF classcom_1_1example_1_1androidgoapp_1_1androidgoapp_1_1view_1_1_username_registration_fragment__inherit__graph.pdf eingebunden werden
-	Das UsernameCreateFragment ist dafür zuständig einen neuen User auf dem Server anzulegen. Es wird auf jedem Client in den username\_container der UsernameActivity geladen und somit nur einmalig aufgerufen, bis sich der Benutzer registriert hat. Es legt die erste Ansicht fest, die ein Benutzer sieht, wenn er die App das erste mal öffnet, bzw. wenn er die App öffnet und sich noch nie registriert hat. Es erbt von Fragment und implementiert den View.onClickListener. Dementsprechend implementiert sie auch deren Methoden.
+	Das UsernameRegistrationFragment ist dafür zuständig einen neuen User auf dem Server anzulegen. Es wird auf jedem Client in den username\_container der UsernameActivity geladen und somit nur einmalig aufgerufen, bis sich der Benutzer registriert hat. Es legt die erste Ansicht fest, die ein Benutzer sieht, wenn er die App das erste mal öffnet, bzw. wenn er die App öffnet und sich noch nie registriert hat. Es erbt von Fragment und implementiert den View.onClickListener. Dementsprechend implementiert sie auch deren Methoden.
 	
 	\textbf{Methoden}
 	
@@ -227,50 +227,79 @@
 		
 		Implementiert die onClick Methode des OnClickListeners, so dass er beim Klick auf den Gruppennamen das GrouMapNotGoFragment, bzw. das GroupMapGoFragment in den group\_container der GroupActivity lädt, beim Klick auf das Datum das GroupAppointmentFragment, in den group\_container der GroupActivity lädt und beim Klick auf den AddMember-Button den SendLinkDialog lädt.
 	\end{enumerate}
+	\item \textbf{\underline{MemberAdapter}}
+
+	%- hier muss das PDF classcom_1_1example_1_1androidgoapp_1_1androidgoapp_1_1view_1_1_member_adapter__inherit__graph.pdf eingebunden werden
+	Der MemberAdapter hat die Aufgabe die Liste der Mitglieder in die RecyclerView zu laden. Er wird von dem GroupMembersFragment aufgerufen. Er erbt von RecyclerView.Adapter<MemberAdapter.PersonViewHolder> und implementiert dementsprechend auch dessen Methoden. Außerdem kreiert er die public static class PersonViewHolder, die von RecyclerView.ViewHolder erbt und dafür zuständig ist den Inhalt der RecyclerView zu speichern.
+
+	\textbf{Methoden}
+	\begin{enumerate}
+		\item public MemberAdapter(int groupID)
+		
+		Stellt einen passenden Konstruktor bereit
+		
+		\item public PersonViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
+	
+		Erstellt eine neue View, wenn sie vom LayoutManager aufgerufen wird
+		
+		\item public onBindViewHolder(PersonViewHolder holder, int i)
+
+		Ersetzt den Inhalt der View, wenn sie vom LayoutManager aufgerufen wird
+		
+		\item public onAttachedToRecyclerView(RecyclerView recyclerView)
+		
+		Ruft die selbe Methode der Oberklasse auf
+		
+		\item public getItemCount(): int
+
+		Gibt die Größe von dem Datensatz zurück, wenn sie vom LayoutManager aufgerufen wird
+	\end{enumerate}
+
 
 	\item \textbf{\underline{GroupnameActivity}}
 	
 	%- hier muss das PDF classcom_1_1example_1_1androidgoapp_1_1androidgoapp_1_1view_1_1_groupname_activity__inherit__graph.pdf eingebunden werden
-	%- text
+	Die GroupnameActivity ist für das Verwalten der Gruppe zuständig. Sie wird von einem GroupFragment aufgerufen, sowohl wenn der Benutzer den CreateGroup-Button drückt, als auch wenn ein Gruppenadministrator den Namen seiner Gruppe umbenennen will. Sie enthält das GroupnameChangeFragment und das GroupnameCreateFragment. Sie erbt von der AppCompatActivity und implementiert dementsprechen auch deren Methoden.
 	
 	\textbf{Methoden}
 	\begin{enumerate}
-		\item 
+		\item protected onCreate(@Nullable Bundle savedInstanceState)
+		
+		Erweitert die onCreate Methode der AppCompatActivity mit dem laden des GroupnameCreateFragments in den groupname\_container.
 		
 	\end{enumerate}
 	
 	\item \textbf{\underline{GroupnameChangeFragment}}
 	
 	%- hier muss das PDF classcom_1_1example_1_1androidgoapp_1_1androidgoapp_1_1view_1_1_groupname_change_fragment__inherit__graph.pdf eingebunden werden
-	%- text
+	Das GroupnameChangeFragment ist dafür zuständig den Gruppenname zu ändern. Es wird von dem GroupnameCreateFragment in den groupname\_container geladen. Es legt die Ansicht fest, die ein Benutzer sieht, wenn er einen Gruppennamen ändern möchte. Es erbt von Fragment und implementiert den View.onClickListener. Dementsprechend implementiert es auch deren Methoden.
 	
 	\textbf{Methoden}	
 	\begin{enumerate}
-		\item 
+		\item public onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState): View
 		
+		Erweitert die onCreateView Methode des Fragments mit der gewünschten Ansicht, die der View übergeben wird, fügt der View den alten Gruppennamen und dem OnClickListener den Button hinzu. Diese Methode gibt die aktuelle View zurück.
+		
+		\item public onClick(View view)
+		
+		Implementiert die onClick Methode des OnClickListeners, so dass beim Klick auf dem Next-Button überprüft wird, ob der gewünschte neue Gruppenname zugelassen ist. In diesem Fall ändert er diesen und leitet an dessen GroupActivity weiter.
 	\end{enumerate}
 
 	\item \textbf{\underline{GroupnameCreateFragment}}
 	
 	%- hier muss das PDF classcom_1_1example_1_1androidgoapp_1_1androidgoapp_1_1view_1_1_groupname_create_fragment__inherit__graph.pdf eingebunden werden
-	%- text
+	Das GroupnameCreateFragment ist dafür zuständig eine neue Gruppe auf dem Server anzulegen. Es legt die Ansicht fest, die ein Benutzer sieht, wenn er den CreateGroup-Button gedrückt hat. Es erbt von Fragment und implementiert den View.onClickListener. Dementsprechend implementiert sie auch deren Methoden.
 	
 	\textbf{Methoden}
 	
 	\begin{enumerate}
-		\item 
+		\item public onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState): View
 		
-	\end{enumerate}
-	\item \textbf{\underline{MemberAdapter}}
-	
-	%- hier muss das PDF classcom_1_1example_1_1androidgoapp_1_1androidgoapp_1_1view_1_1_member_adapter__inherit__graph.pdf eingebunden werden
-	%- text
-	
-	\textbf{Methoden}
-	\begin{enumerate}
-		\item 
+		Erweitert die onCreateView Methode des Fragments mit der gewünschten Ansicht, die der View übergeben wird und fürgt dem OnClickListener den Button hinzu, wenn der Benutzer nicht eine bestehende Gruppe ausgewählt hat, in der er Administrator ist. In diesem Fall läd sie das GroupnameCreaterFragment in den groupname\_container. Diese Methode gibt die aktuelle View zurück.
 		
+		\item public onClick(View view)
+		
+		Implementiert die onClick Methode des OnClickListeners, so dass beim Klicken auf den Next-Button überprüft wird, ob der gewünschte Gruppenname zugelassen ist. In diesem Fall legt er eine neue Gruppe an und leitet an dessen GroupActivity weiter.
 	\end{enumerate}
-
 
 \end{enumerate}

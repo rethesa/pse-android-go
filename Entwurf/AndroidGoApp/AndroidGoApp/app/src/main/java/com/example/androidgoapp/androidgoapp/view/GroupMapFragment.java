@@ -1,12 +1,14 @@
 package com.example.androidgoapp.androidgoapp.view;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -29,6 +31,10 @@ import org.osmdroid.views.MapView;
 
 public class GroupMapFragment extends Fragment implements View.OnClickListener {
 
+    //navigation drawer
+    public final static String navigation = "Group navigation";
+
+
     private MapView mapView;
     private double latitude = 0;
     private double longitude = 0;
@@ -41,7 +47,9 @@ public class GroupMapFragment extends Fragment implements View.OnClickListener {
     private ActionBarDrawerToggle mDrawerToggle;
     private CharSequence mDrawerTitle;
     private CharSequence mTitle;
-    private String[] mPlanetTitles;
+    private String[] Groupname;
+    private ArrayAdapter<String> mAdapter;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -87,42 +95,66 @@ public class GroupMapFragment extends Fragment implements View.OnClickListener {
         view.findViewById(R.id.go_button).setOnClickListener(this);
 
         // navigation drawer
-        mPlanetTitles = getResources().getStringArray(R.array.groups_array);
+        getActivity().getActionBar().setDisplayHomeAsUpEnabled(true);
+        getActivity().getActionBar().setHomeButtonEnabled(true);
+
         mDrawerLayout = (DrawerLayout) this.getActivity().findViewById(R.id.drawer_layout);
         mDrawerList = (ListView) this.getActivity().findViewById(R.id.left_drawer);
         // Set the adapter for the list view
-        mDrawerList.setAdapter(new ArrayAdapter<String>(getActivity(),
-                R.layout.list_item, mPlanetTitles));
+        addDrawerItem();
         // Set the list's click listener
         mDrawerList.setOnItemClickListener(new GroupMapFragment.DrawerItemClickListener());
 
         mTitle = mDrawerTitle = getActivity().getTitle();
         mDrawerLayout = (DrawerLayout) this.getActivity().findViewById(R.id.drawer_layout);
+        setDrawer();
+
+        return view;
+    }
+
+    private void setDrawer(){
         mDrawerToggle = new ActionBarDrawerToggle(getActivity(), mDrawerLayout,
-                /*R.drawable.ic_drawer_hdpi,*/ R.string.drawer_open, R.string.drawer_close) {
+                R.string.drawer_open, R.string.drawer_close) {
 
             //Called when a drawer has settled in a completely closed state.
             public void onDrawerClosed(View view) {
                 super.onDrawerClosed(view);
-                getActivity().getActionBar().setTitle(mTitle);
-                //getSupportActionBar().setTitle(mTitle);
+                getActivity().getActionBar().setTitle(mDrawerTitle);
                 getActivity().invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
             }
 
             //Called when a drawer has settled in a completely open state.
             public void onDrawerOpened(View drawerView) {
                 super.onDrawerOpened(drawerView);
-                //getSupportActionBar().setTitle(mDrawerTitle);
-                getActivity().getActionBar().setTitle(mDrawerTitle);
+                getActivity().getActionBar().setTitle(navigation);
                 getActivity().invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
             }
         };
 
         // Set the drawer toggle as the DrawerListener
+        mDrawerToggle.setDrawerIndicatorEnabled(true);
         mDrawerLayout.addDrawerListener(mDrawerToggle);
+    }
 
+    private void addDrawerItem(){
+        //get groups where user is member or admin
+        //TEST:
+        String[] osArray = { "Gruppe 1", "Gruppe 2", "Gruppe 3", "Gruppe 4", "Gruppe 5" };
 
-        return view;
+        //Groupname = getGroupname()
+
+        //set the group name into the menu
+        //TEST:
+        Groupname = osArray;
+
+        //setting adapter
+        mAdapter = new ArrayAdapter<String>(getActivity(), R.layout.list_item, osArray);
+        mDrawerList.setAdapter(mAdapter);
+    }
+
+    private String[] getGroupname(){
+        //TODO: get group name i'm member or admin
+        return null;
     }
 
     //navigation drawer
@@ -139,16 +171,40 @@ public class GroupMapFragment extends Fragment implements View.OnClickListener {
 
         // Highlight the selected item, update the title, and close the drawer
         mDrawerList.setItemChecked(position, true);
-        setTitle(mPlanetTitles[position]);
+        setTitle(Groupname[position]);
         mDrawerLayout.closeDrawer(mDrawerList);
         //TODO: wechsel gruppe auf der map
 
     }
 
     //navigation drawer
-    public void setTitle(CharSequence title) {
+    private void setTitle(CharSequence title) {
         mTitle = title;
         getActivity().getActionBar().setTitle(mTitle);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (mDrawerToggle.onOptionsItemSelected(item)) {
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    /* activity only?
+    //for better syncing, menu becomes fluent
+    @Override
+    public void onPostCreate(Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+        mDrawerToggle.syncState();
+    }
+    */
+
+    //for better syncing, menu becomes fluent
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        mDrawerToggle.onConfigurationChanged(newConfig);
     }
 
     /**

@@ -21,7 +21,7 @@ public class GroupActivity extends AppCompatActivity {
         setContentView(R.layout.group_activity_dynamisch);
 
         if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.group_container, new GroupMapFragment()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.group_container, new GroupMapNotGoFragment()).commit();
         }
 
     }

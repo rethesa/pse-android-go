@@ -59,9 +59,9 @@ public class GroupMembersFragment extends Fragment implements View.OnClickListen
         if (R.id.groupname_button == id) {
             Fragment groupMapFragment;
             if (go()) {
-                groupMapFragment = new GroupMapFragmentGo();
+                groupMapFragment = new GroupMapGoFragment();
             } else {
-                groupMapFragment = new GroupMapFragment();
+                groupMapFragment = new GroupMapNotGoFragment();
             }    getFragmentManager().beginTransaction()
                     .replace(R.id.group_container, groupMapFragment)
                     .addToBackStack(null)

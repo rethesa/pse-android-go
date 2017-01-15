@@ -1,13 +1,11 @@
 package com.example.androidgoapp.androidgoapp.view;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.example.androidgoapp.androidgoapp.R;
 
@@ -69,17 +67,7 @@ public class GroupMapFragment extends Fragment implements View.OnClickListener {
 
 
     protected View defineView(LayoutInflater inflater, ViewGroup container) {
-        return inflater.inflate(R.layout.group_map_fragment, container, false);
-    }
-
-    /**
-     * identify the actuall GeoPoint
-     *
-     * @return actuall GeoPoint of the client
-     */
-    private GeoPoint getActuallPosition() {
-        //TODO: vom GPS den Standpunkt ermitteln
-        return new GeoPoint(49.013941, 8.404409);
+        return inflater.inflate(R.layout.group_map_not_go_fragment, container, false);
     }
 
     /**
@@ -108,6 +96,17 @@ public class GroupMapFragment extends Fragment implements View.OnClickListener {
     }
 
     protected void go(MapView mapView) {
+    }
+
+
+    /**
+     * identify the actuall GeoPoint
+     *
+     * @return actuall GeoPoint of the client
+     */
+    private GeoPoint getActuallPosition() {
+        //TODO: vom GPS den Standpunkt ermitteln
+        return new GeoPoint(49.013941, 8.404409);
     }
 
 

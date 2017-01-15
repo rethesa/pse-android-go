@@ -46,9 +46,9 @@ public class GroupAppointmentFragment extends Fragment implements View.OnClickLi
         int id = view.getId();
         Fragment groupMapFragment;
         if (go()) {
-            groupMapFragment = new GroupMapFragmentGo();
+            groupMapFragment = new GroupMapGoFragment();
         } else {
-            groupMapFragment = new GroupMapFragment();
+            groupMapFragment = new GroupMapNotGoFragment();
         }
         if (R.id.groupname_button == id) {
             getFragmentManager().beginTransaction()

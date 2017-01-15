@@ -102,28 +102,6 @@ public class GroupClient {
     }
 
     /**
-     * Set the time and date of a new appointment.
-     * @param date of the appointment
-     * @param time of the appointment
-     */
-    public void setGroupAppointmentDate(String date, String time) {
-        appointment.setAppointmentDate(date, time);
-        sApp.updateData(groupClient.getGroupID(), appointment);
-        //TODO
-    }
-
-    /**
-     * Set a new destination just with the address of the place where the groupClient will meet.
-     * The coordinates of that place will be generated.
-     * @param destination
-     */
-    public void setGroupAppointmentDestinationName(String destination) {
-        appointment.setAppointmentDestination(destination);
-        sApp.updateData(groupClient.getGroupID(), appointment);
-        //TODO
-    }
-
-    /**
      * Activate the go button of the current groupClient of the actual user.
      */
     public void activateGoService() {

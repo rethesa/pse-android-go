@@ -6,9 +6,7 @@
 \makeatother
 \setcounter{secnumdepth}{5} % how many sectioning levels to assign numbers to
 \setcounter{tocdepth}{5}
-\makeindex
 
-\begin {document}
 \subsubsection{Servlets}
 Die Tomcat-Servlets bilden zusammen einen Webservice in Anlehnung an einen \\
 REST-Webservice (Representational State Transfer). \\
@@ -33,7 +31,7 @@ Das GroupServlet als Beispiel zur server-internen Bearbeitung von Anfragen:
      \caption{Sequenzdiagramm GroupServlet}
 \end{figure}
 \clearpage
-\\
+
 \begin{figure}[h]
      \centering
      \hspace*{-2.9cm}\includegraphics[scale=0.7]{servergraphs/servlets.pdf}
@@ -205,7 +203,8 @@ Schnittstelle zur Datenbank. Er bietet die Fabrikmethode createGroup()\\
 zum Erstellen neuer Gruppen. Die Methode legt dazu einen neuen Eintrag in der\\
 Datenbank an und liefert das neue Group-Objekt zurück.\\
 
-\\ \\ \\
+
+
 \begin{figure}[h]
      \centering
      \includegraphics[scale=1.0, trim=2 2 2 2, clip=true]{servergraphs/group-manager.pdf}
@@ -222,7 +221,7 @@ der aktuellen Gruppe darstellt. Also entweder GroupMember oder GroupAdmin.
 In der Fabrikmethode getMember(ID) wird dem UserDecoratorServer das Gruppen-Objekt\\
 übergeben, an dass dieser dann gebunden ist.\\
 
-\\
+
 \begin{figure}[h]
      \centering
      \includegraphics[scale=1.0, trim=2 2 2 2, clip=true]{servergraphs/group-server.pdf}
@@ -236,7 +235,7 @@ Die Aufgabe des LinkGenerators besteht darin, zu einer gegebenen Gruppe einen \\
 Einladungslink zu generieren. Dabei wird an die Basis-URL des GroupServlets der\\
 Gruppenname und ein zufällig generierter String angehängt.\\
 
-\\
+
 \begin{figure}[h]
      \centering
      \includegraphics[scale=1.0, trim=2 2 2 2, clip=true]{servergraphs/link-generator.pdf}
@@ -275,7 +274,8 @@ kann, dass ein normaler GroupMember eine Admin-Anfrage sendet.\\
 Die Implementierung der beiden Klassen unterscheidet dann das Verhalten.\\
 (Siehe GroupAdminServer und GroupMemberServer)\\
 
-\\ \\ \\
+
+
 \begin{figure}[h]
      \centering
      \includegraphics[scale=0.9]{servergraphs/user-decorator-server.pdf}
@@ -305,5 +305,3 @@ das heißt, wenn man über group.getUser(ID) ein Objekt der Klasse GroupAdminSer
 zurückbekommt, kann man darüber die Gruppe 'group' kontrollieren.\\
 Als Indirektion ruft der
 Die Operationen sind an die Gruppe gebunden, auf der man getUser(ID) aufruft.\\
-
-\end {document}

@@ -42,9 +42,12 @@ Die vier nachfolgenden DBHelper erben ihren Konstruktor und ihre Methoden von SQ
 \end{figure}
 Die FeedReaderContract Klasse definiert in statischen Innenklassen wie die Tabellen der Datenbank aufgebaut sind. Jede der nachfolgenden FeedEntry Klassen implementiert dabei das Interface BaseColumns.
 
-
-CREATE ENTRIES definiert wie aus den zuvor definierten Namen der Spalten die Tabelle in genau dieser Reihenfolge aufgebaut wird.
-DELETE ENTRIES löscht die definierten Einträge wieder.
+\begin{enumerate}
+	\item public static final CREATE ENTRIES:String
+		Legt die Spalten wenn die Tabelle generiert wird in genau dieser Reihenfolge an.
+	\item public static final DELETE ENTRIES:Strníng
+		Löscht die zuvor definierten Spalteneinträge.
+\end{enumerate}
 
 \textbf{FeedEntyGroup}
 \begin{figure}[H]
@@ -54,14 +57,6 @@ DELETE ENTRIES löscht die definierten Einträge wieder.
 Die Innenklasse FeedEntryGroup definiert den Namen und die Spalten der Tabelle, welche die Gruppen auf dem Client speichert. 
 Dabei steht in der ersten Spalte die eindeutige Gruppen ID (welche die Zeilen eindeutig unterscheidbar macht), in der zweiten Spalte der eindeutige Gruppenname und in der dritten Spalte, ob der GoService des aktuellen Benutzers für diese Gruppe aktiviert oder deaktiviert ist.
 Wenn eine Gruppe gelöscht wird, dann wird auch ihr Eintrag in der Datenbank gelöscht.
-\begin{enumerate}
-	\item public static final String TABLE_NAME
-	\item public static final String COL1_GROUP_ID
-	\item public static final String COL2_GROUP_NAME
-	\item public static final String COL3_GO_SERVICE
-	\item protected static final String SQL_CREATE_ENTRIES_GROUP
-	\item protected static final String SQL_DELETE_ENTRIES_GROUP
-\end{enumerate}
 
 \textbf{FeedEntyUser}
 \begin{figure}[H]
@@ -71,16 +66,6 @@ Wenn eine Gruppe gelöscht wird, dann wird auch ihr Eintrag in der Datenbank gel
 Die Innenklasse FeedEntryUser definiert den Namen und die Spalten der Tabelle, welche die Benutzer auf dem Client speichert. 
 Dabei steht in der ersten Spalte die eindeutige Benutzer ID (welche die Zeilen eindeutig unterscheidbar macht), in der zweiten Spalte der Benutzername und in der dritten und vierten Spalte steht je ein Wert der zuletzt bekannten Gps Daten des jeweiligen Nutzers. 
 Es werden nur Benutzer gespeichert mit denen der aktuelle Benutzer in mindestens einer gemeinsamen Gruppe ist.
-\begin{enumerate}
-	\item public static final String TABLE_NAME
-	\item public static final String COL1_USER_ID 
-	\item public static final String COL2_USER_NAME
-	\item public static final String COL3_USER_LATITUDE
-	\item public static final String COL4_LONGITUDE
-	\item protected static final String SQL_CREATE_ENTRIES_USER
-	\item protected static final String SQL_DELETE_ENTRIES_USER
-\end{enumerate}
-
 
 \textbf{FeedEntyAppointment}
 \begin{figure}[H]
@@ -91,17 +76,6 @@ Die Innenklasse FeedEntryAppointment definiert den Namen und die Spalten der Tab
 Dabei steht in der ersten Spalte die Gruppen id (welche die Zeilen eindeutig unterscheidbar macht), in der zweiten Spalte steht das Datum und in der dritten die Uhrzeit des Treffpunktes. In der vierten Spalte steht der Name des Zielortes und in der fünften und sechsten steht jeweils ein Wert der Gps Daten des Zielortes. 
 Wenn sich der Treffpunkt der Gruppe ändert, dann werden die Werte des alten Treffpunktes überschrieben.
 Sollte die die Gruppe des dazugehörigen Treffpunktes gelöscht werden, dann wird auch der Eintrag in dieser Tabelle gelöscht.
-\begin{enumerate}
-	\item public static final String TABLE_NAME
-	\item public static final String COL1_GROUP_ID
-	\item public static final String COL2_APPOINTMENT_DATE
-	\item public static final String COL3_APPOINTMENT_TIME
-	\item public static final String COL4_APPOINTMENT_DEST
-	\item public static final String COL5_APPOINTMENT_LATITUDE
-	\item public static final String COL6_APPOINTMENT_LONGITUDE
-	\item protected static final String SQL_CREATE_ENTRIES_APPOINTMENT
-	\item protected static final String SQL_DELETE_ENTRIES_APPOINTMENT
-\end{enumerate}
 
 \textbf{FeedEntyAllocation}
 \begin{figure}[H]
@@ -110,65 +84,89 @@ Sollte die die Gruppe des dazugehörigen Treffpunktes gelöscht werden, dann wir
 \end{figure}
 Die Innenklasse FeedEntryAllocation definiert den Namen und die Spalten der Tabelle, welche die jeweiligen Mitglieder jeder Gruppe speichert, in der der aktuelle Benutzer Mitglied ist. Zu jedem Mitglied wird vermerkt, ob dieses Administratorrechte hat.
 Dabei steht in der ersten Spalte die Allocation id (welche die Zeilen eindeutig unterscheidbar macht und automatisch hochgezählt), in der zweiten Spalte steht die Gruppen id, in der dritten Spalte die Benutzer id und in der vierten Spalte, ob dieser Benutzer Gruppenadministrator ist oder nicht. 
-Gruppen id wird für jedes Gruppenmitglied vermerkt, also kommt mehrmals vor, sobald mehr als ein Benutzer Mitglied dieser Gruppe ist. 
-\begin{enumerate}
-	\item public static final String TABLE_NAME
-	\item
-	\item
-	\item
-	\item
-	\item
-	\item
-	\item
-	\item
-\end{enumerate}
+Gruppen id wird für jedes Gruppenmitglied vermerkt, also kommt mehrmals vor, sobald mehr als ein Benutzer Mitglied dieser Gruppe ist.
 
 
 \paragraph{ObjectStructure}
 
 \textbf{GroupClient}
 Die Klasse GroupClient definiert wie eine Gruppe auf dem Client aufgebaut ist und welche Funktionalität ihr zur Verfügung steht.
-Beim Erstellen einer neuen Gruppe muss der Benutzer einen eindeutigen Namen wählen, wird dann Gruppenadministrator und kann neue Mitglieder einladen indem er mit createInviteLink() einen Link zu dieser Gruppe erstellt. Führt das Mitglied den Link aus, dann wird es entweder direkt über die Go-App zur Gruppe geleitet und hinzugefügt oder aufgefordert die Go-App zu installieren.
-Der Gruppenadministrator kann andere Gruppenmitglieder auch zu Gruppenadministratoren machen.
-Mit getAllGroupMemberNames() können die Namen aller Gruppenmitglieder in der Gruppe angezeigt werden.
-Mit deleteGroupMember() kann der Administrator ein Gruppenmitglied entfernen und mit leaveGroup() kann ein Gruppenmitglied selbst die Gruppe verlassen.
-Mit activateGoService() bzw. deaktivateGoService() kann der aktuelle Benutzer angeben, ob er in dieser Gruppe seine Position den anderen Mitgliedern mitteilen möchte. Ist der goService() aktiviert aber GPS Verfolgung am Mobiltelefon ausgeschaltet, dann wird die letzte bekannte Position angezeigt, zu welcher goService und GPS aktiviert waren.
-Mit changeGroupName() kann der Administrator den Gruppennamen nachträglich verändern aber auch der neue Gruppenname muss eindeutig sein.
-Mit den restlichen gettern können die Informationen zur Gruppe abgerufen werden. Mit getMember() wird unterschieden, welche App Ansicht der aktuellen Benutzer für die jeweilige Gruppe hat. Ist er Administrator, dann werden ihm die Funktionalitäten angezeigt, die nur ein Administrator hat. Wenn nicht, dann stehen Funktionen wie Mitglieder hinzufügen/ entfernen oder Treffpunkt festlegen gar nicht erst zur Verfügung.
 \begin{enumerate}
-	\item
-	\item
+	\item public GroupClient(name: String, user: UserDecorator)
+		Konstruktor der einer neuen Gruppe einen eindeutigen Gruppennamen zuweist und den Ersteller als Gruppenadministrator festlegt.
+	\item public createInviteLink():Link
+		Um ein Gruppenmitglied hinzuzufügen, muss dieses über einen eindeutigen Link beitreten. Wird der Link ausgeführt wird man entweder zu GoApp weitergeleitet (hat App bereits installiert) oder wird dazu aufgefordert diese zu installieren. Der Link ist nicht mehr gültig sobald das Mitglied hinzugefügt wurde. Man muss Administrator sein um diese Funktion verwenden zu können.
+	\item public addGroupMember(user: UserDecorator)
+		Ein Mitglied wird der Gruppe hinzugefügt.
+	\item public makeGroupMemberToAdmin(user: UserDecorator)
+		Ein Gruppenmitglied wird vom Administrator zum Gruppenadministrator gemacht.
+	\item public getAllGroupMemberNames():List<String>
+		Alle Namen der Mitglieder einer Gruppe werden zurückgegeben.
+	\item public deleteGroupMember(user:UserDecorator)
+		Ein Gruppenmitglied wird aus der Gruppe durch den Administrator entfernt.
+	\item public leaveGroup(user:UserDecorator)
+		Ein Mitglied verlässt die Gruppe.
+	\item public activateGoService()
+		Der aktuelle Benutzer aktiviert seinen GoStatus und übermittelt seine GPS Daten an die Gruppe (GPS muss eingeschalten sein).
+	\item public deactivateGoService()
+		Der aktuelle Benutzer deaktiviert seinen GoStatus und wird nicht mehr verfolgt.
+	\item public changeGroupName(newGroupName:String)
+		Der Gruppenadministrator benennt die Gruppe zu einem anderen eindeutigen Namen um.
+	\item public getGroupID():int 
+		Die Gruppen Id wird zurückgegeben
+	\item public getGroupName():String
+		Der Gruppenname wird zurückgegeben 
+	\item public getGoStatus():GoStatus 
+		Der GoStatus wird zurückgegeben
+	\item public getAppointment():Appointment 
+		Das Appointment wird zurückgegeben
+	\item public getMember(userId: int):UserComponent 
+		Der Typ des aktuellen Benutzers einer Gruppe (Gruppenmitglied oder Administrator)wird zurückgegeben, um die Ansicht der Gruppe auf seine ihm zugänglichen Funktionen zu beschränken/ erweitern.
 \end{enumerate}
 
-
 \textbf{UserComponent}
-Dieses Interface ist die erste Komponente des Decorator pattern und definiert drei grundlegende Funktionen des Benutzers die jederzeit aufgerufen werden können. 
-Mit getUserName() kann der Benutzername des aktuellen Nutzers visualisiert werden.
+Dieses Interface ist die erste Komponente des Decorator pattern und definiert grundlegende Funktionen des Benutzers die jederzeit aufgerufen werden können. 
+
 Mit getUserId() kann der Benutzer von anderen Gruppenmitgliedern unterschieden werden, da der Benutzername nicht eindeutig sein muss, die Id aber schon.
 Mit getUserDeviceId() kann der Benutzer auf dem Server angelegt werden. Jede Gerätenummer kann nur einmal auf dem Server vorkommen, um Missbrauch der GoApp vorzubeugen.
 \begin{enumerate}
-	\item
-	\item
+	\item public getUserName():String
+	Benutzername des aktuellen Benutzers kann in der GoApp visualisiert werden.
+	\item public getUserID():int
+	Mit der Benutzer Id kann sich der aktuelle Benutzer unter den anderen Gruppenmitglieder identifizieren.
+	\item public getUserDeviceID():String
+	Die Device Id wird auf dem Server zusammen mit den anderen zwei Werten gespeichert, um einem Endgerät nur einen Benutzer zu erlauben, um Missbrauch zu vermeiden.
 \end{enumerate}
-
 
 \textbf{SimpleUser}
-Die SimpleUser Klasse implementiert das UserComponent Interface und besitzt eine zusätzliche changeUserName() Methode um den Benutzernamen nachträglich zu ändern. Der Benutzer ist ein SimpleUser Objekt, wenn er nicht in der Gruppenansicht ist und so weder einem Gruppenadministrator noch einem Gruppenmitglied
+Die SimpleUser Klasse implementiert das UserComponent Interface. Der Benutzer ist ein SimpleUser Objekt, wenn er nicht in der Gruppenansicht ist und so weder einem Gruppenadministrator noch einem Gruppenmitglied entspricht.
 \begin{enumerate}
-	\item
-	\item
+	\item public getUserName():String
+	Siehe UserComponent.
+	\item public getUserID():int
+	Siehe UserComponent.
+	\item public getUserDeviceID():String
+	Siehe UserComponent.
+	\item public changeUserName(newUserName: String)
+	Der aktuelle Benutzer kann seinen Benutzernamen nachträglich ändern.
 \end{enumerate}
- entspricht.
 
 \textbf{UserDecorator}
 Die UserDecorator Klasse ist eine abstrakte Klasse, die wie SimpleUser das UserComponent Interface implementiert. 
 Mit getView() kann die Gruppenansicht bestimmt werden indem überprüft wird, ob der Benutzer in der aufgerufenen Gruppe nur Gruppenmitglied oder Administrator ist. Als Administrator stehen dem Benutzer zusätzliche Funktionen zur Verfügung, die dann in der Gruppenansicht angezeigt werden.
 Mit getGpsObject() wird die aktuelle Position des Benutzers angefragt, sobald er seinen Go Button aktiviert hat.
 \begin{enumerate}
-	\item
-	\item
+	\item public getUserName():String
+	Siehe UserComponent.
+	\item public getUserID():int
+	Siehe UserComponent.
+	\item public getUserDeviceID():String
+	Siehe UserComponent.
+	\item public getView():boolean
+	Mit dieser Methode wird bestimmt welche Gruppenansicht der aktuelle Benutzer sieht (die für ein Gruppenmitglied oder die für einen Gruppenadministrator mit zusätzlichen Funktionen)
+	\item public getGpsObject():GpsObject
+	Die Gps Daten des aktuellen Benutzers werden zurück gegeben.
 \end{enumerate}
-
 
 \textbf{GroupAdmin}
 \begin{enumerate}

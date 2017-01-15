@@ -1,5 +1,16 @@
 \section{Feinentwurf}
+Im folgenden Kapitel erhalten Sie eine Übersicht über die auf dem Client und dem Server verwendeten Klassen, welche die GoApp umsetzen sollen.\\
 
+Um eine bessere Vorstellung davon zu bekommen, was unter sich immer wiederholenden Variablen verstanden wird, möchte ich diese an dieser Stelle vorstellen und erklären:\\
+
+\begin{enumerate}
+	\item GroupId: Eine GroupId ist eine neunstellige Integerzahl, welche mit einer 1 beginnt. Jede GroupId existiert genau einmal und macht es möglich, Gruppen eindeutig zu identifizieren.
+	\item UserId: Eine UserId ist wie die GruppenId eine neunstellige Integerzahl, welche nicht mit einer 1 beginnt. Jede UserId existiert genau einmal und macht es möglich, Benutzer eindeutig zu identifizieren.
+	\item GroupName: Ein Gruppenname kann bis zu 30 Zeichen lang sein und aus Groß- und Kleinbuchstaben bestehen und Sonderzeichen beinhalten. Jeder Gruppennanme muss eindeutig sein.
+	\item UserName: Ein Benutzername kann wie der Gruppenname bis zu 30 Zeichen lang sein und aus Groß- und Kleinbuchstaben bestehen. Im Gegensatz zur Gruppe muss dieser Name nicht eindeutig sein.
+	\item date: Das Datum eines Treffpunktes wird in dem Format dd.MM.yyyy dargstellt.
+	\item time: Die Uhrzeit eines Treffpunktes wird in dem Format MM:HH dargestellt.
+\end{enumerate}
 
 \subsection{Clientseitig}
 \input{ClientView}

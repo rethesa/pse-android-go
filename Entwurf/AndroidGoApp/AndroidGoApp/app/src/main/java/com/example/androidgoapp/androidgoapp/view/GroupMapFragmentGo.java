@@ -1,26 +1,19 @@
 package com.example.androidgoapp.androidgoapp.view;
 
-//<<<<<<< HEAD
-//=======
-import android.content.Intent;
 import android.content.res.Configuration;
-//>>>>>>> feature_navigationdrawer
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-//<<<<<<< HEAD
-//=======
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
-//>>>>>>> feature_navigationdrawer
 
 import com.example.androidgoapp.androidgoapp.R;
 
@@ -32,14 +25,13 @@ import org.osmdroid.util.GeoPoint;
 import org.osmdroid.views.MapView;
 
 /**
- * Created by Schokomonsterchen on 10.01.2017.
+ * Created by Schokomonsterchen on 13.01.2017.
  */
 
-public class GroupMapFragment extends Fragment implements View.OnClickListener {
+public class GroupMapFragmentGo extends Fragment implements View.OnClickListener {
 
     //navigation drawer
     public final static String navigation = "Group navigation";
-
 
     private MapView mapView;
     private double latitude = 0;
@@ -60,8 +52,7 @@ public class GroupMapFragment extends Fragment implements View.OnClickListener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-        View view = defineView(inflater, container);
+        View view = inflater.inflate(R.layout.group_map_fragment_go, container, false);
 
         OpenStreetMapTileProviderConstants.setUserAgentValue(android.support.v7.appcompat.BuildConfig.APPLICATION_ID);
         //Configuration.getInstance().load(this, PreferenceManager.getDefaultSharedPreferences(this));
@@ -69,23 +60,23 @@ public class GroupMapFragment extends Fragment implements View.OnClickListener {
         mapView = (MapView) view.findViewById(R.id.map);
         mapView.setTileSource(TileSourceFactory.MAPNIK);
         mapView.setMultiTouchControls(true);
-
         IMapController controller = mapView.getController();
-        if (zoom == 0) {
+        if(zoom == 0) {
             controller.setZoom(15);
         } else {
             controller.setZoom(zoom);
         }
-        if (latitude == 0 && longitude == 0) {
+        if(latitude == 0 && longitude == 0) {
             controller.setCenter(getActuallPosition());
         } else {
             controller.setCenter(new GeoPoint(latitude, longitude));
         }
+
         mapView.setBuiltInZoomControls(true);
         mapView.setMultiTouchControls(true);
 
         view.findViewById(R.id.groupname_button).setOnClickListener(this);
-        if (admin()) {
+        if(admin()) {
             view.findViewById(R.id.appointment_button).setOnClickListener(this);
         }
         view.findViewById(R.id.go_button).setOnClickListener(this);
@@ -99,7 +90,7 @@ public class GroupMapFragment extends Fragment implements View.OnClickListener {
         // Set the adapter for the list view
         addDrawerItem();
         // Set the list's click listener
-        mDrawerList.setOnItemClickListener(new GroupMapFragment.DrawerItemClickListener());
+        mDrawerList.setOnItemClickListener(new GroupMapFragmentGo.DrawerItemClickListener());
 
         mTitle = mDrawerTitle = getActivity().getTitle();
         mDrawerLayout = (DrawerLayout) this.getActivity().findViewById(R.id.drawer_layout);
@@ -108,12 +99,7 @@ public class GroupMapFragment extends Fragment implements View.OnClickListener {
         return view;
     }
 
-//<<<<<<< HEAD
-
-    protected View defineView(LayoutInflater inflater, ViewGroup container) {
-        return inflater.inflate(R.layout.group_map_not_go_fragment, container, false);
-    }
-//=======
+    //navigation drawer
     private void setDrawer(){
         mDrawerToggle = new ActionBarDrawerToggle(getActivity(), mDrawerLayout,
                 R.string.drawer_open, R.string.drawer_close) {
@@ -138,6 +124,7 @@ public class GroupMapFragment extends Fragment implements View.OnClickListener {
         mDrawerLayout.addDrawerListener(mDrawerToggle);
     }
 
+    //navigation drawer
     private void addDrawerItem(){
         //get groups where user is member or admin
         //TEST:
@@ -185,6 +172,7 @@ public class GroupMapFragment extends Fragment implements View.OnClickListener {
         getActivity().getActionBar().setTitle(mTitle);
     }
 
+    //for activating drawer toggle/layout options
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (mDrawerToggle.onOptionsItemSelected(item)) {
@@ -192,7 +180,6 @@ public class GroupMapFragment extends Fragment implements View.OnClickListener {
         }
         return super.onOptionsItemSelected(item);
     }
-
     /* activity only?
     //for better syncing, menu becomes fluent
     @Override
@@ -211,18 +198,16 @@ public class GroupMapFragment extends Fragment implements View.OnClickListener {
 
     /**
      * identify the actuall GeoPoint
-     *
      * @return actuall GeoPoint of the client
      */
     private GeoPoint getActuallPosition() {
         //TODO: vom GPS den Standpunkt ermitteln
         return new GeoPoint(49.013941, 8.404409);
-//>>>>>>> feature_navigationdrawer
     }
+
 
     /**
      * handles the clicks from the buttons
-     *
      * @param view describes the view of the fragment
      */
     @Override
@@ -241,17 +226,20 @@ public class GroupMapFragment extends Fragment implements View.OnClickListener {
                     .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                     .commit();
         } else if (R.id.go_button == id) {
-            go(mapView);
+            GroupMapFragment groupMapFragment = new GroupMapFragment();
+            groupMapFragment.setActuallView(mapView.getMapCenter(), mapView.getZoomLevel());
+            getFragmentManager().beginTransaction()
+                    .replace(R.id.group_container, groupMapFragment)
+                    .addToBackStack(null)
+                    .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+                    .commit();
         }
     }
 
-    protected void go(MapView mapView) {
-    }
 
     private void defineGroup() {
         //TODO: GroupID aus der Data-Base laden
         //TODO: String "Mustergruppe" verändern
-        //TODO: String "Mustertreffen" verändern
     }
 
     private boolean admin() {
@@ -259,9 +247,9 @@ public class GroupMapFragment extends Fragment implements View.OnClickListener {
         return true;
     }
 
-    protected boolean goStatus() {
+    private boolean go() {
         //TODO: überprüfen, ob go gedrückt ist
-        return false;
+        return true;
     }
 
     public void setActuallView(IGeoPoint geoPoint, int newZoom) {
@@ -269,4 +257,5 @@ public class GroupMapFragment extends Fragment implements View.OnClickListener {
         longitude = geoPoint.getLongitude();
         zoom = newZoom;
     }
+
 }

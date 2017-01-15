@@ -20,5 +20,6 @@
     <string name="show_old_groupname_string">Your old groupname is</string>
     <string name="old_groupname_string">Mustergroupname</string>
     <string name="choose_new_groupname_string">Please choose a new one:</string>
-
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">close navigation drawer</string>
 </resources>

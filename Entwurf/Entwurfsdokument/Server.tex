@@ -1,14 +1,4 @@
-\makeatletter
-\renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}%
-{-2.5ex\@plus -1ex \@minus -.25ex}%
-{1.25ex \@plus .25ex}%
-{\normalfont\normalsize\bfseries}}
-\makeatother
-\setcounter{secnumdepth}{5} % how many sectioning levels to assign numbers to
-\setcounter{tocdepth}{5}
-\makeindex
 
-\begin {document}
 \subsubsection{Servlets}
 Die Tomcat-Servlets bilden zusammen einen Webservice in Anlehnung an einen \\
 REST-Webservice (Representational State Transfer). \\
@@ -32,8 +22,7 @@ Das GroupServlet als Beispiel zur server-internen Bearbeitung von Anfragen:
      \hspace*{-2cm}\includegraphics[scale=0.5, trim=2 2 2 2, clip=true]{servergraphs/sequenz-server.pdf}
      \caption{Sequenzdiagramm GroupServlet}
 \end{figure}
-\clearpage
-\\
+%\clearpage\\
 \begin{figure}[h]
      \centering
      \hspace*{-2.9cm}\includegraphics[scale=0.7]{servergraphs/servlets.pdf}
@@ -203,9 +192,8 @@ deleteUser(String devId) - Löscht den Benutzer mit der gegebenen Geräte-ID.\\
 Gleichermaßen wir der UserManager, bietet auch der GroupManager eine \\
 Schnittstelle zur Datenbank. Er bietet die Fabrikmethode createGroup()\\
 zum Erstellen neuer Gruppen. Die Methode legt dazu einen neuen Eintrag in der\\
-Datenbank an und liefert das neue Group-Objekt zurück.\\
+Datenbank an und liefert das neue Group-Objekt zurück.\\ \\ \\ \\
 
-\\ \\ \\
 \begin{figure}[h]
      \centering
      \includegraphics[scale=1.0, trim=2 2 2 2, clip=true]{servergraphs/group-manager.pdf}
@@ -220,9 +208,9 @@ direkt ausgeführt. Nach dem Erstellen der Gruppe, laufen alle Operationen über
 Gruppenadministrator. über getMember(ID) bekommt man das Mitglied, dass man in \\
 der aktuellen Gruppe darstellt. Also entweder GroupMember oder GroupAdmin.
 In der Fabrikmethode getMember(ID) wird dem UserDecoratorServer das Gruppen-Objekt\\
-übergeben, an dass dieser dann gebunden ist.\\
+übergeben, an dass dieser dann gebunden ist.\\ \\
 
-\\
+
 \begin{figure}[h]
      \centering
      \includegraphics[scale=1.0, trim=2 2 2 2, clip=true]{servergraphs/group-server.pdf}
@@ -234,9 +222,9 @@ In der Fabrikmethode getMember(ID) wird dem UserDecoratorServer das Gruppen-Obje
 \\
 Die Aufgabe des LinkGenerators besteht darin, zu einer gegebenen Gruppe einen \\
 Einladungslink zu generieren. Dabei wird an die Basis-URL des GroupServlets der\\
-Gruppenname und ein zufällig generierter String angehängt.\\
+Gruppenname und ein zufällig generierter String angehängt.\\ \\
 
-\\
+
 \begin{figure}[h]
      \centering
      \includegraphics[scale=1.0, trim=2 2 2 2, clip=true]{servergraphs/link-generator.pdf}
@@ -273,9 +261,9 @@ Im UserDecoratorServer sind sowohl die Methoden des Admins, wie auch die des\\
 einfachen GroupMembers vorhanden. Die Idee dahinter ist, dass man nicht verhindern\\
 kann, dass ein normaler GroupMember eine Admin-Anfrage sendet.\\
 Die Implementierung der beiden Klassen unterscheidet dann das Verhalten.\\
-(Siehe GroupAdminServer und GroupMemberServer)\\
+(Siehe GroupAdminServer und GroupMemberServer)\\ \\ \\ \\
 
-\\ \\ \\
+
 \begin{figure}[h]
      \centering
      \includegraphics[scale=0.9]{servergraphs/user-decorator-server.pdf}
@@ -306,4 +294,3 @@ zurückbekommt, kann man darüber die Gruppe 'group' kontrollieren.\\
 Als Indirektion ruft der
 Die Operationen sind an die Gruppe gebunden, auf der man getUser(ID) aufruft.\\
 
-\end {document}

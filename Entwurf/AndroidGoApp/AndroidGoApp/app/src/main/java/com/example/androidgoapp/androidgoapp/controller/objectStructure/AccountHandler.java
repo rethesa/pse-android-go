@@ -29,7 +29,6 @@ public class AccountHandler {
         ServiceUser sUser = null;
         sUser.deleteUser(user.getUserID());
         ServiceAllocation sAlloc = null;
-        sAlloc.deleteAllMemberGroupAlloc(user.getUserID());
         //public boolean delteUserInAllGrou
         //TODO
     }

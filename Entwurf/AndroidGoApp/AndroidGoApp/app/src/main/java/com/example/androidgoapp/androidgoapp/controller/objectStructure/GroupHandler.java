@@ -35,7 +35,7 @@ public class GroupHandler {
     public void createGroup(String groupName, UserDecoratorClient user) {
         GroupClient groupClient = new GroupClient(groupName, user);
         Appointment appointment = new Appointment();
-        sGroup.insertNewGroup(groupClient, user.getUserID());
+        sGroup.insertNewGroup(groupClient);
         sApp.insertAppointment(groupClient.getGroupID(), appointment);
         sAlloc.insertNewGroupMemberAlloc(groupClient.getGroupID(), user.getUserID());
         sAlloc.updateGroupMemberToAdmin(groupClient.getGroupID(), user.getUserID());//as admin
@@ -55,15 +55,4 @@ public class GroupHandler {
         sGroup.deleteGroupData(groupClient.getGroupID());
     }
 
-    /**
-     * To get all names of the groups the actual user is member of to show these on the side bar
-     * in the GroupMapGoFragment.
-     * @return list of the group names
-     */
-    public List<String> getAllGroupNames() {
-        grouplist = new LinkedList<String>();
-        //Alle Gruppen des actual users bekommen
-        sGroup.readAllGroupNames();
-        return grouplist;
-    }
 }

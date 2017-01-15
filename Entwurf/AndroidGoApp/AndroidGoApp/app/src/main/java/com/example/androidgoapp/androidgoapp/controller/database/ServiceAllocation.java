@@ -59,15 +59,6 @@ public class ServiceAllocation {
     }
 
     /**
-     * Deletes in all groups he is member of.
-     * @param userid of the user to be deleted.
-     * @return true if deletion was successful.
-     */
-    public boolean deleteAllMemberGroupAlloc(int userid){
-        return false;
-    }
-
-    /**
      * Make another group member to admin
      * @param groupId
      * @param userID of the user to become admin

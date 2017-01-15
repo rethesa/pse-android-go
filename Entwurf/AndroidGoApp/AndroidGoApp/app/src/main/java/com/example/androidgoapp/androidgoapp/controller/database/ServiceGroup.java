@@ -33,10 +33,9 @@ public class ServiceGroup {
     /**
      * Add a new groupClient to groupClient.db database
      * @param groupClient to add to database
-     * @param userID of the user who created the groupClient and will be admin
      * @return return true if inserting was successful
      */
-    public boolean insertNewGroup(GroupClient groupClient, int userID) {
+    public boolean insertNewGroup(GroupClient groupClient) {
         //TODO
         db = dbHelperGroup.getWritableDatabase();
         return false;

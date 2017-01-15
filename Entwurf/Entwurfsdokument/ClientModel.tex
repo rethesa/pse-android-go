@@ -5,15 +5,15 @@
 \paragraph{Database}
 
 \textbf{DBHelper}
-
-Die vier nachfolgenden DBHelper erben ihren Konstruktor und ihre Methoden von SQLiteOpenHelper. Der Konstruktor definiert dabei den Namen und die Versionsnummer der Datenbank.
-Mit der onCreate() Methode wird die SQLiteDatenbank mit den in FeedReaderContract definierten Spalten aufgebaut, wenn sie das erste Mal aufgerufen wird.
-Mit onUpgrade() kann die Datenbank verändert und auf eine neue Versionsnummer hochgesetzt werden. Beispielsweise, wenn man nachträglich noch eine weitere Spalte hinzufügen oder ähnliche Veränderungen vornehmen möchte.
+Die vier nachfolgenden DBHelper erben ihren Konstruktor und ihre Methoden von SQLiteOpenHelper. 
 \begin{enumerate}
-	\item
-	\item
+	\item public DBHelperGroup(context: Context)
+		Der Konstruktor definiert dabei den Namen und die Versionsnummer der Datenbank.
+	\item public onCreate(sqLiteDatabase: SQLiteDatabase)
+		Die SQLiteDatenbank wird mit den in FeedReaderEntry definierten Spalten aufgebaut, wenn sie das erste Mal aufgerufen wird.
+	\item public onUpgrade(sqLiteDatabase: SQLiteDatabase, oldVersion: int, newVersion: int)
+		Diese Methode wird verwendet, wenn man die Datenbank verändert hat. Dieser wird dann eine neue Versionsnummer zugeteilt.	
 \end{enumerate}
-
 \begin{figure}[H]
 	\includegraphics[scale = 1]{res/umlClasses/d_b_helper_group__coll__graph.pdf}
 	\centering	
@@ -35,13 +35,14 @@ Mit onUpgrade() kann die Datenbank verändert und auf eine neue Versionsnummer h
 \end{figure}
 
 
-
 \textbf{FeedReaderContract}
 \begin{figure}[H]
 	\includegraphics[scale = 1]{res/umlClasses/feed_reader_contract__coll__graph.pdf}
 	\centering
 \end{figure}
-Die FeedReaderContract Klasse definiert in statischen Innenklassen wie die Tabellen der Datenbank aufgebaut sind. Jede der nachfolgenden FeedEntry Klassen implementiert dabei das interface BaseColumns.
+Die FeedReaderContract Klasse definiert in statischen Innenklassen wie die Tabellen der Datenbank aufgebaut sind. Jede der nachfolgenden FeedEntry Klassen implementiert dabei das Interface BaseColumns.
+
+
 CREATE ENTRIES definiert wie aus den zuvor definierten Namen der Spalten die Tabelle in genau dieser Reihenfolge aufgebaut wird.
 DELETE ENTRIES löscht die definierten Einträge wieder.
 
@@ -53,6 +54,14 @@ DELETE ENTRIES löscht die definierten Einträge wieder.
 Die Innenklasse FeedEntryGroup definiert den Namen und die Spalten der Tabelle, welche die Gruppen auf dem Client speichert. 
 Dabei steht in der ersten Spalte die eindeutige Gruppen ID (welche die Zeilen eindeutig unterscheidbar macht), in der zweiten Spalte der eindeutige Gruppenname und in der dritten Spalte, ob der GoService des aktuellen Benutzers für diese Gruppe aktiviert oder deaktiviert ist.
 Wenn eine Gruppe gelöscht wird, dann wird auch ihr Eintrag in der Datenbank gelöscht.
+\begin{enumerate}
+	\item public static final String TABLE_NAME
+	\item public static final String COL1_GROUP_ID
+	\item public static final String COL2_GROUP_NAME
+	\item public static final String COL3_GO_SERVICE
+	\item protected static final String SQL_CREATE_ENTRIES_GROUP
+	\item protected static final String SQL_DELETE_ENTRIES_GROUP
+\end{enumerate}
 
 \textbf{FeedEntyUser}
 \begin{figure}[H]
@@ -63,8 +72,13 @@ Die Innenklasse FeedEntryUser definiert den Namen und die Spalten der Tabelle, w
 Dabei steht in der ersten Spalte die eindeutige Benutzer ID (welche die Zeilen eindeutig unterscheidbar macht), in der zweiten Spalte der Benutzername und in der dritten und vierten Spalte steht je ein Wert der zuletzt bekannten Gps Daten des jeweiligen Nutzers. 
 Es werden nur Benutzer gespeichert mit denen der aktuelle Benutzer in mindestens einer gemeinsamen Gruppe ist.
 \begin{enumerate}
-	\item
-	\item
+	\item public static final String TABLE_NAME
+	\item public static final String COL1_USER_ID 
+	\item public static final String COL2_USER_NAME
+	\item public static final String COL3_USER_LATITUDE
+	\item public static final String COL4_LONGITUDE
+	\item protected static final String SQL_CREATE_ENTRIES_USER
+	\item protected static final String SQL_DELETE_ENTRIES_USER
 \end{enumerate}
 
 
@@ -78,10 +92,16 @@ Dabei steht in der ersten Spalte die Gruppen id (welche die Zeilen eindeutig unt
 Wenn sich der Treffpunkt der Gruppe ändert, dann werden die Werte des alten Treffpunktes überschrieben.
 Sollte die die Gruppe des dazugehörigen Treffpunktes gelöscht werden, dann wird auch der Eintrag in dieser Tabelle gelöscht.
 \begin{enumerate}
-	\item
-	\item
+	\item public static final String TABLE_NAME
+	\item public static final String COL1_GROUP_ID
+	\item public static final String COL2_APPOINTMENT_DATE
+	\item public static final String COL3_APPOINTMENT_TIME
+	\item public static final String COL4_APPOINTMENT_DEST
+	\item public static final String COL5_APPOINTMENT_LATITUDE
+	\item public static final String COL6_APPOINTMENT_LONGITUDE
+	\item protected static final String SQL_CREATE_ENTRIES_APPOINTMENT
+	\item protected static final String SQL_DELETE_ENTRIES_APPOINTMENT
 \end{enumerate}
-
 
 \textbf{FeedEntyAllocation}
 \begin{figure}[H]
@@ -92,6 +112,13 @@ Die Innenklasse FeedEntryAllocation definiert den Namen und die Spalten der Tabe
 Dabei steht in der ersten Spalte die Allocation id (welche die Zeilen eindeutig unterscheidbar macht und automatisch hochgezählt), in der zweiten Spalte steht die Gruppen id, in der dritten Spalte die Benutzer id und in der vierten Spalte, ob dieser Benutzer Gruppenadministrator ist oder nicht. 
 Gruppen id wird für jedes Gruppenmitglied vermerkt, also kommt mehrmals vor, sobald mehr als ein Benutzer Mitglied dieser Gruppe ist. 
 \begin{enumerate}
+	\item public static final String TABLE_NAME
+	\item
+	\item
+	\item
+	\item
+	\item
+	\item
 	\item
 	\item
 \end{enumerate}

@@ -90,6 +90,10 @@ Gruppen id wird für jedes Gruppenmitglied vermerkt, also kommt mehrmals vor, so
 \paragraph{ObjectStructure}
 
 \textbf{GroupClient}
+\begin{figure}[H]
+	\includegraphics[scale = 1]{res/umlClasses/group_client__coll__graph.pdf}
+	\centering
+\end{figure}
 Die Klasse GroupClient definiert wie eine Gruppe auf dem Client aufgebaut ist und welche Funktionalität ihr zur Verfügung steht.
 \begin{enumerate}
 	\item public GroupClient(name: String, user: UserDecorator)\\
@@ -125,6 +129,10 @@ Die Klasse GroupClient definiert wie eine Gruppe auf dem Client aufgebaut ist un
 \end{enumerate}
 
 \textbf{UserComponent}
+\begin{figure}[H]
+	\includegraphics[scale = 1]{res/umlClasses/user_component__coll__graph.pdf}
+	\centering
+\end{figure}
 Dieses Interface ist die erste Komponente des Decorator pattern und definiert grundlegende Funktionen des Benutzers die jederzeit aufgerufen werden können. 
 
 Mit getUserId() kann der Benutzer von anderen Gruppenmitgliedern unterschieden werden, da der Benutzername nicht eindeutig sein muss, die Id aber schon.
@@ -139,6 +147,10 @@ Mit getUserDeviceId() kann der Benutzer auf dem Server angelegt werden. Jede Ger
 \end{enumerate}
 
 \textbf{SimpleUser}
+\begin{figure}[H]
+	\includegraphics[scale = 1]{res/umlClasses/simple_user__coll__graph.pdf}
+	\centering
+\end{figure}
 Die SimpleUser Klasse implementiert das UserComponent Interface. Der Benutzer ist ein SimpleUser Objekt, wenn er nicht in der Gruppenansicht ist und so weder einem Gruppenadministrator noch einem Gruppenmitglied entspricht.
 \begin{enumerate}
 	\item public getUserName():String\\
@@ -152,6 +164,10 @@ Die SimpleUser Klasse implementiert das UserComponent Interface. Der Benutzer is
 \end{enumerate}
 
 \textbf{UserDecorator}
+\begin{figure}[H]
+	\includegraphics[scale = 1]{res/umlClasses/user_decorator_client__coll__graph.pdf}
+	\centering
+\end{figure}
 Die UserDecorator Klasse ist eine abstrakte Klasse, die wie SimpleUser das UserComponent Interface implementiert. 
 \begin{enumerate}
 	\item public getUserName():String\\
@@ -167,6 +183,10 @@ Die UserDecorator Klasse ist eine abstrakte Klasse, die wie SimpleUser das UserC
 \end{enumerate}
 
 \textbf{GroupAdmin}
+\begin{figure}[H]
+	\includegraphics[scale = 1]{res/umlClasses/group_admin_client__coll__graph.pdf}
+	\centering
+\end{figure}
 Der Gruppenadministrator unterscheidet sich vom Gruppenmitglied in sofern, dass ihm weitaus mehr Funktionen zur Verfügung stehen, wie Mitglieder hinzufügen/ entfernen und Treffpunkte festlegen.
 \begin{enumerate}
 	\item public GroupAdmin(name: String)\\
@@ -176,6 +196,10 @@ Der Gruppenadministrator unterscheidet sich vom Gruppenmitglied in sofern, dass 
 \end{enumerate}
 
 \textbf{GroupMember}
+\begin{figure}[H]
+	\includegraphics[scale = 1]{res/umlClasses/group_member_client__coll__graph.pdf}
+	\centering
+\end{figure}
 Das Gruppenmitglied unterscheidet sich vom Gruppenadministrator in sofern, dass ihm die Gruppe betreffend kaum Funktionen zur Verfügung stehen.  
 \begin{enumerate}
 	\item public GroupMember(name: String)\\
@@ -185,6 +209,10 @@ Das Gruppenmitglied unterscheidet sich vom Gruppenadministrator in sofern, dass 
 \end{enumerate}
 
 \textbf{GoStatus}
+\begin{figure}[H]
+	\includegraphics[scale = 1]{res/umlClasses/go_status__coll__graph.pdf}
+	\centering
+\end{figure}
 Der GoStatus bestimmt darüber in welchen Abständen die Position des aktuellen Benutzers an die anderen Gruppenmitglieder übermittelt wird.
 \begin{enumerate}
 	\item public GoStatus(targetGroupClient: GroupClient)\\
@@ -199,6 +227,10 @@ Der GoStatus bestimmt darüber in welchen Abständen die Position des aktuellen 
 
 \textbf{Link}
 Mit dem Link kann man andere Mitglieder 
+\begin{figure}[H]
+	\includegraphics[scale = 1]{res/umlClasses/link__coll__graph.pdf}
+	\centering
+\end{figure}
 \begin{enumerate}
 	\item public Link(url: String, groupName: String , secret: String)\\
 		Konstruktor für einen Link. Ein Gruppenlink besteht aus den gelisteten drei Komponenten. Durch den Gruppennamen lässt sich das Mitglied welches den Link betätigt zu derjenigen Gruppe hinzufügen und das sercret verhindert, dass der Link leicht regenerierbar ist.
@@ -207,6 +239,10 @@ Mit dem Link kann man andere Mitglieder
 \end{enumerate}
 
 \textbf{GpsObject}
+\begin{figure}[H]
+	\includegraphics[scale = 1]{res/umlClasses/gps_object__coll__graph.pdf}
+	\centering
+\end{figure}
 Das GpsObject gibt an in welcher Form die Gps Daten übermittelt werden.
 \begin{enumerate}
 	\item public getGpsObject():Point\\
@@ -216,6 +252,10 @@ Das GpsObject gibt an in welcher Form die Gps Daten übermittelt werden.
 \end{enumerate}
 
 \textbf{Appointment}
+\begin{figure}[H]
+	\includegraphics[scale = 1]{res/umlClasses/appointment__coll__graph.pdf}
+	\centering
+\end{figure}
 Appointment fasst alle Informationen zusammen die es über den Treffpunkt zu speichern gibt.
 \begin{enumerate}
 	\item protected Appointment()\\	
@@ -231,6 +271,10 @@ Appointment fasst alle Informationen zusammen die es über den Treffpunkt zu spe
 \end{enumerate}
 
 \textbf{AppointmentDate}
+\begin{figure}[H]
+	\includegraphics[scale = 1]{res/umlClasses/appointment_date__coll__graph.pdf}
+	\centering
+\end{figure}
 AppointmentDate legt fest wie Datum und Uhrzeit formatiert werden.
 \begin{enumerate}
 	\item protected setDate(stringDate: String)\\
@@ -244,6 +288,10 @@ AppointmentDate legt fest wie Datum und Uhrzeit formatiert werden.
 \end{enumerate}
 
 \textbf{AppointmentDestination}
+\begin{figure}[H]
+	\includegraphics[scale = 1]{res/umlClasses/appointment_destination__coll__graph.pdf}
+	\centering
+\end{figure}
 AppointmentDestination legt fest wie Name und Position des Zielortes definiert sind.
 \begin{enumerate}
 	\item protected setDestinationName(destinationName:String)\\

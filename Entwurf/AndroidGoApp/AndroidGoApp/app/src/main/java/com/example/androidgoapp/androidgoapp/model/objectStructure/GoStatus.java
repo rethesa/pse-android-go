@@ -32,7 +32,7 @@ public class GoStatus implements Runnable {
     }
 
     /**
-     * Begin broadcasting GPS-Data and requesting updates when user presses his go button.
+     * Begin broadcasting GPS-Data and resting updates when user presses his go button.
      */
     public void activateGoStatus(){
         goStatus = true;

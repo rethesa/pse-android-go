@@ -54,15 +54,15 @@ In der Datenbank auf die ServiceUser zugreift ist der Name und die zuletzt bekan
 \end{figure}
 In der Datenbank auf die ServiceAppointment zugreift, wird zu jeder Gruppe das aktuelle Treffen gespeichert und verändert, sobald ein neues existiert.
 \begin{enumerate}
-	\item public ServiceAppointment(context: Context)
+	\item public ServiceAppointment(context: Context)\\
 		Konstruktor, dem den Kontext der Applikation mitgegeben wird.
-	\item public insertAppointment(groupID: int, appointment: Appointment):boolean
+	\item public insertAppointment(groupID: int, appointment: Appointment):boolean\\
 		Wird aufgerufen wenn eine neue Gruppe erstellt wird. Dabei wird ein default Appointment initialisiert.
-	\item public readAppointmentData(groupID: int):Appointment 
+	\item public readAppointmentData(groupID: int):Appointment \\
 		Informationen über Datum, Uhrzeit, Zielortname und Zielortposition können abgerufen werden.
-	\item public deleteAppointmentData(groupID: int):boolean 
+	\item public deleteAppointmentData(groupID: int):boolean \\
 		Wenn eine Gruppe gelöscht wird, wir auch das dazugehörige Appointment gelöscht.
-	\item public updateData(groupID: int, appointment: Appointment):boolean 
+	\item public updateData(groupID: int, appointment: Appointment):boolean \\
 		Das Appointment wird angepasst, sobald es geändert wird.
 \end{enumerate}
 
@@ -72,20 +72,19 @@ In der Datenbank auf die ServiceAppointment zugreift, wird zu jeder Gruppe das a
 \end{figure}
 In der Datenbank auf die ServiceAllocation zugreift, wird die Verbindung zwischen Gruppen und Gruppenmitgliedern bzw. Administratoren gespeichert. 
 \begin{enumerate}
-	\item public (context: Context):ServiceAllocation
+	\item public (context: Context):ServiceAllocation\\
 		Konstruktor, dem den Kontext der Applikation mitgegeben wird.
-	\item public insertNewGroupMemberAlloc(groupID: int , userID: int):boolean
+	\item public insertNewGroupMemberAlloc(groupID: int , userID: int):boolean\\
 		Wenn ein neues Mitglied einer Gruppe hinzugefügt wird, dann wird diese Verbindung hier eingetragen.
-	\item public readAllUserIdsOfOneGroup(groupID: int ):List<Integer> 
+	\item public readAllUserIdsOfOneGroup(groupID: int ):List<Integer> \\
 		Um alle Mitglieder einer Gruppe zu bekommen, müssen dafür alle Benutzer Id's mit derselben Gruppen Id zurückgegeben werden.
-	\item public deleteGroupMemberAlloc(groupid: int, userId: int):boolean 
+	\item public deleteGroupMemberAlloc(groupid: int, userId: int):boolean \\
 		Wird ein Gruppenmitglied aus einer Gruppe entfernt, so wird auch die Verbindung von diesem zur Gruppe gelöscht.
-	\item public deleteAllGroupMemberAlloc(groupId: int):boolean 
+	\item public deleteAllGroupMemberAlloc(groupId: int):boolean \\
 		Wird eine Gruppe gelöscht, so werden alle Verbindungen zu Benutzern dieser Gruppe gelöscht.
-	\item public updateGroupMemberToAdmin(groupId: int , userID: int):boolean 
+	\item public updateGroupMemberToAdmin(groupId: int , userID: int):boolean \\
 		Wird ein Gruppenmitglied zum Administrator gemacht, dann wird dies in der Datenbank angepasst.
 \end{enumerate}
-
 	
 
 \paragraph{ObjectStructure}
@@ -99,9 +98,9 @@ In Account- und GroupHandler werden allgemeine Funktionen definiert, die nicht s
 \end{figure}
 Die AccountHandler Klasse handelt das Registrieren und löschen vom aktuellen Benutzer ab.
 \begin{enumerate}
-	\item public registerUser(userName: String, deviceID: String)
+	\item public registerUser(userName: String, deviceID: String)\\
 		Ein neuer Benutzer registriert sich mit einem Namen und seiner Gerätenummer. Dieser wird zunächst als SimpleUser Objekt angelegt und mit der Gerätenummer auf dem Server gespeichert, um Missbrauch zu verhindern.
-	\item public deleteUserAccount(user: UserDecorator)
+	\item public deleteUserAccount(user: UserDecorator)\\
 		Löscht ein Benutzer seinen Account, wird er von der Datenbank gelöscht.
 \end{enumerate}
 
@@ -112,10 +111,9 @@ Die AccountHandler Klasse handelt das Registrieren und löschen vom aktuellen Be
 \end{figure}
 Die GroupHandler Klasse handelt das Erstellen und Löschen von Gruppen ab.
 \begin{enumerate}
-	\item public createGroup(groupName: String, user: UserDecorator)
+	\item public createGroup(groupName: String, user: UserDecorator)\\
 		Eine neue Gruppe wird erstellt, mit einem eindeutigen Gruppennamen und mit dem Ersteller als Administrator.
-	\item public deleteGroup(GroupClient groupClient)
+	\item public deleteGroup(GroupClient groupClient)\\
 		Eine Gruppe wird gelöscht und alle ihre Mitglieder entfernt.
 \end{enumerate}
-
 

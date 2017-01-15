@@ -11,7 +11,7 @@ public class Appointment {
     private AppointmentDestination appointmentDestination;
     //private DestinationPosition destinationPosition; //latitude and longitude
 
-    protected void Appointment() {
+    protected Appointment() {
         appointmentDate.setDate("01012000");//default
         appointmentDate.setTime("0000");//default
         appointmentDestination.setDestinationName("default address");//somehow get the coordinates of this place with osmdroid
